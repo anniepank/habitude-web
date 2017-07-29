@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/client/style.css">
+    <script src="/client/browser.js" defer></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-form pull-right">
+        <button id="logOutButton" class="btn btn-default">LOG OUT</button>
+        <button id="showLoginPage" class="btn btn-default">LOG IN</button>
+        <button id="showRegistrationPage" class="btn btn-default">REGISTRATION</button>
+      </div>
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Brand</a>
+      </div>
+    </div>
+  </nav>
+
+    <div id="mainPage">
+      <div class="habitTemplate">
+        <div class="habitName">habit name</div>
+        <input class="checked" type="checkbox">
+        <input class="checked" type="checkbox">
+        <input class="checked" type="checkbox">
+        <input class="checked" type="checkbox">
+      </div>
+    </div>
+
+    <!-- LOG IN-->
+    <div class=""  id="loginPage">
+      <div class="" >
+        <div class="content">
+          <div class="header">
+            <button type="button" id="closeLogIn" class="close"><span>&times;</span></button>
+            <h4 class="title">Title</h4>
+          </div>
+          <div class="body">
+            <input class="form-control login" placeholder="Login" type="text" />
+            <input class="form-control password" placeholder="Password" type="password" />
+          </div>
+          <div class="footer">
+            <button type="button" class="btn btn-primary" id="loginButton">Log in</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REGISTRATION-->
+    <div class=""  id="registrationPage">
+      <div class="" >
+        <div class="content">
+          <div class="header">
+            <button type="button" id="closeLogIn" class="close"><span>&times;</span></button>
+            <h4 class="title">WELCOME!</h4>
+          </div>
+          <div class="body">
+            <input class="form-control login" placeholder="Login" type="text" />
+            <input class="form-control password" placeholder="Password" type="password" />
+          </div>
+          <div class="footer">
+            <button type="button" class="btn btn-primary" id="registrationButton">Registration</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
