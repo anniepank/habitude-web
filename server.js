@@ -3,6 +3,7 @@ const {Database, AlreadyExistsError} = require('./database')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const MySQLStore = require('express-mysql-session')(session)
+const async = require('async')
 
 let app = express()
 let database = new Database()
@@ -79,7 +80,23 @@ app.get('/api/userHabits', (req, res) => {
     if (err) {
       return error(err, res)
     }
-    res.json(habits)
+    async.map(habits, (habit, callback) => {
+      let today = new Date()
+      let lastDay = new Date()
+      lastDay.setDate(lastDay.getDate() - 5)
+      database.getDates(today, lastDay, habit.id, (err, dates) => {
+        if (err) {
+          return callback(err, null)
+        }
+        habit.dates = dates
+        callback()
+      })
+    }, (errors) => {
+      if (errors) {
+        return error(errors, res)
+      }
+      res.json(habits)
+    })
   })
 })
 
@@ -98,4 +115,35 @@ app.get('/api/stopSession', (req, res) => {
   } else {
     res.send('false')
   }
+})
+
+app.post('/api/addNewHabit', (req, res) => {
+  let habit = {name: req.body.name}
+  database.addNewHabit(req.body.name, req.session.userid, (err, result) => {
+    if (err) {
+      return error(err, res)
+    }
+    habit.id = result
+    res.json(habit)
+  })
+})
+
+app.post('/api/addDate', (req, res) => {
+  let date = new Date(req.body.date)
+  database.addDate(date, req.body.habitId, (err, result) => {
+    if (err) {
+      return error(err, res)
+    }
+    res.json(true)
+  })
+})
+
+app.post('/api/deleteDate', (req, res) => {
+  let date = new Date(req.body.date)
+  database.deleteDate(date, req.body.habitId, (err, result) => {
+    if (err) {
+      return error(err, res)
+    }
+    res.json(true)
+  })
 })

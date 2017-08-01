@@ -1,6 +1,6 @@
 const mysql = require('mysql')
 const Hashes = require('jshashes')
-const randomstring = require("randomstring")
+const randomstring = require('randomstring')
 
 let SHA512 = new Hashes.SHA512()
 
@@ -8,7 +8,8 @@ let connection = mysql.createConnection({
   host: 'localhost',
   password: '123',
   database: 'habitude',
-  user: 'root'
+  user: 'root',
+  timezone: 'UTC'
 })
 connection.connect((err) => {
   if (err) {
@@ -36,7 +37,7 @@ class Database {
   }
 
   getUsersHabits (userid, callback) {
-    connection.query(`SELECT id, name FROM habits WHERE userid = ? `, [userid], (err, res) => {
+    connection.query(`SELECT * FROM habits WHERE userid = ? `, [userid], (err, res) => {
       if (err) {
         return callback(err)
       }
@@ -61,6 +62,55 @@ class Database {
           callback(null, res.insertId)
         })
       }
+    })
+  }
+
+  addNewHabit (name, userid, callback) {
+    connection.query('INSERT INTO habits (name, userid) VALUES (?, ?)', [name, userid], (err, res) => {
+      if (err) {
+        return callback(err)
+      }
+      callback(null, res.insertId)
+    })
+  }
+
+  addDate (date, habitId, callback) {
+    connection.query('INSERT INTO dates (date, habit_id) VALUES (?, ?)', [date, habitId], (err, res) => {
+      if (err) {
+        return callback(err)
+      }
+      callback(null, res)
+    })
+  }
+
+  deleteDate (date, habitId, callback) {
+    connection.query('DELETE FROM dates WHERE date = ? AND habit_id = ?', [date, habitId], (err, res) => {
+      if (err) {
+        return callback(err)
+      }
+      callback(null, res)
+    })
+  }
+
+  checkDate (date, habitId, callback) {
+    connection.query('SELECT * FROM dates WHERE date = ? AND habit_id = ?', [date, habitId], (err, res) => {
+      if (err) {
+        return callback(err)
+      }
+      if (res[0]) {
+        callback(null, true)
+      } else {
+        callback(null, false)
+      }
+    })
+  }
+
+  getDates (firstDate, lastDate, habitId, callback) {
+    connection.query('SELECT * FROM dates WHERE date <= ? AND date >= ? AND habit_id = ? ORDER BY date', [firstDate, lastDate, habitId], (err, res) => {
+      if (err) {
+        return callback(err)
+      }
+      callback(null, res)
     })
   }
 }

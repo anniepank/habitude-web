@@ -23,6 +23,11 @@
   margin: 25%;
 }
 
+#newHabit {
+  width: 50%;
+  margin: 30px;
+}
+
 #showLoginPage {
   display: none;
 }

@@ -30,7 +30,7 @@ function loginView (match, view) {
 }
 
 function mainView (match, view) {
-  document.querySelector('#mainPage').innerHTML = ''
+  document.querySelector('#habitList').innerHTML = ''
   view.style.display = 'block'
   window.fetch('/api/userHabits', {
     credentials: 'same-origin',
@@ -41,9 +41,20 @@ function mainView (match, view) {
       for (let i = 0; i < habits.length; i++) {
         let habitContainer = createHabitTemplate()
         drawHabit(habitContainer, habits[i])
-        document.querySelector('#mainPage').appendChild(habitContainer)
+        document.querySelector('#habitList').appendChild(habitContainer)
       }
     })
+  })
+  isLoggedIn((err, res) => {
+    let openNewHabitModal = document.querySelector('#openNewHabitModal')
+    if (err) {
+      return console.log(err)
+    }
+    if (res) {
+      openNewHabitModal.style.display = 'inline-block'
+    } else {
+      openNewHabitModal.style.display = 'none'
+    }
   })
 }
 
@@ -82,11 +93,13 @@ router.addRoute('^/registrationPage$', registrationPage, registrationView)
 router.route()
 
 window.addEventListener('popstate', (event) => {
+  console.log('[popstate]', event)
   router.route()
   event.preventDefault()
 })
 
 function changePage (url) {
+  console.log('[navigation]', url)
   window.history.pushState(null, null, url)
   router.route()
 }
@@ -137,9 +150,56 @@ document.querySelector('#logOutButton').addEventListener('click', () => {
   })
 })
 
+document.querySelector('.navbar-brand').addEventListener('click', (event) => {
+  changePage('/')
+  event.preventDefault()
+})
+
 function drawHabit (view, habit) {
   view.getElementsByClassName('habitName')[0].innerHTML = habit.name
-  // put checkboxes
+  let checkboxContainer = view.querySelector('.checkboxContainer')
+  let date = new Date()
+  date.setUTCHours(0, 0, 0, 0)
+  for (let i = 0; i < checkboxContainer.childNodes.length; i++) {
+    let currentCheckbox = checkboxContainer.querySelector('.check-' + (4 - i))
+    if (habit.dates) {
+      for (let j = 0; j < habit.dates.length; j++) {
+        if (habit.dates[j].date === date.toISOString()) {
+          currentCheckbox.checked = true
+          break
+        } else {
+          currentCheckbox.checked = false
+        }
+      }
+    }
+    date.setDate(date.getDate() - 1)
+    currentCheckbox.addEventListener('change', () => {
+      let date = new Date()
+      date.setUTCHours(0, 0, 0, 0)
+      date.setDate(date.getDate() - i)
+      if (currentCheckbox.checked) {
+        window.fetch('/api/addDate', {
+          credentials: 'same-origin',
+          method: 'POST',
+          headers,
+          body: JSON.stringify({
+            habitId: habit.id,
+            date: date
+          })
+        })
+      } else {
+        window.fetch('/api/deleteDate', {
+          credentials: 'same-origin',
+          method: 'POST',
+          headers,
+          body: JSON.stringify({
+            habitId: habit.id,
+            date: date
+          })
+        })
+      }
+    })
+  }
 }
 
 function createHabitTemplate () {
@@ -151,12 +211,17 @@ function createHabitTemplate () {
   habitName.classList.add('habitName')
   habitContainer.appendChild(habitName)
 
+  let checkboxContainer = document.createElement('div')
+  checkboxContainer.classList.add('checkboxContainer')
+
   for (let i = 0; i < 5; i++) {
     let checkbox = document.createElement('input')
     checkbox.classList.add('check')
+    checkbox.classList.add('check-' + i)
     checkbox.type = 'checkbox'
-    habitContainer.appendChild(checkbox)
+    checkboxContainer.appendChild(checkbox)
   }
+  habitContainer.appendChild(checkboxContainer)
   return habitContainer
 }
 
@@ -189,5 +254,34 @@ function refreshNavbar () {
     }
   })
 }
+
+document.querySelector('#openNewHabitModal').addEventListener('click', () => {
+  document.getElementById('newHabitDialog').classList.add('show')
+})
+
+document.querySelector('#newHabitDialog .close').addEventListener('click', () => {
+  document.getElementById('newHabitDialog').classList.remove('show')
+})
+
+document.querySelector('#newHabitButton').addEventListener('click', () => {
+  let habitName = document.querySelector('.newHabitName').value
+  if (habitName) {
+    window.fetch('/api/addNewHabit', {
+      credentials: 'same-origin',
+      headers,
+      method: 'POST',
+      body: JSON.stringify({
+        name: habitName
+      })
+    }).then(res => {
+      res.json().then(habit => {
+        let habitContainer = createHabitTemplate()
+        drawHabit(habitContainer, habit)
+        document.querySelector('#mainPage').appendChild(habitContainer)
+        document.getElementById('newHabitDialog').classList.remove('show')
+      })
+    })
+  }
+})
 
 refreshNavbar()
