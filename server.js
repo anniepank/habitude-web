@@ -3,7 +3,6 @@ const {Database, AlreadyExistsError} = require('./database')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const MySQLStore = require('express-mysql-session')(session)
-const async = require('async')
 
 let app = express()
 let database = new Database()
@@ -47,64 +46,55 @@ app.get('/client/:filename', (req, res) => {
 app.listen(9000)
 
 app.post('/api/login', (req, res) => {
-  database.checkUser(req.body.login, req.body.password, (err, result) => {
-    // result = id || null
-    if (err) {
-      return error(err, res)
-    }
+  database.checkUser(req.body.login, req.body.password).then(result => {
     if (result) {
       req.session.userid = result
       res.status(200)
+      res.end()
     } else {
       res.status(401)
+      res.end()
     }
-    res.end()
   })
 })
 
 app.post('/api/registration', (req, res) => {
-  database.register(req.body.login, req.body.password, (err, userId) => {
+  database.register(req.body.login, req.body.password).then(result => {
+    req.session.userid = result
+    res.end()
+  }).catch(err => {
     if (err instanceof AlreadyExistsError) {
       res.status(409)
-    } else if (err) {
-      return error(err, res)
-    } else {
-      req.session.userid = userId
+      res.end()
     }
-    res.end()
   })
 })
 
 app.get('/api/userHabits', (req, res) => {
-  database.getUsersHabits(req.session.userid, (err, habits) => {
-    if (err) {
-      return error(err, res)
-    }
-    async.map(habits, (habit, callback) => {
+  database.getUsersHabits(req.session.userid).then(habits => {
+    let arrayOfPromises = []
+    for (let i = 0; i < habits.length; i++) {
       let today = new Date()
       let lastDay = new Date()
       lastDay.setDate(lastDay.getDate() - 5)
-      database.getDates(today, lastDay, habit.id, (err, dates) => {
-        if (err) {
-          return callback(err, null)
-        }
-        habit.dates = dates
-        callback()
+      let promise = database.getDates(today, lastDay, habits[i].id).then(dates => {
+        habits[i].dates = dates
       })
-    }, (errors) => {
-      if (errors) {
-        return error(errors, res)
-      }
+      arrayOfPromises.push(promise)
+    }
+    Promise.all(arrayOfPromises).then(() => {
       res.json(habits)
+    }).catch(err => {
+      error(err, res)
     })
   })
 })
 
 app.get('/api/loggedIn', (req, res) => {
   if (req.session.userid) {
-    res.send('true')
+    res.json(true)
   } else {
-    res.send('false')
+    res.json(false)
   }
 })
 
@@ -119,31 +109,22 @@ app.get('/api/stopSession', (req, res) => {
 
 app.post('/api/addNewHabit', (req, res) => {
   let habit = {name: req.body.name}
-  database.addNewHabit(req.body.name, req.session.userid, (err, result) => {
-    if (err) {
-      return error(err, res)
-    }
-    habit.id = result
+  database.addNewHabit(req.body.name, req.session.userid).then(habitId => {
+    habit.id = habitId
     res.json(habit)
   })
 })
 
 app.post('/api/addDate', (req, res) => {
   let date = new Date(req.body.date)
-  database.addDate(date, req.body.habitId, (err, result) => {
-    if (err) {
-      return error(err, res)
-    }
-    res.json(true)
+  database.addDate(date, req.body.habitId).then(result => {
+    res.json(result)
   })
 })
 
 app.post('/api/deleteDate', (req, res) => {
   let date = new Date(req.body.date)
-  database.deleteDate(date, req.body.habitId, (err, result) => {
-    if (err) {
-      return error(err, res)
-    }
-    res.json(true)
+  database.deleteDate(date, req.body.habitId).then(result => {
+    res.json(result)
   })
 })

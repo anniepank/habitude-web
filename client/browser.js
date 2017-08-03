@@ -29,6 +29,15 @@ function loginView (match, view) {
   view.style.display = 'block'
 }
 
+function isLoggedIn () {
+  return window.fetch('/api/loggedIn', {
+    credentials: 'same-origin',
+    headers
+  }).then(res => res.json()).then(result => {
+    return result
+  })
+}
+
 function mainView (match, view) {
   document.querySelector('#habitList').innerHTML = ''
   view.style.display = 'block'
@@ -45,12 +54,9 @@ function mainView (match, view) {
       }
     })
   })
-  isLoggedIn((err, res) => {
+  isLoggedIn().then(result => {
     let openNewHabitModal = document.querySelector('#openNewHabitModal')
-    if (err) {
-      return console.log(err)
-    }
-    if (res) {
+    if (result) {
       openNewHabitModal.style.display = 'inline-block'
     } else {
       openNewHabitModal.style.display = 'none'
@@ -140,13 +146,11 @@ document.querySelector('#logOutButton').addEventListener('click', () => {
   window.fetch('/api/stopSession', {
     credentials: 'same-origin',
     headers
-  }).then(res => {
-    res.json().then(isDeleted => {
-      if (isDeleted) {
-        changePage('/')
-        refreshNavbar()
-      }
-    })
+  }).then(res => res.json()).then(idDeleted => {
+    if (idDeleted) {
+      changePage('/')
+      refreshNavbar()
+    }
   })
 })
 
@@ -225,26 +229,10 @@ function createHabitTemplate () {
   return habitContainer
 }
 
-function isLoggedIn (callback) {
-  window.fetch('/api/loggedIn', {
-    credentials: 'same-origin',
-    headers
-  }).then(res => {
-    res.json().then(result => {
-      callback(null, result)
-    })
-  }).catch(err => {
-    callback(err, null)
-  })
-}
-
 function refreshNavbar () {
   let logInButton = document.querySelector('#showLoginPage')
   let logOutButton = document.querySelector('#logOutButton')
-  isLoggedIn((err, result) => {
-    if (err) {
-      console.warn('lol bug')
-    }
+  isLoggedIn().then(result => {
     if (result) {
       logInButton.style.display = 'none'
       logOutButton.style.display = 'inline-block'
@@ -277,7 +265,7 @@ document.querySelector('#newHabitButton').addEventListener('click', () => {
       res.json().then(habit => {
         let habitContainer = createHabitTemplate()
         drawHabit(habitContainer, habit)
-        document.querySelector('#mainPage').appendChild(habitContainer)
+        document.querySelector('#habitList').appendChild(habitContainer)
         document.getElementById('newHabitDialog').classList.remove('show')
       })
     })
