@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "build": "webpack --config webpack.config.js --display-modules",
+    "watch": "webpack --config webpack.config.js --display-modules --watch --progress"
   },
   "name": "habitude-web",
   "version": "1.0.0",
@@ -9,6 +11,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "angular": "^1.6.5",
     "async": "^2.5.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
@@ -21,11 +24,13 @@
     "randomstring": "^1.1.5"
   },
   "devDependencies": {
+    "@uirouter/angularjs": "^1.0.5",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-standard": "^3.0.1",
+    "webpack": "^3.4.1"
   }
 }

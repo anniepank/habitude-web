@@ -29,5 +29,5 @@
 }
 
 #showLoginPage {
-  display: none;
+  display: inline-block;
 }

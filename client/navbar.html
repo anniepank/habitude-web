@@ -1,0 +1,12 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-form pull-right" >
+      <button class="btn btn-default" ng-show="!$ctrl.authentication.loggedIn">LOG IN</button>
+      <button class="btn btn-default" ng-show="$ctrl.authentication.loggedIn" ng-click="$ctrl.logout()">LOG OUT</button>
+      <button id="showRegistrationPage" class="btn btn-default">REGISTRATION</button>
+    </div>
+    <div class="navbar-header">
+      <a class="navbar-brand">Habitude</a>
+    </div>
+  </div>
+</nav>

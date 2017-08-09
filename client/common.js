@@ -1,13 +1,13 @@
 let headers = new window.Headers()
 headers.append('Content-type', 'application/json')
 
-function isLoggedIn () {
+export function isLoggedIn () {
   return request('/api/loggedIn').then(res => res.json()).then(result => {
     return result
   })
 }
 
-function request (url, options) {
+export function request (url, options) {
   options = Object.assign({
     credentials: 'same-origin',
     headers
@@ -15,7 +15,7 @@ function request (url, options) {
   return window.fetch(url, options)
 }
 
-function refreshNavbar () {
+export function refreshNavbar () {
   let logInButton = document.querySelector('#showLoginPage')
   let logOutButton = document.querySelector('#logOutButton')
   isLoggedIn().then(result => {
@@ -29,7 +29,7 @@ function refreshNavbar () {
   })
 }
 
-function changePage (url) {
+export function changePage (url) {
   console.log('[navigation]', url)
   window.history.pushState(null, null, url)
   window.router.route()

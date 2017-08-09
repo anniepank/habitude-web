@@ -1,3 +1,10 @@
+import {Router} from './router'
+import {changePage, request, refreshNavbar} from './common'
+import {loginView} from './loginView'
+import {mainView} from './mainView'
+import {registrationView} from './registrationView'
+import {drawHabit, createHabitTemplate} from './habitComponent'
+
 window.router = new Router()
 
 let mainPage = document.querySelector('#mainPage')

@@ -98,12 +98,12 @@ app.get('/api/loggedIn', (req, res) => {
   }
 })
 
-app.get('/api/stopSession', (req, res) => {
+app.get('/api/logout', (req, res) => {
   if (req.session.userid) {
     req.session.userid = null
-    res.send('true')
+    res.json(true)
   } else {
-    res.send('false')
+    res.json(false)
   }
 })
 

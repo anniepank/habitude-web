@@ -1,4 +1,6 @@
-function mainView (match, view) {
+import {request, isLoggedIn} from './common'
+import {drawHabit, createHabitTemplate} from './habitComponent'
+export function mainView (match, view) {
   document.querySelector('#habitList').innerHTML = ''
   view.style.display = 'block'
   request('/api/userHabits').then(res => {

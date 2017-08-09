@@ -1,29 +1,11 @@
-<html>
+<html ng-app="habitude">
   <head>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/client/style.css">
-    <script src="/client/router.js" defer></script>
-    <script src="/client/common.js" defer></script>
-    <script src="/client/habitComponent.js" defer></script>
-    <script src="/client/mainView.js" defer></script>
-    <script src="/client/loginView.js" defer></script>
-    <script src="/client/registrationView.js" defer></script>
-    <script src="/client/browser.js" defer></script>
+    <script src="/client/bundle.js" defer></script>
   </head>
-  <body>
-    <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-form pull-right">
-        <button id="logOutButton" class="btn btn-default">LOG OUT</button>
-        <button id="showLoginPage" class="btn btn-default">LOG IN</button>
-        <button id="showRegistrationPage" class="btn btn-default">REGISTRATION</button>
-      </div>
-      <div class="navbar-header">
-        <a class="navbar-brand">Habitude</a>
-      </div>
-    </div>
-  </nav>
-
+  <body ng-controller="MainController as $ctrl">
+    <navbar></navbar>
 
     <div id="mainPage">
       <button type="button" class="btn btn-primary" id="openNewHabitModal" style="display: none">Add new habit</button>
@@ -57,11 +39,11 @@
             <h4 class="title">Title</h4>
           </div>
           <div class="body">
-            <input class="form-control login" placeholder="Login" type="text" />
-            <input class="form-control password" placeholder="Password" type="password" />
+            <input class="form-control login" placeholder="Login" type="text" ng-model="login"/>
+            <input class="form-control password" placeholder="Password" type="password" ng-model="password"/>
           </div>
           <div class="footer">
-            <button type="button" class="btn btn-primary" id="loginButton">Log in</button>
+            <button type="button" class="btn btn-primary" ng-click="$ctrl.login(login, password)">Log in</button>
           </div>
         </div>
       </div>

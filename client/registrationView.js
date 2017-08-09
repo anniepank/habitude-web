@@ -1,4 +1,5 @@
-function registrationView (match, view) {
+import {changePage, request, refreshNavbar} from './common'
+export function registrationView (match, view) {
   view.style.display = 'block'
   view.querySelector('#registrationButton').addEventListener('click', () => {
     request('/api/registration', {

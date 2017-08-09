@@ -1,4 +1,5 @@
-function drawHabit (view, habit) {
+import {request} from './common'
+export function drawHabit (view, habit) {
   view.getElementsByClassName('habitName')[0].innerHTML = habit.name
   let checkboxContainer = view.querySelector('.checkboxContainer')
   let date = new Date()
@@ -41,7 +42,7 @@ function drawHabit (view, habit) {
   }
 }
 
-function createHabitTemplate () {
+export function createHabitTemplate () {
   let habitContainer = document.createElement('div')
   habitContainer.classList.add('habitTemplate')
   habitContainer.cloneNode(true)
