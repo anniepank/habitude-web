@@ -9,6 +9,6 @@ class NavbarController {
 }
 
 export const navbarComponent = {
-  templateUrl: '/client/navbar.html',
+  templateUrl: '/client/components/navbar.component.html',
   controller: NavbarController
 }

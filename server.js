@@ -39,7 +39,7 @@ app.get('/', sendHtml)
 app.get('/loginPage', sendHtml)
 app.get('/registrationPage', sendHtml)
 
-app.get('/client/:filename', (req, res) => {
+app.get('/client/:filename(*)', (req, res) => {
   res.sendFile(__dirname + '/client/' + req.params.filename) // eslint-disable-line
 })
 
@@ -70,7 +70,7 @@ app.post('/api/registration', (req, res) => {
   })
 })
 
-app.get('/api/userHabits', (req, res) => {
+app.get('/api/habits', (req, res) => {
   database.getUsersHabits(req.session.userid).then(habits => {
     let arrayOfPromises = []
     for (let i = 0; i < habits.length; i++) {
@@ -107,24 +107,35 @@ app.get('/api/logout', (req, res) => {
   }
 })
 
-app.post('/api/addNewHabit', (req, res) => {
+app.post('/api/habits', (req, res) => {
   let habit = {name: req.body.name}
   database.addNewHabit(req.body.name, req.session.userid).then(habitId => {
     habit.id = habitId
+    habit.dates = []
+    res.status(201)
     res.json(habit)
   })
 })
 
-app.post('/api/addDate', (req, res) => {
+app.post('/api/habits/:id/dates', (req, res) => {
   let date = new Date(req.body.date)
-  database.addDate(date, req.body.habitId).then(result => {
+  database.addDate(date, req.params.id).then(result => {
+    res.status(201)
+    res.end()
+  })
+})
+
+app.delete('/api/habits/:id/dates/:date', (req, res) => {
+  let date = new Date(req.params.date)
+  database.deleteDate(date, req.params.id).then(result => {
+    res.status(204)
     res.json(result)
   })
 })
 
-app.post('/api/deleteDate', (req, res) => {
-  let date = new Date(req.body.date)
-  database.deleteDate(date, req.body.habitId).then(result => {
-    res.json(result)
+app.delete('/api/habits/:id', (req, res) => {
+  database.deleteHabit(req.params.id).then(result => {
+    res.status(204)
+    res.end()
   })
 })

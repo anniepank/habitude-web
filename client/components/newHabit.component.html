@@ -1,0 +1,21 @@
+<div class="modal-content">
+
+  <div class="modal-header">
+
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="$ctrl.dismissModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+    <h4 class="modal-title">New habit</h4>
+
+  </div>
+
+  <div class="modal-body">
+    <input class="form-control newHabitName" placeholder="Login" type="text" ng-model="habitName" />
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="habitName && $ctrl.addNewHabit(habitName)">Add</button>
+  </div>
+
+</div><!-- /.modal-content -->

@@ -107,6 +107,12 @@ class Database {
       })
     })
   }
+
+  deleteHabit (id) {
+    return connectionPromise.then(connection => {
+      return connection.query('DELETE FROM habits WHERE id = ?', [id])
+    })
+  }
 }
 
 module.exports = {Database, AlreadyExistsError}
