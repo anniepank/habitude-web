@@ -1,4 +1,33 @@
-import * as angular from 'angular'
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
+import { BrowserModule } from '@angular/platform-browser';
+import 'core-js'
+import 'zone.js'
+import { NgModule }      from '@angular/core';
+import { HttpModule } from '@angular/http';
+
+
+import { AppComponent }  from './components/app.component';
+import { LoginComponent }  from './components/login.component';
+import { RegistrationComponent }  from './components/registration.component';
+import { NavbarComponent }  from './components/navbar.component';
+import {routing} from './router/app.routing'
+
+import { AuthService } from './services/authService'
+
+
+
+@NgModule({
+  imports:      [BrowserModule, routing, HttpModule],
+  declarations: [AppComponent, RegistrationComponent, LoginComponent, NavbarComponent],
+  entryComponents: [LoginComponent],
+  bootstrap:    [AppComponent],
+  providers:    [AuthService]
+
+})
+class AppModule {}
+
+platformBrowserDynamic().bootstrapModule(AppModule)
+/*import * as angular from 'angular'
 import '@uirouter/angularjs'
 import 'angular-ui-bootstrap'
 import {navbarComponent} from './components/navbar.component'
@@ -47,3 +76,5 @@ app.config(function ($stateProvider, $locationProvider) {
 
   $locationProvider.html5Mode(true)
 })
+*/
+console.log('h')
