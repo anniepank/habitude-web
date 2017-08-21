@@ -4,24 +4,31 @@ import 'core-js'
 import 'zone.js'
 import { NgModule }      from '@angular/core';
 import { HttpModule } from '@angular/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+
 
 
 import { AppComponent }  from './components/app.component';
 import { LoginComponent }  from './components/login.component';
 import { RegistrationComponent }  from './components/registration.component';
 import { NavbarComponent }  from './components/navbar.component';
+import { HabitComponent }  from './components/habit.component';
+import { MainPageComponent }  from './components/mainPage.component';
+import { NewHabitModal } from './components/newHabit.component'
 import {routing} from './router/app.routing'
 
 import { AuthService } from './services/authService'
+import { HabitsService } from './services/habits.service'
 
 
 
 @NgModule({
-  imports:      [BrowserModule, routing, HttpModule],
-  declarations: [AppComponent, RegistrationComponent, LoginComponent, NavbarComponent],
-  entryComponents: [LoginComponent],
+  imports:      [BrowserModule, routing, HttpModule, NgbModule.forRoot()],
+  declarations: [AppComponent, RegistrationComponent, LoginComponent, NavbarComponent, HabitComponent, MainPageComponent,
+    NewHabitModal],
+  entryComponents: [NewHabitModal],
   bootstrap:    [AppComponent],
-  providers:    [AuthService]
+  providers:    [AuthService, HabitsService]
 
 })
 class AppModule {}
