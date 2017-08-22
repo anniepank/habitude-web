@@ -6,6 +6,9 @@ import { NgModule }      from '@angular/core';
 import { HttpModule } from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
 
+import './style.css'
+import './login.style.css'
+import './habit.style.scss'
 
 
 import { AppComponent }  from './components/app.component';

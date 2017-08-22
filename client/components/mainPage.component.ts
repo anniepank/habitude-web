@@ -3,20 +3,22 @@ import { HabitsService,  Habit } from '../services/habits.service'
 import { Router } from '@angular/router'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NewHabitModal } from './newHabit.component'
+import { AuthService } from '../services/authService'
 
 @Component({
   selector: 'habits-container',
   template: `
-    <div>
+    <div *ngIf="this.authService.isLoggedIN">
       <habit *ngFor="let habit of habits" [habit]="habit" (deleted)="onHabitDeleted(habit)"></habit>
-      <button class="btn btn-default" (click)="onNewHabit()">Add new habit</button>
+        <div class="button" (click)="onNewHabit()">Add new habit</div>
     </div>
   `
 })
 export class MainPageComponent {
   habits: Habit[]
 
-  constructor (private habitsService: HabitsService, private modalService: NgbModal) {
+  constructor (private habitsService: HabitsService, private modalService: NgbModal,
+    private authService: AuthService) {
     habitsService.getUserHabits().subscribe(res => {
       this.habits = res
     })
@@ -30,6 +32,8 @@ export class MainPageComponent {
     const modalRef = this.modalService.open(NewHabitModal)
     modalRef.result.then(habit => {
       this.habits.push(habit)
-    })
+    }).catch(() => {})
   }
 }
+
+//*ngFor="let habit of habits"

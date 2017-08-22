@@ -31,3 +31,29 @@
 #showLoginPage {
   display: inline-block;
 }
+
+#navbarBtn {
+  background-color: #26C4D8;
+  border-color: #26C4D8;
+  color: white;
+}
+
+#navbarBtn:hover {
+  background-color: #4BCEE0;
+}
+
+#logoutBtn {
+  background-color: white;
+  border-color: #ccc;
+  color: #aaa;
+}
+
+#logoutBtn:hover {
+  border-color: #aaa;
+  color: #999;
+}
+
+.habit-border {
+  padding: 20px;
+  border: 1px solid #ccc;
+}

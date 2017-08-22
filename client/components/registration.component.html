@@ -1,13 +1,16 @@
-<div>
-  <div class="header">
-    <button type="button" class="close"><span>&times;</span></button>
-    <h4 class="title">WELCOME!</h4>
-  </div>
-  <div class="body">
-    <input class="form-control login" placeholder="Login" type="text" #login />
-    <input class="form-control password" placeholder="Password" type="password" #password/>
-  </div>
-  <div class="footer">
-    <button type="button" class="btn btn-primary" (click)="onRegister(login.value, password.value)">Registration</button>
+<div class="login-page">
+  <div class="form">
+
+    <form class="register-form">
+      <input class="form-control login" type="text" placeholder="login" #login/>
+      <input class="form-control password" type="password" placeholder="password" #password/>
+
+      <div class="footer">
+        <button type="button" class="btn btn-primary" (click)="onRegister(login.value, password.value)">create</button>
+      </div>
+
+      <p class="message">Already registered? <a href="/loginPage">Sign In</a></p>
+    </form>
+
   </div>
 </div>

@@ -1,12 +1,15 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
-    <div class="navbar-form pull-right" >
-      <button class="btn btn-default" routerLink="/loginPage" *ngIf="!authService.isLoggedIN">LOG IN</button>
-      <button class="btn btn-default" (click)="onLogout()" *ngIf="authService.isLoggedIN">LOG OUT</button>
-      <button class="btn btn-default" routerLink="/registrationPage">REGISTRATION</button>
-    </div>
     <div class="navbar-header">
-      <a class="navbar-brand" routerLink="/">Habitude</a>
+      <a class="navbar-brand" routerLink="/">
+        <img src="/client/pics/ic.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Habitude
+      </a>
+    </div>
+    <div class="navbar-form pull-right" >
+      <button class="btn btn-primary" id="navbarBtn" routerLink="/loginPage" *ngIf="!authService.isLoggedIN">LOG IN</button>
+      <button class="btn btn-primary" id="logoutBtn" (click)="onLogout()" *ngIf="authService.isLoggedIN">LOG OUT</button>
+      <button class="btn btn-primary" id="navbarBtn" routerLink="/registrationPage">REGISTRATION</button>
     </div>
   </div>
 </nav>

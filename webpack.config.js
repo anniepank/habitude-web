@@ -1,4 +1,4 @@
-  const path = require('path')
+const path = require('path')
 
 module.exports = {
   entry: './client/app.ts',
@@ -12,6 +12,14 @@ module.exports = {
       {
         test: /.ts$/,
         loader: 'ts-loader'
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader']
       }
     ]
   },
