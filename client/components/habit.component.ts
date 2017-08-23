@@ -48,15 +48,25 @@ export class HabitComponent {
   }
 
   countStreak () {
-    let streak = 0
+    let streak = 1
     let today = new Date()
-    today.setHours(0, 0, 0, 0)
-    for(let i = this.habit.dates.length - 1; i >= 0; i--) {
+    today.setUTCHours(0, 0, 0, 0)
+
+    this.habit.dates.sort(function(a, b) {
+      let dateA = new Date(a.date)
+      let dateB = new Date(b.date)
+      return dateA.getTime() - dateB.getTime()
+    })
+
+    if (this.habit.dates[this.habit.dates.length - 1].date != today.toISOString()) {
+      return 0
+    }
+
+    for(let i = this.habit.dates.length - 1; i > 0; i--) {
       let date = new Date(this.habit.dates[i].date)
-      date.setHours(0, 0, 0, 0)
-      if (date.getTime() === today.getTime()) {
+      let prevDate = new Date(this.habit.dates[i-1].date)
+      if ((date.getTime() - prevDate.getTime()) === 86400000) {
         streak++
-        today.setDate(today.getDate() - 1)
       } else {
         break;
       }

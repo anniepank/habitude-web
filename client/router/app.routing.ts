@@ -4,6 +4,8 @@ import { ModuleWithProviders } from '@angular/core'
 import { LoginComponent }  from '../components/login.component';
 import { RegistrationComponent }  from '../components/registration.component';
 import { MainPageComponent }  from '../components/mainPage.component';
+import { HabitPageComponent } from '../components/habitPage.component'
+
 
 const appRoutes: Routes = [
   {
@@ -17,6 +19,10 @@ const appRoutes: Routes = [
   {
     path: '',
     component: MainPageComponent
+  },
+  {
+    path: 'habit/:id',
+    component: HabitPageComponent
   }
 ]
 

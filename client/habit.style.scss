@@ -3,6 +3,11 @@
   margin: 25px auto;
 }
 
+.habit-border:hover {
+  box-shadow: 0, 0, 10px, rgba(0,0,0,0.5);
+  border-color: #aaa
+}
+
 .info {
   width:75%;
   margin:0;
@@ -15,12 +20,20 @@
 }
 
 .habitName {
-  color: #767a7b;
   margin: 0;
   padding-bottom: 5px;
   font-size: 27px;
   font-weight: 100;
   border-bottom: 1px solid #e0e1dd;
+}
+
+.habitNameRef {
+  color: #767a7b;
+}
+
+.habitNameRef:hover {
+  text-decoration: none;
+  color: #018C9F;
 }
 
 .close {

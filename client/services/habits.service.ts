@@ -24,7 +24,11 @@ export class HabitsService {
   }
 
   deleteHabit (id) {
-    return this.http.delete('/api/habits/' + id)
+    return this.http.delete(`/api/habits/${id}`)
+  }
+
+  getHabit (id) {
+    return this.http.get(`/api/habits/${id}`).map(res => res.json())
   }
 }
 

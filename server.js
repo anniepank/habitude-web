@@ -38,6 +38,7 @@ function sendHtml (req, res) {
 app.get('/', sendHtml)
 app.get('/loginPage', sendHtml)
 app.get('/registrationPage', sendHtml)
+app.get('/habit/:id', sendHtml)
 
 app.get('/client/:filename(*)', (req, res) => {
   res.sendFile(__dirname + '/client/' + req.params.filename) // eslint-disable-line
@@ -87,6 +88,14 @@ app.get('/api/habits', (req, res) => {
     }).catch(err => {
       error(err, res)
     })
+  })
+})
+
+app.get('/api/habits/:id', (req, res) => {
+  database.getHabit(req.params.id).then(habit => {
+    res.json(habit)
+  }).catch(err => {
+    error(err, res)
   })
 })
 

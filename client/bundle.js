@@ -33480,11 +33480,11 @@ AuthService = __decorate([
 /* unused harmony export RouteConfigLoadStart */
 /* unused harmony export RoutesRecognized */
 /* unused harmony export RouteReuseStrategy */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Router; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Router; });
 /* unused harmony export ROUTES */
 /* unused harmony export ROUTER_CONFIGURATION */
 /* unused harmony export ROUTER_INITIALIZER */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return RouterModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return RouterModule; });
 /* unused harmony export provideRoutes */
 /* unused harmony export ChildrenOutletContexts */
 /* unused harmony export OutletContext */
@@ -33492,7 +33492,7 @@ AuthService = __decorate([
 /* unused harmony export PreloadAllModules */
 /* unused harmony export PreloadingStrategy */
 /* unused harmony export RouterPreloader */
-/* unused harmony export ActivatedRoute */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActivatedRoute; });
 /* unused harmony export ActivatedRouteSnapshot */
 /* unused harmony export RouterState */
 /* unused harmony export RouterStateSnapshot */
@@ -39888,7 +39888,10 @@ let HabitsService = class HabitsService {
         return this.http.post('/api/habits', { name: habitName }).map(res => res.json());
     }
     deleteHabit(id) {
-        return this.http.delete('/api/habits/' + id);
+        return this.http.delete(`/api/habits/${id}`);
+    }
+    getHabit(id) {
+        return this.http.get(`/api/habits/${id}`).map(res => res.json());
     }
 };
 HabitsService = __decorate([
@@ -50447,7 +50450,7 @@ LoginComponent = __decorate([
         selector: 'login',
         templateUrl: '/client/components/login.component.html'
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_authService__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_authService__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
 ], LoginComponent);
 
 
@@ -50682,7 +50685,7 @@ RegistrationComponent = __decorate([
         selector: 'registration',
         templateUrl: '/client/components/registration.component.html',
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_authService__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_authService__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
 ], RegistrationComponent);
 
 
@@ -50822,9 +50825,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_habit_component__ = __webpack_require__(506);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_mainPage_component__ = __webpack_require__(247);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_newHabit_component__ = __webpack_require__(248);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__router_app_routing__ = __webpack_require__(507);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_authService__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_habits_service__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_habitPage_component__ = __webpack_require__(508);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__router_app_routing__ = __webpack_require__(507);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_authService__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_habits_service__ = __webpack_require__(88);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -50851,16 +50855,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["M" /* NgModule */])({
-        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_17__router_app_routing__["a" /* routing */], __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__["c" /* NgbModule */].forRoot()],
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_18__router_app_routing__["a" /* routing */], __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__["c" /* NgbModule */].forRoot()],
         declarations: [__WEBPACK_IMPORTED_MODULE_10__components_app_component__["a" /* AppComponent */], __WEBPACK_IMPORTED_MODULE_12__components_registration_component__["a" /* RegistrationComponent */], __WEBPACK_IMPORTED_MODULE_11__components_login_component__["a" /* LoginComponent */], __WEBPACK_IMPORTED_MODULE_13__components_navbar_component__["a" /* NavbarComponent */], __WEBPACK_IMPORTED_MODULE_14__components_habit_component__["a" /* HabitComponent */], __WEBPACK_IMPORTED_MODULE_15__components_mainPage_component__["a" /* MainPageComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__components_newHabit_component__["a" /* NewHabitModal */]],
+            __WEBPACK_IMPORTED_MODULE_16__components_newHabit_component__["a" /* NewHabitModal */], __WEBPACK_IMPORTED_MODULE_17__components_habitPage_component__["a" /* HabitPageComponent */]],
         entryComponents: [__WEBPACK_IMPORTED_MODULE_16__components_newHabit_component__["a" /* NewHabitModal */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_10__components_app_component__["a" /* AppComponent */]],
-        providers: [__WEBPACK_IMPORTED_MODULE_18__services_authService__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_19__services_habits_service__["a" /* HabitsService */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_19__services_authService__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_20__services_habits_service__["a" /* HabitsService */]]
     })
 ], AppModule);
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(AppModule);
@@ -88285,7 +88290,7 @@ exports = module.exports = __webpack_require__(147)(undefined);
 
 
 // module
-exports.push([module.i, ".wrapper {\n  width: 50%;\n  margin: 25px auto; }\n\n.info {\n  width: 75%;\n  margin: 0;\n  margin-left: 5%;\n  display: inline-block; }\n\n.checkboxContainer {\n  padding-top: 20px; }\n\n.habitName {\n  color: #767a7b;\n  margin: 0;\n  padding-bottom: 5px;\n  font-size: 27px;\n  font-weight: 100;\n  border-bottom: 1px solid #e0e1dd; }\n\n.close {\n  color: #aaa;\n  margin-right: 10px; }\n\n.close:hover {\n  color: #777; }\n\nlabel {\n  display: inline-block;\n  color: #26C4D8;\n  cursor: pointer;\n  position: relative; }\n  label span {\n    display: inline-block;\n    position: relative;\n    background-color: transparent;\n    width: 25px;\n    height: 25px;\n    transform-origin: center;\n    border: 2px solid #26C4D8;\n    border-radius: 50%;\n    vertical-align: -6px;\n    margin-right: 10px;\n    transition: background-color 150ms 200ms, transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89); }\n    label span:before {\n      content: \"\";\n      width: 0px;\n      height: 2px;\n      border-radius: 2px;\n      background: #26C4D8;\n      position: absolute;\n      transform: rotate(45deg);\n      top: 10px;\n      left: 7px;\n      transition: width 50ms ease 50ms;\n      transform-origin: 0% 0%; }\n    label span:after {\n      content: \"\";\n      width: 0;\n      height: 2px;\n      border-radius: 2px;\n      background: #26C4D8;\n      position: absolute;\n      transform: rotate(305deg);\n      top: 14px;\n      left: 9px;\n      transition: width 50ms ease;\n      transform-origin: 0% 0%; }\n  label:hover span:before {\n    width: 5px;\n    transition: width 100ms ease; }\n  label:hover span:after {\n    width: 10px;\n    transition: width 150ms ease 100ms; }\n\ninput[type=\"checkbox\"] {\n  display: none; }\n  input[type=\"checkbox\"]:checked + label span {\n    background-color: #26C4D8;\n    transform: scale(1.25); }\n    input[type=\"checkbox\"]:checked + label span:after {\n      width: 10px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n    input[type=\"checkbox\"]:checked + label span:before {\n      width: 5px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n  input[type=\"checkbox\"]:checked + label:hover span {\n    background-color: #26C4D8;\n    transform: scale(1.25); }\n    input[type=\"checkbox\"]:checked + label:hover span:after {\n      width: 10px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n    input[type=\"checkbox\"]:checked + label:hover span:before {\n      width: 5px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n\n.button {\n  width: 50%;\n  margin: 10px auto;\n  padding: 20px;\n  border: 2px solid #eee;\n  text-align: center;\n  text-transform: uppercase;\n  position: relative;\n  overflow: hidden;\n  transition: .3s; }\n  .button:after {\n    position: absolute;\n    transition: .3s;\n    content: '';\n    width: 0;\n    left: 50%;\n    bottom: 0;\n    height: 3px;\n    background: #eee; }\n  .button:nth-of-type(1):after {\n    height: 120%;\n    left: -10%;\n    transform: skewX(15deg);\n    z-index: -1; }\n  .button:hover {\n    cursor: pointer; }\n    .button:hover:after {\n      width: 100%;\n      left: 0; }\n    .button:hover:nth-of-type(1) {\n      color: #26C2D8; }\n    .button:hover:nth-of-type(1):after {\n      left: -10%;\n      width: 120%; }\n", ""]);
+exports.push([module.i, ".wrapper {\n  width: 50%;\n  margin: 25px auto; }\n\n.habit-border:hover {\n  box-shadow: 0, 0, 10px, rgba(0, 0, 0, 0.5);\n  border-color: #aaa; }\n\n.info {\n  width: 75%;\n  margin: 0;\n  margin-left: 5%;\n  display: inline-block; }\n\n.checkboxContainer {\n  padding-top: 20px; }\n\n.habitName {\n  margin: 0;\n  padding-bottom: 5px;\n  font-size: 27px;\n  font-weight: 100;\n  border-bottom: 1px solid #e0e1dd; }\n\n.habitNameRef {\n  color: #767a7b; }\n\n.habitNameRef:hover {\n  text-decoration: none;\n  color: #018C9F; }\n\n.close {\n  color: #aaa;\n  margin-right: 10px; }\n\n.close:hover {\n  color: #777; }\n\nlabel {\n  display: inline-block;\n  color: #26C4D8;\n  cursor: pointer;\n  position: relative; }\n  label span {\n    display: inline-block;\n    position: relative;\n    background-color: transparent;\n    width: 25px;\n    height: 25px;\n    transform-origin: center;\n    border: 2px solid #26C4D8;\n    border-radius: 50%;\n    vertical-align: -6px;\n    margin-right: 10px;\n    transition: background-color 150ms 200ms, transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89); }\n    label span:before {\n      content: \"\";\n      width: 0px;\n      height: 2px;\n      border-radius: 2px;\n      background: #26C4D8;\n      position: absolute;\n      transform: rotate(45deg);\n      top: 10px;\n      left: 7px;\n      transition: width 50ms ease 50ms;\n      transform-origin: 0% 0%; }\n    label span:after {\n      content: \"\";\n      width: 0;\n      height: 2px;\n      border-radius: 2px;\n      background: #26C4D8;\n      position: absolute;\n      transform: rotate(305deg);\n      top: 14px;\n      left: 9px;\n      transition: width 50ms ease;\n      transform-origin: 0% 0%; }\n  label:hover span:before {\n    width: 5px;\n    transition: width 100ms ease; }\n  label:hover span:after {\n    width: 10px;\n    transition: width 150ms ease 100ms; }\n\ninput[type=\"checkbox\"] {\n  display: none; }\n  input[type=\"checkbox\"]:checked + label span {\n    background-color: #26C4D8;\n    transform: scale(1.25); }\n    input[type=\"checkbox\"]:checked + label span:after {\n      width: 10px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n    input[type=\"checkbox\"]:checked + label span:before {\n      width: 5px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n  input[type=\"checkbox\"]:checked + label:hover span {\n    background-color: #26C4D8;\n    transform: scale(1.25); }\n    input[type=\"checkbox\"]:checked + label:hover span:after {\n      width: 10px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n    input[type=\"checkbox\"]:checked + label:hover span:before {\n      width: 5px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n\n.button {\n  width: 50%;\n  margin: 10px auto;\n  padding: 20px;\n  border: 2px solid #eee;\n  text-align: center;\n  text-transform: uppercase;\n  position: relative;\n  overflow: hidden;\n  transition: .3s; }\n  .button:after {\n    position: absolute;\n    transition: .3s;\n    content: '';\n    width: 0;\n    left: 50%;\n    bottom: 0;\n    height: 3px;\n    background: #eee; }\n  .button:nth-of-type(1):after {\n    height: 120%;\n    left: -10%;\n    transform: skewX(15deg);\n    z-index: -1; }\n  .button:hover {\n    cursor: pointer; }\n    .button:hover:after {\n      width: 100%;\n      left: 0; }\n    .button:hover:nth-of-type(1) {\n      color: #26C2D8; }\n    .button:hover:nth-of-type(1):after {\n      left: -10%;\n      width: 120%; }\n", ""]);
 
 // exports
 
@@ -89761,7 +89766,7 @@ NavbarComponent = __decorate([
         selector: 'navbar',
         templateUrl: '/client/components/navbar.component.html'
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_authService__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_authService__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
 ], NavbarComponent);
 
 
@@ -89821,15 +89826,22 @@ let HabitComponent = class HabitComponent {
         });
     }
     countStreak() {
-        let streak = 0;
+        let streak = 1;
         let today = new Date();
-        today.setHours(0, 0, 0, 0);
-        for (let i = this.habit.dates.length - 1; i >= 0; i--) {
+        today.setUTCHours(0, 0, 0, 0);
+        this.habit.dates.sort(function (a, b) {
+            let dateA = new Date(a.date);
+            let dateB = new Date(b.date);
+            return dateA.getTime() - dateB.getTime();
+        });
+        if (this.habit.dates[this.habit.dates.length - 1].date != today.toISOString()) {
+            return 0;
+        }
+        for (let i = this.habit.dates.length - 1; i > 0; i--) {
             let date = new Date(this.habit.dates[i].date);
-            date.setHours(0, 0, 0, 0);
-            if (date.getTime() === today.getTime()) {
+            let prevDate = new Date(this.habit.dates[i - 1].date);
+            if ((date.getTime() - prevDate.getTime()) === 86400000) {
                 streak++;
-                today.setDate(today.getDate() - 1);
             }
             else {
                 break;
@@ -89865,6 +89877,8 @@ HabitComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_login_component__ = __webpack_require__(243);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_registration_component__ = __webpack_require__(246);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_mainPage_component__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_habitPage_component__ = __webpack_require__(508);
+
 
 
 
@@ -89881,12 +89895,72 @@ const appRoutes = [
     {
         path: '',
         component: __WEBPACK_IMPORTED_MODULE_3__components_mainPage_component__["a" /* MainPageComponent */]
+    },
+    {
+        path: 'habit/:id',
+        component: __WEBPACK_IMPORTED_MODULE_4__components_habitPage_component__["a" /* HabitPageComponent */]
     }
 ];
-const routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule */].forRoot(appRoutes);
+const routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */].forRoot(appRoutes);
 /* harmony export (immutable) */ __webpack_exports__["a"] = routing;
 
 
+
+/***/ }),
+/* 508 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HabitPageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_habits_service__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_first__ = __webpack_require__(509);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_first___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_first__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+let HabitPageComponent = class HabitPageComponent {
+    constructor(habitsService, route) {
+        this.habitsService = habitsService;
+        route.params.first().subscribe(params => {
+            this.id = params['id'];
+            this.habitsService.getHabit(this.id).subscribe(habit => {
+                this.habit = habit;
+            });
+        });
+    }
+};
+HabitPageComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'habitPage',
+        templateUrl: '/client/components/habitPage.component.html'
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_habits_service__["a" /* HabitsService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]])
+], HabitPageComponent);
+
+
+
+/***/ }),
+/* 509 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var Observable_1 = __webpack_require__(10);
+var first_1 = __webpack_require__(500);
+Observable_1.Observable.prototype.first = first_1.first;
+//# sourceMappingURL=first.js.map
 
 /***/ })
 /******/ ]);

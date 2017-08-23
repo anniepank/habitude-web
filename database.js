@@ -42,6 +42,14 @@ class Database {
     })
   }
 
+  getHabit (id) {
+    return connectionPromise.then(connection => {
+      return connection.query('SELECT * FROM habits WHERE id = ?', [id]).then(results => {
+        return results[0]
+      })
+    })
+  }
+
   register (login, password) {
     return connectionPromise.then(connection => {
       return connection.query(`SELECT COUNT(*) AS e FROM users WHERE login = ? `, [login]).then(res => {
