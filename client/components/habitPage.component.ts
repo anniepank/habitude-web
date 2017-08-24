@@ -10,6 +10,7 @@ import 'rxjs/add/operator/first'
 export class HabitPageComponent {
   id: number
   habit: Habit
+
   constructor (private habitsService: HabitsService, route: ActivatedRoute) {
     route.params.first().subscribe(params => {
       this.id = params['id']

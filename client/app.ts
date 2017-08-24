@@ -19,6 +19,7 @@ import { HabitComponent }  from './components/habit.component';
 import { MainPageComponent }  from './components/mainPage.component';
 import { NewHabitModal } from './components/newHabit.component'
 import { HabitPageComponent } from './components/habitPage.component'
+import { CalendarComponent } from './components/calendar.component'
 import {routing} from './router/app.routing'
 
 import { AuthService } from './services/authService'
@@ -28,8 +29,9 @@ import { HabitsService } from './services/habits.service'
 
 @NgModule({
   imports:      [BrowserModule, routing, HttpModule, NgbModule.forRoot()],
-  declarations: [AppComponent, RegistrationComponent, LoginComponent, NavbarComponent, HabitComponent, MainPageComponent,
-    NewHabitModal, HabitPageComponent],
+  declarations: [AppComponent, RegistrationComponent, LoginComponent,
+    NavbarComponent, HabitComponent, MainPageComponent, NewHabitModal,
+    HabitPageComponent, CalendarComponent],
   entryComponents: [NewHabitModal],
   bootstrap:    [AppComponent],
   providers:    [AuthService, HabitsService]
