@@ -121,6 +121,14 @@ class Database {
       return connection.query('DELETE FROM habits WHERE id = ?', [id])
     })
   }
+
+  changeHabitName (id, name) {
+    return connectionPromise.then(connection => {
+      return connection.query('UPDATE habits SET name = ? WHERE id = ?', [name, id]).then(res => {
+        return res
+      })
+    })
+  }
 }
 
 module.exports = {Database, AlreadyExistsError}

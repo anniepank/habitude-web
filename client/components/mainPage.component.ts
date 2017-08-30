@@ -1,8 +1,9 @@
 import { Component } from '@angular/core'
-import { HabitsService,  Habit } from '../services/habits.service'
+import { HabitsService, Habit } from '../services/habits.service'
 import { Router } from '@angular/router'
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { NewHabitModal } from './newHabit.component'
+import { ChooseHabitModal } from './chooseHabit.component'
 import { AuthService } from '../services/authService'
 
 @Component({
@@ -10,7 +11,7 @@ import { AuthService } from '../services/authService'
   template: `
     <div *ngIf="this.authService.isLoggedIN">
       <habit *ngFor="let habit of habits" [habit]="habit" (deleted)="onHabitDeleted(habit)"></habit>
-        <div class="button" (click)="onNewHabit()">Add new habit</div>
+        <div class="button" (click)="onNewHabit()">Add a new habit</div>
     </div>
   `
 })
@@ -28,12 +29,10 @@ export class MainPageComponent {
     this.habits = this.habits.filter(x => x.id !== habit.id)
   }
 
-  onNewHabit() {
-    const modalRef = this.modalService.open(NewHabitModal)
+  onNewHabit () {
+    const modalRef = this.modalService.open(ChooseHabitModal)
     modalRef.result.then(habit => {
       this.habits.push(habit)
     }).catch(() => {})
   }
 }
-
-//*ngFor="let habit of habits"

@@ -6,7 +6,6 @@ function convertToDate (index) {
   let date = new Date()
   date.setUTCHours(0, 0, 0, 0)
   date.setDate(date.getDate() - (5 - index))
-
   return date
 }
 
@@ -37,7 +36,7 @@ export class HabitComponent {
       this.habit.dates.push({date: convertToDate(index).toISOString(), habitId: this.habit.id, id: null})
     } else {
       this.habitsService.deleteDate(convertToDate(index), this.habit.id).subscribe()
-      this.habit.dates = this.habit.dates.filter(date => date.date != convertToDate(index).toISOString())
+      this.habit.dates = this.habit.dates.filter(date => date.date !== convertToDate(index).toISOString())
     }
   }
 
@@ -52,23 +51,27 @@ export class HabitComponent {
     let today = new Date()
     today.setUTCHours(0, 0, 0, 0)
 
-    this.habit.dates.sort(function(a, b) {
+    if (!this.habit.dates.length) {
+      return 0
+    }
+
+    this.habit.dates.sort(function (a, b) {
       let dateA = new Date(a.date)
       let dateB = new Date(b.date)
       return dateA.getTime() - dateB.getTime()
     })
 
-    if (this.habit.dates[this.habit.dates.length - 1].date != today.toISOString()) {
+    if (this.habit.dates[this.habit.dates.length - 1].date !== today.toISOString()) {
       return 0
     }
 
-    for(let i = this.habit.dates.length - 1; i > 0; i--) {
+    for (let i = this.habit.dates.length - 1; i > 0; i--) {
       let date = new Date(this.habit.dates[i].date)
-      let prevDate = new Date(this.habit.dates[i-1].date)
+      let prevDate = new Date(this.habit.dates[i - 1].date)
       if ((date.getTime() - prevDate.getTime()) === 86400000) {
         streak++
       } else {
-        break;
+        break
       }
     }
     return streak

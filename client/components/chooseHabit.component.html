@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <h4 class="modal-title">Let's add a new habit!</h4>
+  <button type="button" class="close" aria-label="Close" (click)="modalRef.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="choose-component" *ngFor="let habit of habits" [id]="habit">
+    <div class="dim"></div>
+    <div
+      class="habitNameContainer"
+      [ngClass]="{'rightElement': habits.indexOf(habit) % 2 === 1}"
+      (click)="add(habit)">
+      <p class="habit-name">{{habit}}<p>
+    </div>
+  </div>
+</div>

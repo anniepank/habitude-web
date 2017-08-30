@@ -93,9 +93,21 @@ app.get('/api/habits', (req, res) => {
 
 app.get('/api/habits/:id', (req, res) => {
   database.getHabit(req.params.id).then(habit => {
-    res.json(habit)
+    let today = new Date()
+    let lastDay = new Date()
+    lastDay.setDate(lastDay.getDate() - 365)
+    database.getDates(today, lastDay, habit.id).then(dates => {
+      habit.dates = dates
+      res.json(habit)
+    })
   }).catch(err => {
     error(err, res)
+  })
+})
+
+app.put('/api/habits/:id', (req, res) => {
+  database.changeHabitName(req.params.id, req.body.name).then(result => {
+    res.json(result)
   })
 })
 

@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map'
 export class HabitsService {
   constructor (private http: Http) {}
 
-  getUserHabits () : Observable<Habit[]> {
+  getUserHabits (): Observable<Habit[]> {
     return this.http.get('/api/habits').map(res => res.json())
   }
 
@@ -29,6 +29,10 @@ export class HabitsService {
 
   getHabit (id) {
     return this.http.get(`/api/habits/${id}`).map(res => res.json())
+  }
+
+  changeHabitName (id, name) {
+    return this.http.put(`/api/habits/${id}`, {name: name}).map(res => res.json())
   }
 }
 

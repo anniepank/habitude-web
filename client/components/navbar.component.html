@@ -9,7 +9,7 @@
     <div class="navbar-form pull-right" >
       <button class="btn btn-primary" id="navbarBtn" routerLink="/loginPage" *ngIf="!authService.isLoggedIN">LOG IN</button>
       <button class="btn btn-primary" id="logoutBtn" (click)="onLogout()" *ngIf="authService.isLoggedIN">LOG OUT</button>
-      <button class="btn btn-primary" id="navbarBtn" routerLink="/registrationPage">REGISTRATION</button>
+      <button class="btn btn-primary" id="navbarBtn" routerLink="/registrationPage" *ngIf="!authService.isLoggedIN">REGISTRATION</button>
     </div>
   </div>
 </nav>

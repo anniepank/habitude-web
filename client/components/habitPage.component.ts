@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { HabitsService, Habit } from '../services/habits.service'
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router'
+
 import 'rxjs/add/operator/first'
 
 @Component({
@@ -11,12 +12,36 @@ export class HabitPageComponent {
   id: number
   habit: Habit
 
-  constructor (private habitsService: HabitsService, route: ActivatedRoute) {
+  constructor (private habitsService: HabitsService, private route: ActivatedRoute, private router: Router) {
     route.params.first().subscribe(params => {
       this.id = params['id']
       this.habitsService.getHabit(this.id).subscribe(habit => {
         this.habit = habit
       })
     })
+  }
+
+  toggleDate ($event) {
+    let date = $event.date
+    if (this.habit.dates.some(x => x.date === date.toISOString())) {
+      this.habitsService.deleteDate(date, this.habit.id).subscribe(res => {
+        this.habit.dates = this.habit.dates.filter(d => d.date !== date.toISOString())
+      })
+    } else {
+      this.habitsService.addDate(date, this.habit.id).subscribe(res => {
+        this.habit.dates = this.habit.dates.concat([{date: date.toISOString(), habitId: this.habit.id, id: null}])
+      })
+    }
+  }
+
+  deleteHabit () {
+    this.habitsService.deleteHabit(this.habit.id).subscribe(() => {
+      this.router.navigate(['/'])
+    })
+  }
+
+  onNameChanged ($event) {
+    this.habit.name = $event.name
+    this.habitsService.changeHabitName(this.habit.id, $event.name).subscribe()
   }
 }

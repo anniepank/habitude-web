@@ -15121,7 +15121,7 @@ function transition$$1(stateChangeExpr, steps) {
 
 //# sourceMappingURL=core.es5.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(89)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(90)))
 
 /***/ }),
 /* 2 */
@@ -15237,7 +15237,7 @@ module.exports = function (it) {
 
 var root_1 = __webpack_require__(44);
 var toSubscriber_1 = __webpack_require__(254);
-var observable_1 = __webpack_require__(94);
+var observable_1 = __webpack_require__(95);
 /**
  * A representation of any set of values over any amount of time. This is the most basic building block
  * of RxJS.
@@ -15602,10 +15602,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var isFunction_1 = __webpack_require__(90);
+var isFunction_1 = __webpack_require__(91);
 var Subscription_1 = __webpack_require__(59);
 var Observer_1 = __webpack_require__(152);
-var rxSubscriber_1 = __webpack_require__(93);
+var rxSubscriber_1 = __webpack_require__(94);
 /**
  * Implements the {@link Observer} interface and extends the
  * {@link Subscription} class. While the {@link Observer} is the public API for
@@ -19975,7 +19975,7 @@ exports.f = __webpack_require__(8) ? gOPD : function getOwnPropertyDescriptor(O,
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
 var has = __webpack_require__(15);
 var toObject = __webpack_require__(11);
-var IE_PROTO = __webpack_require__(101)('IE_PROTO');
+var IE_PROTO = __webpack_require__(102)('IE_PROTO');
 var ObjectProto = Object.prototype;
 
 module.exports = Object.getPrototypeOf || function (O) {
@@ -20137,7 +20137,7 @@ var ctx = __webpack_require__(24);
 var IObject = __webpack_require__(63);
 var toObject = __webpack_require__(11);
 var toLength = __webpack_require__(9);
-var asc = __webpack_require__(116);
+var asc = __webpack_require__(117);
 module.exports = function (TYPE, $create) {
   var IS_MAP = TYPE == 1;
   var IS_FILTER = TYPE == 2;
@@ -20178,7 +20178,7 @@ module.exports = function (TYPE, $create) {
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
 var $keys = __webpack_require__(162);
-var enumBugKeys = __webpack_require__(102);
+var enumBugKeys = __webpack_require__(103);
 
 module.exports = Object.keys || function keys(O) {
   return $keys(O, enumBugKeys);
@@ -20192,21 +20192,21 @@ module.exports = Object.keys || function keys(O) {
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject = __webpack_require__(2);
 var dPs = __webpack_require__(163);
-var enumBugKeys = __webpack_require__(102);
-var IE_PROTO = __webpack_require__(101)('IE_PROTO');
+var enumBugKeys = __webpack_require__(103);
+var IE_PROTO = __webpack_require__(102)('IE_PROTO');
 var Empty = function () { /* empty */ };
 var PROTOTYPE = 'prototype';
 
 // Create object with fake `null` prototype: use iframe Object with cleared prototype
 var createDict = function () {
   // Thrash, waste and sodomy: IE GC bug
-  var iframe = __webpack_require__(99)('iframe');
+  var iframe = __webpack_require__(100)('iframe');
   var i = enumBugKeys.length;
   var lt = '<';
   var gt = '>';
   var iframeDocument;
   iframe.style.display = 'none';
-  __webpack_require__(103).appendChild(iframe);
+  __webpack_require__(104).appendChild(iframe);
   iframe.src = 'javascript:'; // eslint-disable-line no-script-url
   // createDict = iframe.contentWindow.Object;
   // html.removeChild(iframe);
@@ -20244,7 +20244,7 @@ if (__webpack_require__(8)) {
   var fails = __webpack_require__(4);
   var $export = __webpack_require__(0);
   var $typed = __webpack_require__(83);
-  var $buffer = __webpack_require__(123);
+  var $buffer = __webpack_require__(124);
   var ctx = __webpack_require__(24);
   var anInstance = __webpack_require__(52);
   var propertyDesc = __webpack_require__(38);
@@ -20259,7 +20259,7 @@ if (__webpack_require__(8)) {
   var classof = __webpack_require__(49);
   var isObject = __webpack_require__(5);
   var toObject = __webpack_require__(11);
-  var isArrayIter = __webpack_require__(114);
+  var isArrayIter = __webpack_require__(115);
   var create = __webpack_require__(33);
   var getPrototypeOf = __webpack_require__(22);
   var gOPN = __webpack_require__(48).f;
@@ -20269,11 +20269,11 @@ if (__webpack_require__(8)) {
   var createArrayMethod = __webpack_require__(31);
   var createArrayIncludes = __webpack_require__(71);
   var speciesConstructor = __webpack_require__(81);
-  var ArrayIterators = __webpack_require__(118);
+  var ArrayIterators = __webpack_require__(119);
   var Iterators = __webpack_require__(50);
   var $iterDetect = __webpack_require__(78);
   var setSpecies = __webpack_require__(51);
-  var arrayFill = __webpack_require__(117);
+  var arrayFill = __webpack_require__(118);
   var arrayCopyWithin = __webpack_require__(174);
   var $DP = __webpack_require__(7);
   var $GOPD = __webpack_require__(21);
@@ -21161,7 +21161,7 @@ module.exports = function (key) {
 
 var ctx = __webpack_require__(24);
 var call = __webpack_require__(172);
-var isArrayIter = __webpack_require__(114);
+var isArrayIter = __webpack_require__(115);
 var anObject = __webpack_require__(2);
 var toLength = __webpack_require__(9);
 var getIterFn = __webpack_require__(65);
@@ -27445,7 +27445,7 @@ exports.root = _root;
     }
 })();
 //# sourceMappingURL=root.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(89)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(90)))
 
 /***/ }),
 /* 45 */
@@ -27484,7 +27484,7 @@ module.exports = function (index, length) {
 
 // 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
 var $keys = __webpack_require__(162);
-var hiddenKeys = __webpack_require__(102).concat('length', 'prototype');
+var hiddenKeys = __webpack_require__(103).concat('length', 'prototype');
 
 exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
   return $keys(O, hiddenKeys);
@@ -27585,7 +27585,7 @@ var Subscriber_1 = __webpack_require__(17);
 var Subscription_1 = __webpack_require__(59);
 var ObjectUnsubscribedError_1 = __webpack_require__(157);
 var SubjectSubscription_1 = __webpack_require__(262);
-var rxSubscriber_1 = __webpack_require__(93);
+var rxSubscriber_1 = __webpack_require__(94);
 /**
  * @class SubjectSubscriber<T>
  */
@@ -27763,7 +27763,7 @@ module.exports = function (it, tag, stat) {
 var $export = __webpack_require__(0);
 var defined = __webpack_require__(28);
 var fails = __webpack_require__(4);
-var spaces = __webpack_require__(106);
+var spaces = __webpack_require__(107);
 var space = '[' + spaces + ']';
 var non = '\u200b\u0085';
 var ltrim = RegExp('^' + space + space + '*');
@@ -27862,11 +27862,11 @@ NgbDatepickerI18nDefault.ctorParameters = function () { return []; };
 
 "use strict";
 
-var isArray_1 = __webpack_require__(91);
+var isArray_1 = __webpack_require__(92);
 var isObject_1 = __webpack_require__(150);
-var isFunction_1 = __webpack_require__(90);
+var isFunction_1 = __webpack_require__(91);
 var tryCatch_1 = __webpack_require__(151);
-var errorObject_1 = __webpack_require__(92);
+var errorObject_1 = __webpack_require__(93);
 var UnsubscriptionError_1 = __webpack_require__(255);
 /**
  * Represents a disposable resource, such as the execution of an Observable. A
@@ -28102,9 +28102,9 @@ var isArrayLike_1 = __webpack_require__(155);
 var isPromise_1 = __webpack_require__(156);
 var isObject_1 = __webpack_require__(150);
 var Observable_1 = __webpack_require__(10);
-var iterator_1 = __webpack_require__(98);
+var iterator_1 = __webpack_require__(99);
 var InnerSubscriber_1 = __webpack_require__(258);
-var observable_1 = __webpack_require__(94);
+var observable_1 = __webpack_require__(95);
 function subscribeToResult(outerSubscriber, result, outerValue, outerIndex) {
     var destination = new InnerSubscriber_1.InnerSubscriber(outerSubscriber, outerValue, outerIndex);
     if (destination.closed) {
@@ -32764,7 +32764,7 @@ var PopupService = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(244);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -32898,7 +32898,7 @@ AuthService = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_rxjs_util_EmptyError___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_rxjs_util_EmptyError__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_rxjs_observable_fromPromise__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_rxjs_observable_fromPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_rxjs_observable_fromPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_rxjs_operator_mergeAll__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_rxjs_operator_mergeAll__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_rxjs_operator_mergeAll___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19_rxjs_operator_mergeAll__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_platform_browser__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21_rxjs_operator_filter__ = __webpack_require__(208);
@@ -39200,7 +39200,7 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_2__angular_core__["_15" /* Version *
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HabitsService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(244);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -39236,6 +39236,9 @@ let HabitsService = class HabitsService {
     }
     getHabit(id) {
         return this.http.get(`/api/habits/${id}`).map(res => res.json());
+    }
+    changeHabitName(id, name) {
+        return this.http.put(`/api/habits/${id}`, { name: name }).map(res => res.json());
     }
 };
 HabitsService = __decorate([
@@ -39552,7 +39555,7 @@ var isObject = __webpack_require__(5);
 var fails = __webpack_require__(4);
 var $iterDetect = __webpack_require__(78);
 var setToStringTag = __webpack_require__(55);
-var inheritIfRequired = __webpack_require__(107);
+var inheritIfRequired = __webpack_require__(108);
 
 module.exports = function (NAME, wrapper, methods, common, IS_MAP, IS_WEAK) {
   var Base = global[NAME];
@@ -39736,6 +39739,164 @@ module.exports = function (COLLECTION) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export NgbRootModule */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return NgbModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__accordion_accordion_module__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__alert_alert_module__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__buttons_buttons_module__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__carousel_carousel_module__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__collapse_collapse_module__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__dropdown_dropdown_module__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pagination_pagination_module__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__popover_popover_module__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__progressbar_progressbar_module__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__rating_rating_module__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__tabset_tabset_module__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__timepicker_timepicker_module__ = __webpack_require__(235);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__tooltip_tooltip_module__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__typeahead_typeahead_module__ = __webpack_require__(239);
+/* unused harmony reexport NgbAccordionModule */
+/* unused harmony reexport NgbAccordionConfig */
+/* unused harmony reexport NgbAccordion */
+/* unused harmony reexport NgbPanel */
+/* unused harmony reexport NgbPanelTitle */
+/* unused harmony reexport NgbPanelContent */
+/* unused harmony reexport NgbAlertModule */
+/* unused harmony reexport NgbAlertConfig */
+/* unused harmony reexport NgbAlert */
+/* unused harmony reexport NgbButtonsModule */
+/* unused harmony reexport NgbCheckBox */
+/* unused harmony reexport NgbRadioGroup */
+/* unused harmony reexport NgbCarouselModule */
+/* unused harmony reexport NgbCarouselConfig */
+/* unused harmony reexport NgbCarousel */
+/* unused harmony reexport NgbSlide */
+/* unused harmony reexport NgbCollapseModule */
+/* unused harmony reexport NgbCollapse */
+/* unused harmony reexport NgbCalendar */
+/* unused harmony reexport NgbCalendarIslamicCivil */
+/* unused harmony reexport NgbDatepickerModule */
+/* unused harmony reexport NgbDatepickerI18n */
+/* unused harmony reexport NgbDatepickerConfig */
+/* unused harmony reexport NgbDateParserFormatter */
+/* unused harmony reexport NgbDatepicker */
+/* unused harmony reexport NgbInputDatepicker */
+/* unused harmony reexport NgbDropdownModule */
+/* unused harmony reexport NgbDropdownConfig */
+/* unused harmony reexport NgbDropdown */
+/* unused harmony reexport NgbModalModule */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["a"]; });
+/* unused harmony reexport NgbModalRef */
+/* unused harmony reexport ModalDismissReasons */
+/* unused harmony reexport NgbPaginationModule */
+/* unused harmony reexport NgbPaginationConfig */
+/* unused harmony reexport NgbPagination */
+/* unused harmony reexport NgbPopoverModule */
+/* unused harmony reexport NgbPopoverConfig */
+/* unused harmony reexport NgbPopover */
+/* unused harmony reexport NgbProgressbarModule */
+/* unused harmony reexport NgbProgressbarConfig */
+/* unused harmony reexport NgbProgressbar */
+/* unused harmony reexport NgbRatingModule */
+/* unused harmony reexport NgbRatingConfig */
+/* unused harmony reexport NgbRating */
+/* unused harmony reexport NgbTabsetModule */
+/* unused harmony reexport NgbTabsetConfig */
+/* unused harmony reexport NgbTabset */
+/* unused harmony reexport NgbTab */
+/* unused harmony reexport NgbTabContent */
+/* unused harmony reexport NgbTabTitle */
+/* unused harmony reexport NgbTimepickerModule */
+/* unused harmony reexport NgbTimepickerConfig */
+/* unused harmony reexport NgbTimepicker */
+/* unused harmony reexport NgbTooltipModule */
+/* unused harmony reexport NgbTooltipConfig */
+/* unused harmony reexport NgbTooltip */
+/* unused harmony reexport NgbHighlight */
+/* unused harmony reexport NgbTypeaheadModule */
+/* unused harmony reexport NgbTypeaheadConfig */
+/* unused harmony reexport NgbTypeahead */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var NGB_MODULES = [
+    __WEBPACK_IMPORTED_MODULE_1__accordion_accordion_module__["a" /* NgbAccordionModule */], __WEBPACK_IMPORTED_MODULE_2__alert_alert_module__["a" /* NgbAlertModule */], __WEBPACK_IMPORTED_MODULE_3__buttons_buttons_module__["a" /* NgbButtonsModule */], __WEBPACK_IMPORTED_MODULE_4__carousel_carousel_module__["a" /* NgbCarouselModule */], __WEBPACK_IMPORTED_MODULE_5__collapse_collapse_module__["a" /* NgbCollapseModule */], __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__["a" /* NgbDatepickerModule */],
+    __WEBPACK_IMPORTED_MODULE_7__dropdown_dropdown_module__["a" /* NgbDropdownModule */], __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["c" /* NgbModalModule */], __WEBPACK_IMPORTED_MODULE_9__pagination_pagination_module__["a" /* NgbPaginationModule */], __WEBPACK_IMPORTED_MODULE_10__popover_popover_module__["a" /* NgbPopoverModule */], __WEBPACK_IMPORTED_MODULE_11__progressbar_progressbar_module__["a" /* NgbProgressbarModule */], __WEBPACK_IMPORTED_MODULE_12__rating_rating_module__["a" /* NgbRatingModule */],
+    __WEBPACK_IMPORTED_MODULE_13__tabset_tabset_module__["a" /* NgbTabsetModule */], __WEBPACK_IMPORTED_MODULE_14__timepicker_timepicker_module__["a" /* NgbTimepickerModule */], __WEBPACK_IMPORTED_MODULE_15__tooltip_tooltip_module__["a" /* NgbTooltipModule */], __WEBPACK_IMPORTED_MODULE_16__typeahead_typeahead_module__["a" /* NgbTypeaheadModule */]
+];
+var NgbRootModule = (function () {
+    function NgbRootModule() {
+    }
+    return NgbRootModule;
+}());
+
+NgbRootModule.decorators = [
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */], args: [{
+                imports: [
+                    __WEBPACK_IMPORTED_MODULE_2__alert_alert_module__["a" /* NgbAlertModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_3__buttons_buttons_module__["a" /* NgbButtonsModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_5__collapse_collapse_module__["a" /* NgbCollapseModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_11__progressbar_progressbar_module__["a" /* NgbProgressbarModule */].forRoot(),
+                    __WEBPACK_IMPORTED_MODULE_15__tooltip_tooltip_module__["a" /* NgbTooltipModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_16__typeahead_typeahead_module__["a" /* NgbTypeaheadModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_1__accordion_accordion_module__["a" /* NgbAccordionModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_4__carousel_carousel_module__["a" /* NgbCarouselModule */].forRoot(),
+                    __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__["a" /* NgbDatepickerModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_7__dropdown_dropdown_module__["a" /* NgbDropdownModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["c" /* NgbModalModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_9__pagination_pagination_module__["a" /* NgbPaginationModule */].forRoot(),
+                    __WEBPACK_IMPORTED_MODULE_10__popover_popover_module__["a" /* NgbPopoverModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_11__progressbar_progressbar_module__["a" /* NgbProgressbarModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_12__rating_rating_module__["a" /* NgbRatingModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_13__tabset_tabset_module__["a" /* NgbTabsetModule */].forRoot(),
+                    __WEBPACK_IMPORTED_MODULE_14__timepicker_timepicker_module__["a" /* NgbTimepickerModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_15__tooltip_tooltip_module__["a" /* NgbTooltipModule */].forRoot()
+                ],
+                exports: NGB_MODULES
+            },] },
+];
+/** @nocollapse */
+NgbRootModule.ctorParameters = function () { return []; };
+var NgbModule = (function () {
+    function NgbModule() {
+    }
+    NgbModule.forRoot = function () { return { ngModule: NgbRootModule }; };
+    return NgbModule;
+}());
+
+NgbModule.decorators = [
+    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */], args: [{ imports: NGB_MODULES, exports: NGB_MODULES },] },
+];
+/** @nocollapse */
+NgbModule.ctorParameters = function () { return []; };
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 88 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NgbButtonLabel; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 
@@ -39756,7 +39917,7 @@ NgbButtonLabel.ctorParameters = function () { return []; };
 //# sourceMappingURL=label.js.map
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39902,7 +40063,7 @@ function positionElements(hostElement, targetElement, placement, appendToBody) {
 //# sourceMappingURL=positioning.js.map
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports) {
 
 var g;
@@ -39929,7 +40090,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39941,7 +40102,7 @@ exports.isFunction = isFunction;
 //# sourceMappingURL=isFunction.js.map
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39950,7 +40111,7 @@ exports.isArray = Array.isArray || (function (x) { return x && typeof x.length =
 //# sourceMappingURL=isArray.js.map
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39960,7 +40121,7 @@ exports.errorObject = { e: {} };
 //# sourceMappingURL=errorObject.js.map
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39976,7 +40137,7 @@ exports.$$rxSubscriber = exports.rxSubscriber;
 //# sourceMappingURL=rxSubscriber.js.map
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40008,7 +40169,7 @@ exports.$$observable = exports.observable;
 //# sourceMappingURL=observable.js.map
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40020,7 +40181,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Observable_1 = __webpack_require__(10);
 var ScalarObservable_1 = __webpack_require__(153);
-var EmptyObservable_1 = __webpack_require__(96);
+var EmptyObservable_1 = __webpack_require__(97);
 var isScheduler_1 = __webpack_require__(154);
 /**
  * We need this JSDoc comment for affecting ESDoc.
@@ -40136,7 +40297,7 @@ exports.ArrayObservable = ArrayObservable;
 //# sourceMappingURL=ArrayObservable.js.map
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40223,7 +40384,7 @@ exports.EmptyObservable = EmptyObservable;
 //# sourceMappingURL=EmptyObservable.js.map
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40340,7 +40501,7 @@ exports.MergeAllSubscriber = MergeAllSubscriber;
 //# sourceMappingURL=mergeAll.js.map
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40384,7 +40545,7 @@ exports.$$iterator = exports.iterator;
 //# sourceMappingURL=iterator.js.map
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(5);
@@ -40397,7 +40558,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(3);
@@ -40412,7 +40573,7 @@ module.exports = function (name) {
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var shared = __webpack_require__(70)('keys');
@@ -40423,7 +40584,7 @@ module.exports = function (key) {
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports) {
 
 // IE 8- don't enum bug keys
@@ -40433,7 +40594,7 @@ module.exports = (
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var document = __webpack_require__(3).document;
@@ -40441,7 +40602,7 @@ module.exports = document && document.documentElement;
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40482,7 +40643,7 @@ module.exports = !$assign || __webpack_require__(4)(function () {
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Works with __proto__ only. Old v8 can't work with null proto objects.
@@ -40513,7 +40674,7 @@ module.exports = {
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports) {
 
 module.exports = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003' +
@@ -40521,11 +40682,11 @@ module.exports = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u20
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(5);
-var setPrototypeOf = __webpack_require__(105).set;
+var setPrototypeOf = __webpack_require__(106).set;
 module.exports = function (that, target, C) {
   var S = target.constructor;
   var P;
@@ -40536,7 +40697,7 @@ module.exports = function (that, target, C) {
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40555,7 +40716,7 @@ module.exports = function repeat(count) {
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports) {
 
 // 20.2.2.28 Math.sign(x)
@@ -40566,7 +40727,7 @@ module.exports = Math.sign || function sign(x) {
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports) {
 
 // 20.2.2.14 Math.expm1(x)
@@ -40582,7 +40743,7 @@ module.exports = (!$expm1
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var toInteger = __webpack_require__(29);
@@ -40605,7 +40766,7 @@ module.exports = function (TO_STRING) {
 
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // helper for String#{startsWith, endsWith, includes}
@@ -40619,7 +40780,7 @@ module.exports = function (that, searchString, NAME) {
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var MATCH = __webpack_require__(6)('match');
@@ -40637,7 +40798,7 @@ module.exports = function (KEY) {
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // check on default Array iterator
@@ -40651,7 +40812,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40666,7 +40827,7 @@ module.exports = function (object, index, value) {
 
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 9.4.2.3 ArraySpeciesCreate(originalArray, length)
@@ -40678,7 +40839,7 @@ module.exports = function (original, length) {
 
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40700,13 +40861,13 @@ module.exports = function fill(value /* , start = 0, end = @length */) {
 
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var addToUnscopables = __webpack_require__(40);
-var step = __webpack_require__(119);
+var step = __webpack_require__(120);
 var Iterators = __webpack_require__(50);
 var toIObject = __webpack_require__(14);
 
@@ -40741,7 +40902,7 @@ addToUnscopables('entries');
 
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports) {
 
 module.exports = function (done, value) {
@@ -40750,13 +40911,13 @@ module.exports = function (done, value) {
 
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ctx = __webpack_require__(24);
 var invoke = __webpack_require__(74);
-var html = __webpack_require__(103);
-var cel = __webpack_require__(99);
+var html = __webpack_require__(104);
+var cel = __webpack_require__(100);
 var global = __webpack_require__(3);
 var process = global.process;
 var setTask = global.setImmediate;
@@ -40840,11 +41001,11 @@ module.exports = {
 
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(3);
-var macrotask = __webpack_require__(120).set;
+var macrotask = __webpack_require__(121).set;
 var Observer = global.MutationObserver || global.WebKitMutationObserver;
 var process = global.process;
 var Promise = global.Promise;
@@ -40914,7 +41075,7 @@ module.exports = function () {
 
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40939,7 +41100,7 @@ module.exports.f = function (C) {
 
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40957,7 +41118,7 @@ var toLength = __webpack_require__(9);
 var toIndex = __webpack_require__(183);
 var gOPN = __webpack_require__(48).f;
 var dP = __webpack_require__(7).f;
-var arrayFill = __webpack_require__(117);
+var arrayFill = __webpack_require__(118);
 var setToStringTag = __webpack_require__(55);
 var ARRAY_BUFFER = 'ArrayBuffer';
 var DATA_VIEW = 'DataView';
@@ -41222,7 +41383,7 @@ exports[DATA_VIEW] = $DataView;
 
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // all object keys, includes non-enumerable and symbols
@@ -41238,7 +41399,7 @@ module.exports = Reflect && Reflect.ownKeys || function ownKeys(it) {
 
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41270,7 +41431,7 @@ module.exports = function (/* ...pargs */) {
 
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports) {
 
 module.exports = function (regExp, replace) {
@@ -41284,7 +41445,7 @@ module.exports = function (regExp, replace) {
 
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -43512,164 +43673,6 @@ var VERSION = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["_15" /* Version *
 
 
 /***/ }),
-/* 128 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export NgbRootModule */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return NgbModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__accordion_accordion_module__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__alert_alert_module__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__buttons_buttons_module__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__carousel_carousel_module__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__collapse_collapse_module__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__dropdown_dropdown_module__ = __webpack_require__(215);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__ = __webpack_require__(217);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pagination_pagination_module__ = __webpack_require__(224);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__popover_popover_module__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__progressbar_progressbar_module__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__rating_rating_module__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__tabset_tabset_module__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__timepicker_timepicker_module__ = __webpack_require__(235);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__tooltip_tooltip_module__ = __webpack_require__(237);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__typeahead_typeahead_module__ = __webpack_require__(239);
-/* unused harmony reexport NgbAccordionModule */
-/* unused harmony reexport NgbAccordionConfig */
-/* unused harmony reexport NgbAccordion */
-/* unused harmony reexport NgbPanel */
-/* unused harmony reexport NgbPanelTitle */
-/* unused harmony reexport NgbPanelContent */
-/* unused harmony reexport NgbAlertModule */
-/* unused harmony reexport NgbAlertConfig */
-/* unused harmony reexport NgbAlert */
-/* unused harmony reexport NgbButtonsModule */
-/* unused harmony reexport NgbCheckBox */
-/* unused harmony reexport NgbRadioGroup */
-/* unused harmony reexport NgbCarouselModule */
-/* unused harmony reexport NgbCarouselConfig */
-/* unused harmony reexport NgbCarousel */
-/* unused harmony reexport NgbSlide */
-/* unused harmony reexport NgbCollapseModule */
-/* unused harmony reexport NgbCollapse */
-/* unused harmony reexport NgbCalendar */
-/* unused harmony reexport NgbCalendarIslamicCivil */
-/* unused harmony reexport NgbDatepickerModule */
-/* unused harmony reexport NgbDatepickerI18n */
-/* unused harmony reexport NgbDatepickerConfig */
-/* unused harmony reexport NgbDateParserFormatter */
-/* unused harmony reexport NgbDatepicker */
-/* unused harmony reexport NgbInputDatepicker */
-/* unused harmony reexport NgbDropdownModule */
-/* unused harmony reexport NgbDropdownConfig */
-/* unused harmony reexport NgbDropdown */
-/* unused harmony reexport NgbModalModule */
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["b"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["a"]; });
-/* unused harmony reexport NgbModalRef */
-/* unused harmony reexport ModalDismissReasons */
-/* unused harmony reexport NgbPaginationModule */
-/* unused harmony reexport NgbPaginationConfig */
-/* unused harmony reexport NgbPagination */
-/* unused harmony reexport NgbPopoverModule */
-/* unused harmony reexport NgbPopoverConfig */
-/* unused harmony reexport NgbPopover */
-/* unused harmony reexport NgbProgressbarModule */
-/* unused harmony reexport NgbProgressbarConfig */
-/* unused harmony reexport NgbProgressbar */
-/* unused harmony reexport NgbRatingModule */
-/* unused harmony reexport NgbRatingConfig */
-/* unused harmony reexport NgbRating */
-/* unused harmony reexport NgbTabsetModule */
-/* unused harmony reexport NgbTabsetConfig */
-/* unused harmony reexport NgbTabset */
-/* unused harmony reexport NgbTab */
-/* unused harmony reexport NgbTabContent */
-/* unused harmony reexport NgbTabTitle */
-/* unused harmony reexport NgbTimepickerModule */
-/* unused harmony reexport NgbTimepickerConfig */
-/* unused harmony reexport NgbTimepicker */
-/* unused harmony reexport NgbTooltipModule */
-/* unused harmony reexport NgbTooltipConfig */
-/* unused harmony reexport NgbTooltip */
-/* unused harmony reexport NgbHighlight */
-/* unused harmony reexport NgbTypeaheadModule */
-/* unused harmony reexport NgbTypeaheadConfig */
-/* unused harmony reexport NgbTypeahead */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var NGB_MODULES = [
-    __WEBPACK_IMPORTED_MODULE_1__accordion_accordion_module__["a" /* NgbAccordionModule */], __WEBPACK_IMPORTED_MODULE_2__alert_alert_module__["a" /* NgbAlertModule */], __WEBPACK_IMPORTED_MODULE_3__buttons_buttons_module__["a" /* NgbButtonsModule */], __WEBPACK_IMPORTED_MODULE_4__carousel_carousel_module__["a" /* NgbCarouselModule */], __WEBPACK_IMPORTED_MODULE_5__collapse_collapse_module__["a" /* NgbCollapseModule */], __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__["a" /* NgbDatepickerModule */],
-    __WEBPACK_IMPORTED_MODULE_7__dropdown_dropdown_module__["a" /* NgbDropdownModule */], __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["c" /* NgbModalModule */], __WEBPACK_IMPORTED_MODULE_9__pagination_pagination_module__["a" /* NgbPaginationModule */], __WEBPACK_IMPORTED_MODULE_10__popover_popover_module__["a" /* NgbPopoverModule */], __WEBPACK_IMPORTED_MODULE_11__progressbar_progressbar_module__["a" /* NgbProgressbarModule */], __WEBPACK_IMPORTED_MODULE_12__rating_rating_module__["a" /* NgbRatingModule */],
-    __WEBPACK_IMPORTED_MODULE_13__tabset_tabset_module__["a" /* NgbTabsetModule */], __WEBPACK_IMPORTED_MODULE_14__timepicker_timepicker_module__["a" /* NgbTimepickerModule */], __WEBPACK_IMPORTED_MODULE_15__tooltip_tooltip_module__["a" /* NgbTooltipModule */], __WEBPACK_IMPORTED_MODULE_16__typeahead_typeahead_module__["a" /* NgbTypeaheadModule */]
-];
-var NgbRootModule = (function () {
-    function NgbRootModule() {
-    }
-    return NgbRootModule;
-}());
-
-NgbRootModule.decorators = [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */], args: [{
-                imports: [
-                    __WEBPACK_IMPORTED_MODULE_2__alert_alert_module__["a" /* NgbAlertModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_3__buttons_buttons_module__["a" /* NgbButtonsModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_5__collapse_collapse_module__["a" /* NgbCollapseModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_11__progressbar_progressbar_module__["a" /* NgbProgressbarModule */].forRoot(),
-                    __WEBPACK_IMPORTED_MODULE_15__tooltip_tooltip_module__["a" /* NgbTooltipModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_16__typeahead_typeahead_module__["a" /* NgbTypeaheadModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_1__accordion_accordion_module__["a" /* NgbAccordionModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_4__carousel_carousel_module__["a" /* NgbCarouselModule */].forRoot(),
-                    __WEBPACK_IMPORTED_MODULE_6__datepicker_datepicker_module__["a" /* NgbDatepickerModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_7__dropdown_dropdown_module__["a" /* NgbDropdownModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_8__modal_modal_module__["c" /* NgbModalModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_9__pagination_pagination_module__["a" /* NgbPaginationModule */].forRoot(),
-                    __WEBPACK_IMPORTED_MODULE_10__popover_popover_module__["a" /* NgbPopoverModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_11__progressbar_progressbar_module__["a" /* NgbProgressbarModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_12__rating_rating_module__["a" /* NgbRatingModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_13__tabset_tabset_module__["a" /* NgbTabsetModule */].forRoot(),
-                    __WEBPACK_IMPORTED_MODULE_14__timepicker_timepicker_module__["a" /* NgbTimepickerModule */].forRoot(), __WEBPACK_IMPORTED_MODULE_15__tooltip_tooltip_module__["a" /* NgbTooltipModule */].forRoot()
-                ],
-                exports: NGB_MODULES
-            },] },
-];
-/** @nocollapse */
-NgbRootModule.ctorParameters = function () { return []; };
-var NgbModule = (function () {
-    function NgbModule() {
-    }
-    NgbModule.forRoot = function () { return { ngModule: NgbRootModule }; };
-    return NgbModule;
-}());
-
-NgbModule.decorators = [
-    { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */], args: [{ imports: NGB_MODULES, exports: NGB_MODULES },] },
-];
-/** @nocollapse */
-NgbModule.ctorParameters = function () { return []; };
-//# sourceMappingURL=index.js.map
-
-/***/ }),
 /* 129 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -45200,7 +45203,7 @@ exports.isObject = isObject;
 
 "use strict";
 
-var errorObject_1 = __webpack_require__(92);
+var errorObject_1 = __webpack_require__(93);
 var tryCatchTarget;
 function tryCatcher() {
     try {
@@ -45384,7 +45387,7 @@ webpackEmptyAsyncContext.id = 158;
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = !__webpack_require__(8) && !__webpack_require__(4)(function () {
-  return Object.defineProperty(__webpack_require__(99)('div'), 'a', { get: function () { return 7; } }).a != 7;
+  return Object.defineProperty(__webpack_require__(100)('div'), 'a', { get: function () { return 7; } }).a != 7;
 });
 
 
@@ -45418,7 +45421,7 @@ module.exports = function (object, el) {
 var has = __webpack_require__(15);
 var toIObject = __webpack_require__(14);
 var arrayIndexOf = __webpack_require__(71)(false);
-var IE_PROTO = __webpack_require__(101)('IE_PROTO');
+var IE_PROTO = __webpack_require__(102)('IE_PROTO');
 
 module.exports = function (object, names) {
   var O = toIObject(object);
@@ -45516,7 +45519,7 @@ module.exports = Function.bind || function bind(that /* , ...args */) {
 
 var $parseInt = __webpack_require__(3).parseInt;
 var $trim = __webpack_require__(56).trim;
-var ws = __webpack_require__(106);
+var ws = __webpack_require__(107);
 var hex = /^[-+]?0[xX]/;
 
 module.exports = $parseInt(ws + '08') !== 8 || $parseInt(ws + '0x16') !== 22 ? function parseInt(str, radix) {
@@ -45532,7 +45535,7 @@ module.exports = $parseInt(ws + '08') !== 8 || $parseInt(ws + '0x16') !== 22 ? f
 var $parseFloat = __webpack_require__(3).parseFloat;
 var $trim = __webpack_require__(56).trim;
 
-module.exports = 1 / $parseFloat(__webpack_require__(106) + '-0') !== -Infinity ? function parseFloat(str) {
+module.exports = 1 / $parseFloat(__webpack_require__(107) + '-0') !== -Infinity ? function parseFloat(str) {
   var string = $trim(String(str), 3);
   var result = $parseFloat(string);
   return result === 0 && string.charAt(0) == '-' ? -0 : result;
@@ -45577,7 +45580,7 @@ module.exports = Math.log1p || function log1p(x) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // 20.2.2.16 Math.fround(x)
-var sign = __webpack_require__(109);
+var sign = __webpack_require__(110);
 var pow = Math.pow;
 var EPSILON = pow(2, -52);
 var EPSILON32 = pow(2, -23);
@@ -45714,7 +45717,7 @@ module.exports = function (exec) {
 /* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var newPromiseCapability = __webpack_require__(122);
+var newPromiseCapability = __webpack_require__(123);
 
 module.exports = function (C, x) {
   var promiseCapability = newPromiseCapability.f(C);
@@ -45763,7 +45766,7 @@ var ctx = __webpack_require__(24);
 var anInstance = __webpack_require__(52);
 var forOf = __webpack_require__(41);
 var $iterDefine = __webpack_require__(75);
-var step = __webpack_require__(119);
+var step = __webpack_require__(120);
 var setSpecies = __webpack_require__(51);
 var DESCRIPTORS = __webpack_require__(8);
 var fastKey = __webpack_require__(39).fastKey;
@@ -45931,7 +45934,7 @@ module.exports = __webpack_require__(82)(SET, function (get) {
 var each = __webpack_require__(31)(0);
 var redefine = __webpack_require__(20);
 var meta = __webpack_require__(39);
-var assign = __webpack_require__(104);
+var assign = __webpack_require__(105);
 var weak = __webpack_require__(182);
 var isObject = __webpack_require__(5);
 var fails = __webpack_require__(4);
@@ -46148,7 +46151,7 @@ module.exports = flattenIntoArray;
 
 // https://github.com/tc39/proposal-string-pad-start-end
 var toLength = __webpack_require__(9);
-var repeat = __webpack_require__(108);
+var repeat = __webpack_require__(109);
 var defined = __webpack_require__(28);
 
 module.exports = function (that, maxLength, fillString, left) {
@@ -46267,7 +46270,7 @@ module.exports = __webpack_require__(16).isIterable = function (it) {
 
 var dP = __webpack_require__(7);
 var gOPD = __webpack_require__(21);
-var ownKeys = __webpack_require__(124);
+var ownKeys = __webpack_require__(125);
 var toIObject = __webpack_require__(14);
 
 module.exports = function define(target, mixin) {
@@ -46587,7 +46590,7 @@ NgbAlert.propDecorators = {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NgbButtonsModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__label__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__label__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__checkbox__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__radio__ = __webpack_require__(201);
 /* unused harmony reexport NgbButtonLabel */
@@ -46624,7 +46627,7 @@ NgbButtonsModule.ctorParameters = function () { return []; };
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NgbCheckBox; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__label__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__label__ = __webpack_require__(88);
 
 
 
@@ -46855,7 +46858,7 @@ function dispatchError(arg) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NgbRadio; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__label__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__label__ = __webpack_require__(88);
 
 
 
@@ -47752,7 +47755,7 @@ NgbDatepickerNavigation.propDecorators = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngb_date__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__datepicker__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngb_date_parser_formatter__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_positioning__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_positioning__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngb_calendar__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__datepicker_service__ = __webpack_require__(134);
 
@@ -48936,7 +48939,7 @@ NgbPopoverModule.ctorParameters = function () { return []; };
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NgbPopover; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_triggers__ = __webpack_require__(228);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_positioning__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_positioning__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_popup__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__popover_config__ = __webpack_require__(139);
 
@@ -49822,7 +49825,7 @@ NgbTooltipModule.ctorParameters = function () { return []; };
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NgbTooltip; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__util_triggers__ = __webpack_require__(228);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_positioning__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_positioning__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_popup__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tooltip_config__ = __webpack_require__(144);
 
@@ -50090,7 +50093,7 @@ NgbHighlight.propDecorators = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_observable_fromEvent__ = __webpack_require__(483);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_observable_fromEvent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_observable_fromEvent__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_positioning__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_positioning__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__typeahead_window__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__util_popup__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__util_util__ = __webpack_require__(13);
@@ -50856,8 +50859,8 @@ RegistrationComponent = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainPageComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_habits_service__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__ = __webpack_require__(128);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__newHabit_component__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__chooseHabit_component__ = __webpack_require__(249);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_authService__ = __webpack_require__(67);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -50886,7 +50889,7 @@ let MainPageComponent = class MainPageComponent {
         this.habits = this.habits.filter(x => x.id !== habit.id);
     }
     onNewHabit() {
-        const modalRef = this.modalService.open(__WEBPACK_IMPORTED_MODULE_3__newHabit_component__["a" /* NewHabitModal */]);
+        const modalRef = this.modalService.open(__WEBPACK_IMPORTED_MODULE_3__chooseHabit_component__["a" /* ChooseHabitModal */]);
         modalRef.result.then(habit => {
             this.habits.push(habit);
         }).catch(() => { });
@@ -50898,7 +50901,7 @@ MainPageComponent = __decorate([
         template: `
     <div *ngIf="this.authService.isLoggedIN">
       <habit *ngFor="let habit of habits" [habit]="habit" (deleted)="onHabitDeleted(habit)"></habit>
-        <div class="button" (click)="onNewHabit()">Add new habit</div>
+        <div class="button" (click)="onNewHabit()">Add a new habit</div>
     </div>
   `
     }),
@@ -50906,7 +50909,6 @@ MainPageComponent = __decorate([
         __WEBPACK_IMPORTED_MODULE_4__services_authService__["a" /* AuthService */]])
 ], MainPageComponent);
 
-//*ngFor="let habit of habits"
 
 
 /***/ }),
@@ -50914,9 +50916,9 @@ MainPageComponent = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewHabitModal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChooseHabitModal; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_habits_service__ = __webpack_require__(69);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -50930,28 +50932,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-let NewHabitModal = class NewHabitModal {
+let ChooseHabitModal = class ChooseHabitModal {
     constructor(modalRef, habitService) {
         this.modalRef = modalRef;
         this.habitService = habitService;
+        this.habits = ['jogging', 'meditation', 'nutrition', 'reading', 'sport', 'workout', 'other'];
     }
-    add(name) {
-        this.habitService.addNewHabit(name).subscribe((habit) => {
+    add(habit) {
+        this.habitService.addNewHabit(habit).subscribe((habit) => {
             this.modalRef.close(habit);
         });
     }
 };
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Object)
-], NewHabitModal.prototype, "name", void 0);
-NewHabitModal = __decorate([
+ChooseHabitModal = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'new-habit-modal',
-        templateUrl: '/client/components/newHabit.component.html'
+        selector: 'choose-habit-modal',
+        templateUrl: '/client/components/chooseHabit.component.html',
+        styleUrls: ['client/components/chooseHabit.component.css']
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["a" /* NgbActiveModal */], __WEBPACK_IMPORTED_MODULE_2__services_habits_service__["a" /* HabitsService */]])
-], NewHabitModal);
+], ChooseHabitModal);
 
 
 
@@ -50964,7 +50964,7 @@ NewHabitModal = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_habits_service__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_first__ = __webpack_require__(508);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_first__ = __webpack_require__(509);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_first___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_first__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -50980,8 +50980,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 let HabitPageComponent = class HabitPageComponent {
-    constructor(habitsService, route) {
+    constructor(habitsService, route, router) {
         this.habitsService = habitsService;
+        this.route = route;
+        this.router = router;
         route.params.first().subscribe(params => {
             this.id = params['id'];
             this.habitsService.getHabit(this.id).subscribe(habit => {
@@ -50989,13 +50991,35 @@ let HabitPageComponent = class HabitPageComponent {
             });
         });
     }
+    toggleDate($event) {
+        let date = $event.date;
+        if (this.habit.dates.some(x => x.date === date.toISOString())) {
+            this.habitsService.deleteDate(date, this.habit.id).subscribe(res => {
+                this.habit.dates = this.habit.dates.filter(d => d.date !== date.toISOString());
+            });
+        }
+        else {
+            this.habitsService.addDate(date, this.habit.id).subscribe(res => {
+                this.habit.dates = this.habit.dates.concat([{ date: date.toISOString(), habitId: this.habit.id, id: null }]);
+            });
+        }
+    }
+    deleteHabit() {
+        this.habitsService.deleteHabit(this.habit.id).subscribe(() => {
+            this.router.navigate(['/']);
+        });
+    }
+    onNameChanged($event) {
+        this.habit.name = $event.name;
+        this.habitsService.changeHabitName(this.habit.id, $event.name).subscribe();
+    }
 };
 HabitPageComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'habitPage',
         templateUrl: '/client/components/habitPage.component.html'
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_habits_service__["a" /* HabitsService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_habits_service__["a" /* HabitsService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
 ], HabitPageComponent);
 
 
@@ -51013,8 +51037,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_zone_js__ = __webpack_require__(473);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_zone_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_zone_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__style_css__ = __webpack_require__(485);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__style_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__login_style_css__ = __webpack_require__(488);
@@ -51027,18 +51051,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_navbar_component__ = __webpack_require__(506);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_habit_component__ = __webpack_require__(507);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_mainPage_component__ = __webpack_require__(248);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_newHabit_component__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_newHabit_component__ = __webpack_require__(508);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_habitPage_component__ = __webpack_require__(250);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_calendar_component__ = __webpack_require__(509);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__router_app_routing__ = __webpack_require__(510);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_authService__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_habits_service__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_calendar_component__ = __webpack_require__(510);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_input_component__ = __webpack_require__(511);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_chooseHabit_component__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__router_app_routing__ = __webpack_require__(512);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_authService__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_habits_service__ = __webpack_require__(69);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -51065,66 +51093,16 @@ let AppModule = class AppModule {
 };
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["M" /* NgModule */])({
-        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_19__router_app_routing__["a" /* routing */], __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__["c" /* NgbModule */].forRoot()],
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_21__router_app_routing__["a" /* routing */], __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__["c" /* NgbModule */].forRoot()],
         declarations: [__WEBPACK_IMPORTED_MODULE_10__components_app_component__["a" /* AppComponent */], __WEBPACK_IMPORTED_MODULE_12__components_registration_component__["a" /* RegistrationComponent */], __WEBPACK_IMPORTED_MODULE_11__components_login_component__["a" /* LoginComponent */],
             __WEBPACK_IMPORTED_MODULE_13__components_navbar_component__["a" /* NavbarComponent */], __WEBPACK_IMPORTED_MODULE_14__components_habit_component__["a" /* HabitComponent */], __WEBPACK_IMPORTED_MODULE_15__components_mainPage_component__["a" /* MainPageComponent */], __WEBPACK_IMPORTED_MODULE_16__components_newHabit_component__["a" /* NewHabitModal */],
-            __WEBPACK_IMPORTED_MODULE_17__components_habitPage_component__["a" /* HabitPageComponent */], __WEBPACK_IMPORTED_MODULE_18__components_calendar_component__["a" /* CalendarComponent */]],
-        entryComponents: [__WEBPACK_IMPORTED_MODULE_16__components_newHabit_component__["a" /* NewHabitModal */]],
+            __WEBPACK_IMPORTED_MODULE_17__components_habitPage_component__["a" /* HabitPageComponent */], __WEBPACK_IMPORTED_MODULE_18__components_calendar_component__["a" /* CalendarComponent */], __WEBPACK_IMPORTED_MODULE_19__components_input_component__["a" /* InputComponent */], __WEBPACK_IMPORTED_MODULE_20__components_chooseHabit_component__["a" /* ChooseHabitModal */]],
+        entryComponents: [__WEBPACK_IMPORTED_MODULE_16__components_newHabit_component__["a" /* NewHabitModal */], __WEBPACK_IMPORTED_MODULE_20__components_chooseHabit_component__["a" /* ChooseHabitModal */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_10__components_app_component__["a" /* AppComponent */]],
-        providers: [__WEBPACK_IMPORTED_MODULE_20__services_authService__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_21__services_habits_service__["a" /* HabitsService */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_22__services_authService__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_23__services_habits_service__["a" /* HabitsService */]]
     })
 ], AppModule);
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(AppModule);
-/*import * as angular from 'angular'
-import '@uirouter/angularjs'
-import 'angular-ui-bootstrap'
-import {navbarComponent} from './components/navbar.component'
-import {AuthenticationService} from './services/authenticationService'
-import {HabitsService} from './services/habitsService'
-import {loginComponent} from './components/login.component.js'
-import {mainComponent} from './components/main.component.js'
-import {registrationComponent} from './components/registration.component.js'
-import {habitComponent} from './components/habit.component.js'
-import {newHabitComponent} from './components/newHabit.component.js'
-
-let app = angular.module('habitude', ['ui.router', 'ui.bootstrap'])
-
-app.service('authentication', AuthenticationService)
-app.service('habits', HabitsService)
-
-app.component('navbar', navbarComponent)
-app.component('loginView', loginComponent)
-app.component('registrationView', registrationComponent)
-app.component('mainView', mainComponent)
-app.component('habit', habitComponent)
-app.component('newHabit', newHabitComponent)
-
-app.config(function ($stateProvider, $locationProvider) {
-  let loginState = {
-    name: 'login',
-    url: '/loginPage',
-    component: 'loginView'
-  }
-
-  let registrationState = {
-    name: 'registration',
-    url: '/registrationPage',
-    component: 'registrationView'
-  }
-
-  let mainState = {
-    name: 'main',
-    url: '/',
-    component: 'mainView'
-  }
-
-  $stateProvider.state(loginState)
-  $stateProvider.state(registrationState)
-  $stateProvider.state(mainState)
-
-  $locationProvider.html5Mode(true)
-})
-*/
 console.log('h');
 
 
@@ -79189,7 +79167,7 @@ function _mergeArrays(parts) {
 "use strict";
 
 var Subscriber_1 = __webpack_require__(17);
-var rxSubscriber_1 = __webpack_require__(93);
+var rxSubscriber_1 = __webpack_require__(94);
 var Observer_1 = __webpack_require__(152);
 function toSubscriber(nextOrObserver, error, complete) {
     if (nextOrObserver) {
@@ -79256,8 +79234,8 @@ exports.merge = merge_1.mergeStatic;
 "use strict";
 
 var Observable_1 = __webpack_require__(10);
-var ArrayObservable_1 = __webpack_require__(95);
-var mergeAll_1 = __webpack_require__(97);
+var ArrayObservable_1 = __webpack_require__(96);
+var mergeAll_1 = __webpack_require__(98);
 var isScheduler_1 = __webpack_require__(154);
 /* tslint:enable:max-line-length */
 /**
@@ -79881,7 +79859,7 @@ __webpack_require__(365);
 __webpack_require__(366);
 __webpack_require__(367);
 __webpack_require__(368);
-__webpack_require__(118);
+__webpack_require__(119);
 __webpack_require__(369);
 __webpack_require__(370);
 __webpack_require__(175);
@@ -80000,7 +79978,7 @@ var setToStringTag = __webpack_require__(55);
 var uid = __webpack_require__(45);
 var wks = __webpack_require__(6);
 var wksExt = __webpack_require__(160);
-var wksDefine = __webpack_require__(100);
+var wksDefine = __webpack_require__(101);
 var keyOf = __webpack_require__(161);
 var enumKeys = __webpack_require__(266);
 var isArray = __webpack_require__(73);
@@ -80420,7 +80398,7 @@ __webpack_require__(30)('isExtensible', function ($isExtensible) {
 // 19.1.3.1 Object.assign(target, source)
 var $export = __webpack_require__(0);
 
-$export($export.S + $export.F, 'Object', { assign: __webpack_require__(104) });
+$export($export.S + $export.F, 'Object', { assign: __webpack_require__(105) });
 
 
 /***/ }),
@@ -80449,7 +80427,7 @@ module.exports = Object.is || function is(x, y) {
 
 // 19.1.3.19 Object.setPrototypeOf(O, proto)
 var $export = __webpack_require__(0);
-$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(105).set });
+$export($export.S, 'Object', { setPrototypeOf: __webpack_require__(106).set });
 
 
 /***/ }),
@@ -80550,7 +80528,7 @@ $export($export.G + $export.F * (parseFloat != $parseFloat), { parseFloat: $pars
 var global = __webpack_require__(3);
 var has = __webpack_require__(15);
 var cof = __webpack_require__(25);
-var inheritIfRequired = __webpack_require__(107);
+var inheritIfRequired = __webpack_require__(108);
 var toPrimitive = __webpack_require__(27);
 var fails = __webpack_require__(4);
 var gOPN = __webpack_require__(48).f;
@@ -80626,7 +80604,7 @@ if (!$Number(' 0o1') || !$Number('0b1') || $Number('+0x1')) {
 var $export = __webpack_require__(0);
 var toInteger = __webpack_require__(29);
 var aNumberValue = __webpack_require__(168);
-var repeat = __webpack_require__(108);
+var repeat = __webpack_require__(109);
 var $toFixed = 1.0.toFixed;
 var floor = Math.floor;
 var data = [0, 0, 0, 0, 0, 0];
@@ -80931,7 +80909,7 @@ $export($export.S + $export.F * !($atanh && 1 / $atanh(-0) < 0), 'Math', {
 
 // 20.2.2.9 Math.cbrt(x)
 var $export = __webpack_require__(0);
-var sign = __webpack_require__(109);
+var sign = __webpack_require__(110);
 
 $export($export.S, 'Math', {
   cbrt: function cbrt(x) {
@@ -80975,7 +80953,7 @@ $export($export.S, 'Math', {
 
 // 20.2.2.14 Math.expm1(x)
 var $export = __webpack_require__(0);
-var $expm1 = __webpack_require__(110);
+var $expm1 = __webpack_require__(111);
 
 $export($export.S + $export.F * ($expm1 != Math.expm1), 'Math', { expm1: $expm1 });
 
@@ -81089,7 +81067,7 @@ $export($export.S, 'Math', {
 // 20.2.2.28 Math.sign(x)
 var $export = __webpack_require__(0);
 
-$export($export.S, 'Math', { sign: __webpack_require__(109) });
+$export($export.S, 'Math', { sign: __webpack_require__(110) });
 
 
 /***/ }),
@@ -81098,7 +81076,7 @@ $export($export.S, 'Math', { sign: __webpack_require__(109) });
 
 // 20.2.2.30 Math.sinh(x)
 var $export = __webpack_require__(0);
-var expm1 = __webpack_require__(110);
+var expm1 = __webpack_require__(111);
 var exp = Math.exp;
 
 // V8 near Chromium 38 has a problem with very small numbers
@@ -81119,7 +81097,7 @@ $export($export.S + $export.F * __webpack_require__(4)(function () {
 
 // 20.2.2.33 Math.tanh(x)
 var $export = __webpack_require__(0);
-var expm1 = __webpack_require__(110);
+var expm1 = __webpack_require__(111);
 var exp = Math.exp;
 
 $export($export.S, 'Math', {
@@ -81218,7 +81196,7 @@ __webpack_require__(56)('trim', function ($trim) {
 
 "use strict";
 
-var $at = __webpack_require__(111)(true);
+var $at = __webpack_require__(112)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
 __webpack_require__(75)(String, 'String', function (iterated) {
@@ -81243,7 +81221,7 @@ __webpack_require__(75)(String, 'String', function (iterated) {
 "use strict";
 
 var $export = __webpack_require__(0);
-var $at = __webpack_require__(111)(false);
+var $at = __webpack_require__(112)(false);
 $export($export.P, 'String', {
   // 21.1.3.3 String.prototype.codePointAt(pos)
   codePointAt: function codePointAt(pos) {
@@ -81261,11 +81239,11 @@ $export($export.P, 'String', {
 
 var $export = __webpack_require__(0);
 var toLength = __webpack_require__(9);
-var context = __webpack_require__(112);
+var context = __webpack_require__(113);
 var ENDS_WITH = 'endsWith';
 var $endsWith = ''[ENDS_WITH];
 
-$export($export.P + $export.F * __webpack_require__(113)(ENDS_WITH), 'String', {
+$export($export.P + $export.F * __webpack_require__(114)(ENDS_WITH), 'String', {
   endsWith: function endsWith(searchString /* , endPosition = @length */) {
     var that = context(this, searchString, ENDS_WITH);
     var endPosition = arguments.length > 1 ? arguments[1] : undefined;
@@ -81287,10 +81265,10 @@ $export($export.P + $export.F * __webpack_require__(113)(ENDS_WITH), 'String', {
 // 21.1.3.7 String.prototype.includes(searchString, position = 0)
 
 var $export = __webpack_require__(0);
-var context = __webpack_require__(112);
+var context = __webpack_require__(113);
 var INCLUDES = 'includes';
 
-$export($export.P + $export.F * __webpack_require__(113)(INCLUDES), 'String', {
+$export($export.P + $export.F * __webpack_require__(114)(INCLUDES), 'String', {
   includes: function includes(searchString /* , position = 0 */) {
     return !!~context(this, searchString, INCLUDES)
       .indexOf(searchString, arguments.length > 1 ? arguments[1] : undefined);
@@ -81306,7 +81284,7 @@ var $export = __webpack_require__(0);
 
 $export($export.P, 'String', {
   // 21.1.3.13 String.prototype.repeat(count)
-  repeat: __webpack_require__(108)
+  repeat: __webpack_require__(109)
 });
 
 
@@ -81319,11 +81297,11 @@ $export($export.P, 'String', {
 
 var $export = __webpack_require__(0);
 var toLength = __webpack_require__(9);
-var context = __webpack_require__(112);
+var context = __webpack_require__(113);
 var STARTS_WITH = 'startsWith';
 var $startsWith = ''[STARTS_WITH];
 
-$export($export.P + $export.F * __webpack_require__(113)(STARTS_WITH), 'String', {
+$export($export.P + $export.F * __webpack_require__(114)(STARTS_WITH), 'String', {
   startsWith: function startsWith(searchString /* , position = 0 */) {
     var that = context(this, searchString, STARTS_WITH);
     var index = toLength(Math.min(arguments.length > 1 ? arguments[1] : undefined, that.length));
@@ -81661,9 +81639,9 @@ var ctx = __webpack_require__(24);
 var $export = __webpack_require__(0);
 var toObject = __webpack_require__(11);
 var call = __webpack_require__(172);
-var isArrayIter = __webpack_require__(114);
+var isArrayIter = __webpack_require__(115);
 var toLength = __webpack_require__(9);
-var createProperty = __webpack_require__(115);
+var createProperty = __webpack_require__(116);
 var getIterFn = __webpack_require__(65);
 
 $export($export.S + $export.F * !__webpack_require__(78)(function (iter) { Array.from(iter); }), 'Array', {
@@ -81702,7 +81680,7 @@ $export($export.S + $export.F * !__webpack_require__(78)(function (iter) { Array
 "use strict";
 
 var $export = __webpack_require__(0);
-var createProperty = __webpack_require__(115);
+var createProperty = __webpack_require__(116);
 
 // WebKit Array.of isn't generic
 $export($export.S + $export.F * __webpack_require__(4)(function () {
@@ -81747,7 +81725,7 @@ $export($export.P + $export.F * (__webpack_require__(63) != Object || !__webpack
 "use strict";
 
 var $export = __webpack_require__(0);
-var html = __webpack_require__(103);
+var html = __webpack_require__(104);
 var cof = __webpack_require__(25);
 var toAbsoluteIndex = __webpack_require__(47);
 var toLength = __webpack_require__(9);
@@ -82017,7 +81995,7 @@ __webpack_require__(40)('copyWithin');
 // 22.1.3.6 Array.prototype.fill(value, start = 0, end = this.length)
 var $export = __webpack_require__(0);
 
-$export($export.P, 'Array', { fill: __webpack_require__(117) });
+$export($export.P, 'Array', { fill: __webpack_require__(118) });
 
 __webpack_require__(40)('fill');
 
@@ -82076,7 +82054,7 @@ __webpack_require__(51)('Array');
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(3);
-var inheritIfRequired = __webpack_require__(107);
+var inheritIfRequired = __webpack_require__(108);
 var dP = __webpack_require__(7).f;
 var gOPN = __webpack_require__(48).f;
 var isRegExp = __webpack_require__(77);
@@ -82295,9 +82273,9 @@ var aFunction = __webpack_require__(12);
 var anInstance = __webpack_require__(52);
 var forOf = __webpack_require__(41);
 var speciesConstructor = __webpack_require__(81);
-var task = __webpack_require__(120).set;
-var microtask = __webpack_require__(121)();
-var newPromiseCapabilityModule = __webpack_require__(122);
+var task = __webpack_require__(121).set;
+var microtask = __webpack_require__(122)();
+var newPromiseCapabilityModule = __webpack_require__(123);
 var perform = __webpack_require__(176);
 var promiseResolve = __webpack_require__(177);
 var PROMISE = 'Promise';
@@ -82603,7 +82581,7 @@ __webpack_require__(82)(WEAK_SET, function (get) {
 
 var $export = __webpack_require__(0);
 var $typed = __webpack_require__(83);
-var buffer = __webpack_require__(123);
+var buffer = __webpack_require__(124);
 var anObject = __webpack_require__(2);
 var toAbsoluteIndex = __webpack_require__(47);
 var toLength = __webpack_require__(9);
@@ -82654,7 +82632,7 @@ __webpack_require__(51)(ARRAY_BUFFER);
 
 var $export = __webpack_require__(0);
 $export($export.G + $export.W + $export.F * !__webpack_require__(83).ABV, {
-  DataView: __webpack_require__(123).DataView
+  DataView: __webpack_require__(124).DataView
 });
 
 
@@ -83008,7 +82986,7 @@ $export($export.S, 'Reflect', {
 // 26.1.11 Reflect.ownKeys(target)
 var $export = __webpack_require__(0);
 
-$export($export.S, 'Reflect', { ownKeys: __webpack_require__(124) });
+$export($export.S, 'Reflect', { ownKeys: __webpack_require__(125) });
 
 
 /***/ }),
@@ -83076,7 +83054,7 @@ $export($export.S, 'Reflect', { set: set });
 
 // 26.1.14 Reflect.setPrototypeOf(target, proto)
 var $export = __webpack_require__(0);
-var setProto = __webpack_require__(105);
+var setProto = __webpack_require__(106);
 
 if (setProto) $export($export.S, 'Reflect', {
   setPrototypeOf: function setPrototypeOf(target, proto) {
@@ -83122,7 +83100,7 @@ var flattenIntoArray = __webpack_require__(184);
 var toObject = __webpack_require__(11);
 var toLength = __webpack_require__(9);
 var aFunction = __webpack_require__(12);
-var arraySpeciesCreate = __webpack_require__(116);
+var arraySpeciesCreate = __webpack_require__(117);
 
 $export($export.P, 'Array', {
   flatMap: function flatMap(callbackfn /* , thisArg */) {
@@ -83151,7 +83129,7 @@ var flattenIntoArray = __webpack_require__(184);
 var toObject = __webpack_require__(11);
 var toLength = __webpack_require__(9);
 var toInteger = __webpack_require__(29);
-var arraySpeciesCreate = __webpack_require__(116);
+var arraySpeciesCreate = __webpack_require__(117);
 
 $export($export.P, 'Array', {
   flatten: function flatten(/* depthArg = 1 */) {
@@ -83175,7 +83153,7 @@ __webpack_require__(40)('flatten');
 
 // https://github.com/mathiasbynens/String.prototype.at
 var $export = __webpack_require__(0);
-var $at = __webpack_require__(111)(true);
+var $at = __webpack_require__(112)(true);
 
 $export($export.P, 'String', {
   at: function at(pos) {
@@ -83287,14 +83265,14 @@ $export($export.P, 'String', {
 /* 411 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(100)('asyncIterator');
+__webpack_require__(101)('asyncIterator');
 
 
 /***/ }),
 /* 412 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(100)('observable');
+__webpack_require__(101)('observable');
 
 
 /***/ }),
@@ -83303,10 +83281,10 @@ __webpack_require__(100)('observable');
 
 // https://github.com/tc39/proposal-object-getownpropertydescriptors
 var $export = __webpack_require__(0);
-var ownKeys = __webpack_require__(124);
+var ownKeys = __webpack_require__(125);
 var toIObject = __webpack_require__(14);
 var gOPD = __webpack_require__(21);
-var createProperty = __webpack_require__(115);
+var createProperty = __webpack_require__(116);
 
 $export($export.S, 'Object', {
   getOwnPropertyDescriptors: function getOwnPropertyDescriptors(object) {
@@ -83778,7 +83756,7 @@ $export($export.P + $export.R, 'Promise', { 'finally': function (onFinally) {
 
 // https://github.com/tc39/proposal-promise-try
 var $export = __webpack_require__(0);
-var newPromiseCapability = __webpack_require__(122);
+var newPromiseCapability = __webpack_require__(123);
 var perform = __webpack_require__(176);
 
 $export($export.S, 'Promise', { 'try': function (callbackfn) {
@@ -83965,7 +83943,7 @@ $metadata.exp({ metadata: function metadata(metadataKey, metadataValue) {
 
 // https://github.com/rwaldron/tc39-notes/blob/master/es6/2014-09/sept-25.md#510-globalasap-for-enqueuing-a-microtask
 var $export = __webpack_require__(0);
-var microtask = __webpack_require__(121)();
+var microtask = __webpack_require__(122)();
 var process = __webpack_require__(3).process;
 var isNode = __webpack_require__(25)(process) == 'process';
 
@@ -83987,7 +83965,7 @@ $export($export.G, {
 var $export = __webpack_require__(0);
 var global = __webpack_require__(3);
 var core = __webpack_require__(16);
-var microtask = __webpack_require__(121)();
+var microtask = __webpack_require__(122)();
 var OBSERVABLE = __webpack_require__(6)('observable');
 var aFunction = __webpack_require__(12);
 var anObject = __webpack_require__(2);
@@ -84191,7 +84169,7 @@ __webpack_require__(51)('Observable');
 var global = __webpack_require__(3);
 var $export = __webpack_require__(0);
 var invoke = __webpack_require__(74);
-var partial = __webpack_require__(125);
+var partial = __webpack_require__(126);
 var navigator = global.navigator;
 var MSIE = !!navigator && /MSIE .\./.test(navigator.userAgent); // <- dirty ie9- check
 var wrap = function (set) {
@@ -84215,7 +84193,7 @@ $export($export.G + $export.B + $export.F * MSIE, {
 /***/ (function(module, exports, __webpack_require__) {
 
 var $export = __webpack_require__(0);
-var $task = __webpack_require__(120);
+var $task = __webpack_require__(121);
 $export($export.G + $export.B, {
   setImmediate: $task.set,
   clearImmediate: $task.clear
@@ -84226,7 +84204,7 @@ $export($export.G + $export.B, {
 /* 460 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var $iterators = __webpack_require__(118);
+var $iterators = __webpack_require__(119);
 var getKeys = __webpack_require__(32);
 var redefine = __webpack_require__(20);
 var global = __webpack_require__(3);
@@ -84295,7 +84273,7 @@ for (var collections = getKeys(DOMIterables), i = 0; i < collections.length; i++
 var ctx = __webpack_require__(24);
 var $export = __webpack_require__(0);
 var createDesc = __webpack_require__(38);
-var assign = __webpack_require__(104);
+var assign = __webpack_require__(105);
 var create = __webpack_require__(33);
 var getPrototypeOf = __webpack_require__(22);
 var getKeys = __webpack_require__(32);
@@ -84305,7 +84283,7 @@ var aFunction = __webpack_require__(12);
 var forOf = __webpack_require__(41);
 var isIterable = __webpack_require__(191);
 var $iterCreate = __webpack_require__(76);
-var step = __webpack_require__(119);
+var step = __webpack_require__(120);
 var isObject = __webpack_require__(5);
 var toIObject = __webpack_require__(14);
 var DESCRIPTORS = __webpack_require__(8);
@@ -84470,7 +84448,7 @@ module.exports = __webpack_require__(16).getIterator = function (it) {
 var global = __webpack_require__(3);
 var core = __webpack_require__(16);
 var $export = __webpack_require__(0);
-var partial = __webpack_require__(125);
+var partial = __webpack_require__(126);
 // https://esdiscuss.org/topic/promise-returning-delay-function
 $export($export.G + $export.F, {
   delay: function delay(time) {
@@ -84491,7 +84469,7 @@ var $export = __webpack_require__(0);
 // Placeholder
 __webpack_require__(16)._ = path._ = path._ || {};
 
-$export($export.P + $export.F, 'Function', { part: __webpack_require__(125) });
+$export($export.P + $export.F, 'Function', { part: __webpack_require__(126) });
 
 
 /***/ }),
@@ -84559,7 +84537,7 @@ __webpack_require__(75)(Number, 'Number', function (iterated) {
 
 // https://github.com/benjamingr/RexExp.escape
 var $export = __webpack_require__(0);
-var $re = __webpack_require__(126)(/[\\^$*+?.()|[\]{}]/g, '\\$&');
+var $re = __webpack_require__(127)(/[\\^$*+?.()|[\]{}]/g, '\\$&');
 
 $export($export.S, 'RegExp', { escape: function escape(it) { return $re(it); } });
 
@@ -84571,7 +84549,7 @@ $export($export.S, 'RegExp', { escape: function escape(it) { return $re(it); } }
 "use strict";
 
 var $export = __webpack_require__(0);
-var $re = __webpack_require__(126)(/[&<>"']/g, {
+var $re = __webpack_require__(127)(/[&<>"']/g, {
   '&': '&amp;',
   '<': '&lt;',
   '>': '&gt;',
@@ -84589,7 +84567,7 @@ $export($export.P + $export.F, 'String', { escapeHTML: function escapeHTML() { r
 "use strict";
 
 var $export = __webpack_require__(0);
-var $re = __webpack_require__(126)(/&(?:amp|lt|gt|quot|apos);/g, {
+var $re = __webpack_require__(127)(/&(?:amp|lt|gt|quot|apos);/g, {
   '&amp;': '&',
   '&lt;': '<',
   '&gt;': '>',
@@ -87314,7 +87292,7 @@ Zone.__load_patch('util', function (global, Zone, api) {
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(89)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(90)))
 
 /***/ }),
 /* 474 */
@@ -87338,8 +87316,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Observable_1 = __webpack_require__(10);
-var EmptyObservable_1 = __webpack_require__(96);
-var isArray_1 = __webpack_require__(91);
+var EmptyObservable_1 = __webpack_require__(97);
+var isArray_1 = __webpack_require__(92);
 var subscribeToResult_1 = __webpack_require__(61);
 var OuterSubscriber_1 = __webpack_require__(60);
 /**
@@ -88138,8 +88116,8 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Observable_1 = __webpack_require__(10);
 var tryCatch_1 = __webpack_require__(151);
-var isFunction_1 = __webpack_require__(90);
-var errorObject_1 = __webpack_require__(92);
+var isFunction_1 = __webpack_require__(91);
+var errorObject_1 = __webpack_require__(93);
 var Subscription_1 = __webpack_require__(59);
 var toString = Object.prototype.toString;
 function isNodeStyleEventEmitter(sourceObj) {
@@ -88311,7 +88289,7 @@ exports = module.exports = __webpack_require__(147)(undefined);
 
 
 // module
-exports.push([module.i, ".habitName {\n  font-size: 20px;\n  margin-right: 20px;\n}\n\n.habitTemplate {\n  display: flex;\n  margin: 20px;\n  flex-direction: row;\n}\n\n.checked {\n  zoom: 1.5;\n}\n\n#loginPage {\n  width: 50%;\n  margin: 25%;\n}\n\n#registrationPage {\n  width: 50%;\n  margin: 25%;\n}\n\n#newHabit {\n  width: 50%;\n  margin: 30px;\n}\n\n#showLoginPage {\n  display: inline-block;\n}\n\n#navbarBtn {\n  background-color: #26C4D8;\n  border-color: #26C4D8;\n  color: white;\n}\n\n#navbarBtn:hover {\n  background-color: #4BCEE0;\n}\n\n#logoutBtn {\n  background-color: white;\n  border-color: #ccc;\n  color: #aaa;\n}\n\n#logoutBtn:hover {\n  border-color: #aaa;\n  color: #999;\n}\n\n.habit-border {\n  padding: 20px;\n  border: 1px solid #ccc;\n}\n", ""]);
+exports.push([module.i, "app {\n  display: block;\n}\n\n.modal-open > app {\n  filter: blur(5px);\n}\n\n.dateChecked {\n  color: #26C4D8;\n  font-weight: bold;\n}\n\n.habitName {\n  font-size: 20px;\n  margin-right: 20px;\n  text-decoration: none;\n}\n\n.habitTemplate {\n  display: flex;\n  margin: 20px;\n  flex-direction: row;\n}\n\n.checked {\n  zoom: 1.5;\n}\n\n#loginPage {\n  width: 50%;\n  margin: 25%;\n}\n\n#registrationPage {\n  width: 50%;\n  margin: 25%;\n}\n\n#newHabit {\n  width: 50%;\n  margin: 30px;\n}\n\n#showLoginPage {\n  display: inline-block;\n}\n\n#navbarBtn {\n  background-color: #26C4D8;\n  border-color: #26C4D8;\n  color: white;\n}\n\n#navbarBtn:hover {\n  background-color: #4BCEE0;\n}\n\n#logoutBtn {\n  background-color: white;\n  border-color: #ccc;\n  color: #aaa;\n}\n\n#logoutBtn:hover {\n  border-color: #aaa;\n  color: #999;\n}\n\n.habit-border {\n  padding: 20px;\n  border: 1px solid #ccc;\n}\n", ""]);
 
 // exports
 
@@ -88496,7 +88474,7 @@ exports = module.exports = __webpack_require__(147)(undefined);
 
 
 // module
-exports.push([module.i, ".wrapper {\n  width: 50%;\n  margin: 25px auto; }\n\n.habit-border:hover {\n  box-shadow: 0, 0, 10px, rgba(0, 0, 0, 0.5);\n  border-color: #aaa; }\n\n.info {\n  width: 75%;\n  margin: 0;\n  margin-left: 5%;\n  display: inline-block; }\n\n.checkboxContainer {\n  padding-top: 20px; }\n\n.habitName {\n  margin: 0;\n  padding-bottom: 5px;\n  font-size: 27px;\n  font-weight: 100;\n  border-bottom: 1px solid #e0e1dd; }\n\n.habitNameRef {\n  color: #767a7b; }\n\n.habitNameRef:hover {\n  text-decoration: none;\n  color: #018C9F; }\n\n.close {\n  color: #aaa;\n  margin-right: 10px; }\n\n.close:hover {\n  color: #777; }\n\nlabel {\n  display: inline-block;\n  color: #26C4D8;\n  cursor: pointer;\n  position: relative; }\n  label span {\n    display: inline-block;\n    position: relative;\n    background-color: transparent;\n    width: 25px;\n    height: 25px;\n    transform-origin: center;\n    border: 2px solid #26C4D8;\n    border-radius: 50%;\n    vertical-align: -6px;\n    margin-right: 10px;\n    transition: background-color 150ms 200ms, transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89); }\n    label span:before {\n      content: \"\";\n      width: 0px;\n      height: 2px;\n      border-radius: 2px;\n      background: #26C4D8;\n      position: absolute;\n      transform: rotate(45deg);\n      top: 10px;\n      left: 7px;\n      transition: width 50ms ease 50ms;\n      transform-origin: 0% 0%; }\n    label span:after {\n      content: \"\";\n      width: 0;\n      height: 2px;\n      border-radius: 2px;\n      background: #26C4D8;\n      position: absolute;\n      transform: rotate(305deg);\n      top: 14px;\n      left: 9px;\n      transition: width 50ms ease;\n      transform-origin: 0% 0%; }\n  label:hover span:before {\n    width: 5px;\n    transition: width 100ms ease; }\n  label:hover span:after {\n    width: 10px;\n    transition: width 150ms ease 100ms; }\n\ninput[type=\"checkbox\"] {\n  display: none; }\n  input[type=\"checkbox\"]:checked + label span {\n    background-color: #26C4D8;\n    transform: scale(1.25); }\n    input[type=\"checkbox\"]:checked + label span:after {\n      width: 10px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n    input[type=\"checkbox\"]:checked + label span:before {\n      width: 5px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n  input[type=\"checkbox\"]:checked + label:hover span {\n    background-color: #26C4D8;\n    transform: scale(1.25); }\n    input[type=\"checkbox\"]:checked + label:hover span:after {\n      width: 10px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n    input[type=\"checkbox\"]:checked + label:hover span:before {\n      width: 5px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n\n.button {\n  width: 50%;\n  margin: 10px auto;\n  padding: 20px;\n  border: 2px solid #eee;\n  text-align: center;\n  text-transform: uppercase;\n  position: relative;\n  overflow: hidden;\n  transition: .3s; }\n  .button:after {\n    position: absolute;\n    transition: .3s;\n    content: '';\n    width: 0;\n    left: 50%;\n    bottom: 0;\n    height: 3px;\n    background: #eee; }\n  .button:nth-of-type(1):after {\n    height: 120%;\n    left: -10%;\n    transform: skewX(15deg);\n    z-index: -1; }\n  .button:hover {\n    cursor: pointer; }\n    .button:hover:after {\n      width: 100%;\n      left: 0; }\n    .button:hover:nth-of-type(1) {\n      color: #26C2D8; }\n    .button:hover:nth-of-type(1):after {\n      left: -10%;\n      width: 120%; }\n", ""]);
+exports.push([module.i, "habit > .wrapper {\n  width: 50%;\n  margin: 25px auto; }\n\n.habit-border:hover {\n  box-shadow: 0, 0, 10px, rgba(0, 0, 0, 0.5);\n  border-color: #aaa; }\n\n.info {\n  width: 75%;\n  margin: 0;\n  margin-left: 5%;\n  display: inline-block; }\n\n.checkboxContainer {\n  padding-top: 20px; }\n\n.habitName {\n  margin: 0;\n  padding-bottom: 5px;\n  font-size: 27px;\n  font-weight: 100;\n  border-bottom: 1px solid #e0e1dd; }\n\n.habitNameRef {\n  color: #767a7b; }\n\n.habitNameRef:hover {\n  text-decoration: none;\n  color: #018C9F; }\n\n.close {\n  color: #aaa;\n  margin-right: 10px; }\n\n.close:hover {\n  color: #777; }\n\nlabel {\n  display: inline-block;\n  color: #26C4D8;\n  cursor: pointer;\n  position: relative; }\n  label span {\n    display: inline-block;\n    position: relative;\n    background-color: transparent;\n    width: 25px;\n    height: 25px;\n    transform-origin: center;\n    border: 2px solid #26C4D8;\n    border-radius: 50%;\n    vertical-align: -6px;\n    margin-right: 10px;\n    transition: background-color 150ms 200ms, transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89); }\n    label span:before {\n      content: \"\";\n      width: 0px;\n      height: 2px;\n      border-radius: 2px;\n      background: #26C4D8;\n      position: absolute;\n      transform: rotate(45deg);\n      top: 10px;\n      left: 7px;\n      transition: width 50ms ease 50ms;\n      transform-origin: 0% 0%; }\n    label span:after {\n      content: \"\";\n      width: 0;\n      height: 2px;\n      border-radius: 2px;\n      background: #26C4D8;\n      position: absolute;\n      transform: rotate(305deg);\n      top: 14px;\n      left: 9px;\n      transition: width 50ms ease;\n      transform-origin: 0% 0%; }\n  label:hover span:before {\n    width: 5px;\n    transition: width 100ms ease; }\n  label:hover span:after {\n    width: 10px;\n    transition: width 150ms ease 100ms; }\n\ninput[type=\"checkbox\"] {\n  display: none; }\n  input[type=\"checkbox\"]:checked + label span {\n    background-color: #26C4D8;\n    transform: scale(1.25); }\n    input[type=\"checkbox\"]:checked + label span:after {\n      width: 10px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n    input[type=\"checkbox\"]:checked + label span:before {\n      width: 5px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n  input[type=\"checkbox\"]:checked + label:hover span {\n    background-color: #26C4D8;\n    transform: scale(1.25); }\n    input[type=\"checkbox\"]:checked + label:hover span:after {\n      width: 10px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n    input[type=\"checkbox\"]:checked + label:hover span:before {\n      width: 5px;\n      background: #1790b5;\n      transition: width 150ms ease 100ms; }\n\n.button {\n  width: 50%;\n  margin: 10px auto;\n  padding: 20px;\n  border: 2px solid #eee;\n  text-align: center;\n  text-transform: uppercase;\n  position: relative;\n  overflow: hidden;\n  transition: .3s; }\n  .button:after {\n    position: absolute;\n    transition: .3s;\n    content: '';\n    width: 0;\n    left: 50%;\n    bottom: 0;\n    height: 3px;\n    background: #eee; }\n  .button:nth-of-type(1):after {\n    height: 120%;\n    left: -10%;\n    transform: skewX(15deg);\n    z-index: -1; }\n  .button:hover {\n    cursor: pointer; }\n    .button:hover:after {\n      width: 100%;\n      left: 0; }\n    .button:hover:nth-of-type(1) {\n      color: #26C2D8; }\n    .button:hover:nth-of-type(1):after {\n      left: -10%;\n      width: 120%; }\n", ""]);
 
 // exports
 
@@ -88550,17 +88528,17 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var isArray_1 = __webpack_require__(91);
+var isArray_1 = __webpack_require__(92);
 var isArrayLike_1 = __webpack_require__(155);
 var isPromise_1 = __webpack_require__(156);
 var PromiseObservable_1 = __webpack_require__(200);
 var IteratorObservable_1 = __webpack_require__(495);
-var ArrayObservable_1 = __webpack_require__(95);
+var ArrayObservable_1 = __webpack_require__(96);
 var ArrayLikeObservable_1 = __webpack_require__(496);
-var iterator_1 = __webpack_require__(98);
+var iterator_1 = __webpack_require__(99);
 var Observable_1 = __webpack_require__(10);
 var observeOn_1 = __webpack_require__(497);
-var observable_1 = __webpack_require__(94);
+var observable_1 = __webpack_require__(95);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -88680,7 +88658,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var root_1 = __webpack_require__(44);
 var Observable_1 = __webpack_require__(10);
-var iterator_1 = __webpack_require__(98);
+var iterator_1 = __webpack_require__(99);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -88849,7 +88827,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Observable_1 = __webpack_require__(10);
 var ScalarObservable_1 = __webpack_require__(153);
-var EmptyObservable_1 = __webpack_require__(96);
+var EmptyObservable_1 = __webpack_require__(97);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -89170,7 +89148,7 @@ exports.Notification = Notification;
 
 "use strict";
 
-var ArrayObservable_1 = __webpack_require__(95);
+var ArrayObservable_1 = __webpack_require__(96);
 exports.of = ArrayObservable_1.ArrayObservable.of;
 //# sourceMappingURL=of.js.map
 
@@ -89712,7 +89690,7 @@ var CatchSubscriber = (function (_super) {
 
 "use strict";
 
-var mergeAll_1 = __webpack_require__(97);
+var mergeAll_1 = __webpack_require__(98);
 /* tslint:enable:max-line-length */
 /**
  * Converts a higher-order Observable into a first-order Observable by
@@ -89865,7 +89843,7 @@ let HabitComponent = class HabitComponent {
         }
         else {
             this.habitsService.deleteDate(convertToDate(index), this.habit.id).subscribe();
-            this.habit.dates = this.habit.dates.filter(date => date.date != convertToDate(index).toISOString());
+            this.habit.dates = this.habit.dates.filter(date => date.date !== convertToDate(index).toISOString());
         }
     }
     deleteHabit(habit) {
@@ -89877,12 +89855,15 @@ let HabitComponent = class HabitComponent {
         let streak = 1;
         let today = new Date();
         today.setUTCHours(0, 0, 0, 0);
+        if (!this.habit.dates.length) {
+            return 0;
+        }
         this.habit.dates.sort(function (a, b) {
             let dateA = new Date(a.date);
             let dateB = new Date(b.date);
             return dateA.getTime() - dateB.getTime();
         });
-        if (this.habit.dates[this.habit.dates.length - 1].date != today.toISOString()) {
+        if (this.habit.dates[this.habit.dates.length - 1].date !== today.toISOString()) {
             return 0;
         }
         for (let i = this.habit.dates.length - 1; i > 0; i--) {
@@ -89918,6 +89899,52 @@ HabitComponent = __decorate([
 
 /***/ }),
 /* 508 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewHabitModal; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_habits_service__ = __webpack_require__(69);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+let NewHabitModal = class NewHabitModal {
+    constructor(modalRef, habitService) {
+        this.modalRef = modalRef;
+        this.habitService = habitService;
+    }
+    add(name) {
+        this.habitService.addNewHabit(name).subscribe((habit) => {
+            this.modalRef.close(habit);
+        });
+    }
+};
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], NewHabitModal.prototype, "name", void 0);
+NewHabitModal = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'new-habit-modal',
+        templateUrl: '/client/components/newHabit.component.html'
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["a" /* NgbActiveModal */], __WEBPACK_IMPORTED_MODULE_2__services_habits_service__["a" /* HabitsService */]])
+], NewHabitModal);
+
+
+
+/***/ }),
+/* 509 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -89928,7 +89955,7 @@ Observable_1.Observable.prototype.first = first_1.first;
 //# sourceMappingURL=first.js.map
 
 /***/ }),
-/* 509 */
+/* 510 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -89946,15 +89973,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 let CalendarComponent = class CalendarComponent {
     constructor() {
+        this.toggleDateEvent = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
         this.currentDate = new Date();
-        this.getDays(new Date());
+        this.updateCalendar(new Date());
+        this.monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
     }
-    getDays(currentDate) {
+    ngOnInit() {
+        console.log(this.dates);
+    }
+    ngOnChanges() {
+        this.updateCalendar(this.currentDate);
+    }
+    checkDate(day) {
+        return this.dates.some(x => x.date === day.date.toISOString());
+    }
+    updateCalendar(currentDate) {
         this.days = [];
         let today = new Date();
         today.setTime(currentDate.getTime());
-        let firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
-        let lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+        let firstDay = new Date(Date.UTC(today.getFullYear(), today.getMonth(), 1));
+        let lastDay = new Date(Date.UTC(today.getFullYear(), today.getMonth() + 1, 0));
         if (firstDay.getDay() === 0) {
             for (let i = 6; i > 0; i--) {
                 let newDate = new Date(firstDay);
@@ -89986,7 +90026,7 @@ let CalendarComponent = class CalendarComponent {
             });
             firstDay.setDate(firstDay.getDate() + 1);
         }
-        if (lastDay.getDay() != 0) {
+        if (lastDay.getDay() !== 0) {
             for (let i = 1; i <= 7 - lastDay.getDay(); i++) {
                 let copiedDate = new Date(lastDay);
                 copiedDate.setDate(lastDay.getDate() + i);
@@ -89997,33 +90037,56 @@ let CalendarComponent = class CalendarComponent {
                 });
             }
         }
-        //  return this.days
     }
     setLastMonth() {
         this.currentDate.setMonth(this.currentDate.getMonth() - 1);
     }
+    setNextMonth() {
+        this.currentDate.setMonth(this.currentDate.getMonth() + 1);
+    }
+    toggleDate(date) {
+        this.toggleDateEvent.emit({
+            date: date
+        });
+    }
 };
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Array)
+], CalendarComponent.prototype, "dates", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+    __metadata("design:type", Object)
+], CalendarComponent.prototype, "toggleDateEvent", void 0);
 CalendarComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'calendar',
         template: `
-  <button (click)="this.setLastMonth(); this.getDays(this.currentDate)"> < </button>
-    <table class="table">
+    <button (click)="setLastMonth(); updateCalendar(currentDate)"> < </button>
+    <table class="table text-center" *ngIf="dates">
+      <caption class="month-caption" style="caption-side:top">{{monthNames[currentDate.getMonth()]}}</caption>
       <tr>
-        <th>Mon</th>
-        <th>Tue</th>
-        <th>Wed</th>
-        <th>Thu</th>
-        <th>Fri</th>
-        <th>Sat</th>
-        <th>Sun</th>
+        <th class="text-center">Mon</th>
+        <th class="text-center">Tue</th>
+        <th class="text-center">Wed</th>
+        <th class="text-center">Thu</th>
+        <th class="text-center">Fri</th>
+        <th class="text-center">Sat</th>
+        <th class="text-center">Sun</th>
       </tr>
       <tr *ngFor="let i of [0, 1, 2, 3, 4, 5, 6]">
-        <td class="text-center" *ngFor="let day of this.days.slice(i * 7, i * 7 + 7)" [class.text-muted]="!day.currentMonth">{{day.date.getDate()}}</td>
+        <td
+          *ngFor="let day of days.slice(i * 7, i * 7 + 7)"
+          [class.text-muted]="!day.currentMonth"
+          [ngClass]="{'dateChecked': checkDate(day) }"
+          (click)="toggleDate(day.date)"
+        >
+          {{day.date.getDate()}}
+        </td>
       </tr>
     </table>
-    <button> > </button>
-  `
+    <button (click)="setNextMonth(); updateCalendar(currentDate)"> > </button>
+  `,
     }),
     __metadata("design:paramtypes", [])
 ], CalendarComponent);
@@ -90031,7 +90094,57 @@ CalendarComponent = __decorate([
 
 
 /***/ }),
-/* 510 */
+/* 511 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InputComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+let InputComponent = class InputComponent {
+    constructor() {
+        this.nameChanged = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.showInput = false;
+    }
+    changeName(newName) {
+        this.nameChanged.emit({
+            name: newName
+        });
+    }
+};
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", String)
+], InputComponent.prototype, "text", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+    __metadata("design:type", Object)
+], InputComponent.prototype, "nameChanged", void 0);
+InputComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'input-edit',
+        template: `
+    <input *ngIf="showInput" #name type="text" (keyup.enter)="showInput = false; changeName(name.value)"
+       placeholder="{{text}}" />
+    <h3 *ngIf="!showInput" (click)="showInput = true">{{this.text}}<h3>
+  `
+    }),
+    __metadata("design:paramtypes", [])
+], InputComponent);
+
+
+
+/***/ }),
+/* 512 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

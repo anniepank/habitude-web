@@ -1,6 +1,20 @@
+app {
+  display: block;
+}
+
+.modal-open > app {
+  filter: blur(5px);
+}
+
+.dateChecked {
+  color: #26C4D8;
+  font-weight: bold;
+}
+
 .habitName {
   font-size: 20px;
   margin-right: 20px;
+  text-decoration: none;
 }
 
 .habitTemplate {

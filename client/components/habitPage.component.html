@@ -1,2 +1,11 @@
-<div *ngIf="habit">{{habit.name}}</div>
-<calendar></calendar>
+<div *ngIf="habit">
+  <div>
+    <input-edit text="{{habit.name}}" (nameChanged)="onNameChanged($event)"></input-edit>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+      <span aria-hidden="true" (click)="deleteHabit(habit)">&times;</span>
+    </button>
+  </div>
+  <div>
+    <calendar [dates]="habit.dates" (toggleDateEvent)="toggleDate($event)"></calendar>
+  </div>
+</div>

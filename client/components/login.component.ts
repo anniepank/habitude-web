@@ -7,9 +7,9 @@ import { Router } from '@angular/router'
   templateUrl: '/client/components/login.component.html'
 })
 export class LoginComponent {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor (private authService: AuthService, private router: Router) {}
 
-  onLogin(login, password) {
+  onLogin (login, password) {
     this.authService.login(login, password).subscribe(res => {
       if (res.status === 200) {
         this.authService.isLoggedIN = true
