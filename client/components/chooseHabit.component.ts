@@ -1,6 +1,13 @@
 import { Component } from '@angular/core'
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import { HabitsService, Habit } from '../services/habits.service'
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations'
 
 @Component({
   selector: 'choose-habit-modal',

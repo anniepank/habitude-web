@@ -4,7 +4,8 @@ import { Router } from '@angular/router'
 
 @Component({
   selector: 'login',
-  templateUrl: '/client/components/login.component.html'
+  templateUrl: '/client/components/login.component.html',
+  styles: [require<string>('./login.component.scss')]
 })
 export class LoginComponent {
   constructor (private authService: AuthService, private router: Router) {}

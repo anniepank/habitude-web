@@ -1,5 +1,7 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 import { BrowserModule } from '@angular/platform-browser'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 import 'core-js'
 import 'zone.js'
 import { NgModule } from '@angular/core'
@@ -7,8 +9,7 @@ import { HttpModule } from '@angular/http'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 import './style.css'
-import './login.style.css'
-import './habit.style.scss'
+import './button-style.scss'
 
 import { AppComponent } from './components/app.component'
 import { LoginComponent } from './components/login.component'
@@ -27,7 +28,7 @@ import { AuthService } from './services/authService'
 import { HabitsService } from './services/habits.service'
 
 @NgModule({
-  imports:      [BrowserModule, routing, HttpModule, NgbModule.forRoot()],
+  imports:      [BrowserModule, routing, HttpModule, NgbModule.forRoot(), BrowserAnimationsModule],
   declarations: [AppComponent, RegistrationComponent, LoginComponent,
     NavbarComponent, HabitComponent, MainPageComponent, NewHabitModal,
     HabitPageComponent, CalendarComponent, InputComponent, ChooseHabitModal],
@@ -39,4 +40,3 @@ import { HabitsService } from './services/habits.service'
 class AppModule {}
 
 platformBrowserDynamic().bootstrapModule(AppModule)
-console.log('h')

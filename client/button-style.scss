@@ -1,0 +1,41 @@
+.add-new-habit-button {
+  width: 50%;
+  margin: 10px auto;
+  padding: 20px;
+  border: 2px solid #eee;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  overflow:hidden;
+  transition: .3s;
+  &:after {
+    position: absolute;
+    transition: .3s;
+    content: '';
+    width: 0;
+    left: 50%;
+    bottom: 0;
+    height: 3px;
+    background: #eee;
+  }
+  &:nth-of-type(1):after {
+    height: 120%;
+    left: -10%;
+    transform: skewX(15deg);
+    z-index: -1;
+  }
+  &:hover {
+    cursor: pointer;
+    &:after {
+      width: 100%;
+      left: 0;
+    }
+    &:nth-of-type(1) {
+      color: #26C2D8;
+    }
+    &:nth-of-type(1):after {
+      left: -10%;
+      width: 120%;
+    }
+  }
+}

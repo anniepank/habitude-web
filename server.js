@@ -77,7 +77,7 @@ app.get('/api/habits', (req, res) => {
     for (let i = 0; i < habits.length; i++) {
       let today = new Date()
       let lastDay = new Date()
-      lastDay.setDate(lastDay.getDate() - 5)
+      lastDay.setDate(lastDay.getDate() - 365)
       let promise = database.getDates(today, lastDay, habits[i].id).then(dates => {
         habits[i].dates = dates
       })

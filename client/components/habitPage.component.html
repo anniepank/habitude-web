@@ -1,6 +1,6 @@
 <div *ngIf="habit">
-  <div>
-    <input-edit text="{{habit.name}}" (nameChanged)="onNameChanged($event)"></input-edit>
+  <div class="mt-5 mb-5">
+    <input-edit [(text)]="habit.name" (textChange)="onNameChanged()"></input-edit>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
       <span aria-hidden="true" (click)="deleteHabit(habit)">&times;</span>
     </button>

@@ -14,12 +14,18 @@ module.exports = {
         loader: 'ts-loader'
       },
       {
-        test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader']
-      },
-      {
         test: /\.css$/,
         loaders: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.scss$/,
+        use: ['to-string-loader', 'css-loader', 'sass-loader'],
+        include: /\.component\.scss/
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        exclude: /\.component\.scss/
       }
     ]
   },

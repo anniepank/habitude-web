@@ -6,20 +6,43 @@ import { NewHabitModal } from './newHabit.component'
 import { ChooseHabitModal } from './chooseHabit.component'
 import { AuthService } from '../services/authService'
 
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations'
+
 @Component({
   selector: 'habits-container',
   template: `
     <div *ngIf="this.authService.isLoggedIN">
-      <habit *ngFor="let habit of habits" [habit]="habit" (deleted)="onHabitDeleted(habit)"></habit>
-        <div class="button" (click)="onNewHabit()">Add a new habit</div>
+      <habit *ngFor="let habit of habits"
+        [habit]="habit"
+        (deleted)="onHabitDeleted(habit)"
+        @flyInOut></habit>
+        <div class="add-new-habit-button" (click)="onNewHabit()">Add a new habit</div>
     </div>
-  `
+  `,
+  animations: [
+    trigger('flyInOut', [
+      transition(':leave', [
+        style({transform: 'translateX(0)'}),
+        animate(300, style({transform: 'translateX(100vw)'}))
+      ])
+    ])
+  ]
 })
 export class MainPageComponent {
   habits: Habit[]
 
-  constructor (private habitsService: HabitsService, private modalService: NgbModal,
-    private authService: AuthService) {
+  constructor (
+    private habitsService: HabitsService,
+    private modalService: NgbModal,
+    private authService: AuthService,
+    private router: Router
+  ) {
     habitsService.getUserHabits().subscribe(res => {
       this.habits = res
     })
@@ -33,6 +56,9 @@ export class MainPageComponent {
     const modalRef = this.modalService.open(ChooseHabitModal)
     modalRef.result.then(habit => {
       this.habits.push(habit)
+      if (habit.name === 'other') {
+        this.router.navigate(['/habit/' + habit.id])
+      }
     }).catch(() => {})
   }
 }

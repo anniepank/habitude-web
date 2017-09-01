@@ -7,8 +7,9 @@ app {
 }
 
 .dateChecked {
-  color: #26C4D8;
+  color: white;
   font-weight: bold;
+  background-color: #26C4D8;
 }
 
 .habitName {

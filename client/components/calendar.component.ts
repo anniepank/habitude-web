@@ -4,31 +4,42 @@ import { HabitsService, Habit, HabitDate } from '../services/habits.service'
 @Component({
   selector: 'calendar',
   template: `
-    <button (click)="setLastMonth(); updateCalendar(currentDate)"> < </button>
-    <table class="table text-center" *ngIf="dates">
-      <caption class="month-caption" style="caption-side:top">{{monthNames[currentDate.getMonth()]}}</caption>
-      <tr>
-        <th class="text-center">Mon</th>
-        <th class="text-center">Tue</th>
-        <th class="text-center">Wed</th>
-        <th class="text-center">Thu</th>
-        <th class="text-center">Fri</th>
-        <th class="text-center">Sat</th>
-        <th class="text-center">Sun</th>
-      </tr>
-      <tr *ngFor="let i of [0, 1, 2, 3, 4, 5, 6]">
-        <td
-          *ngFor="let day of days.slice(i * 7, i * 7 + 7)"
-          [class.text-muted]="!day.currentMonth"
-          [ngClass]="{'dateChecked': checkDate(day) }"
-          (click)="toggleDate(day.date)"
-        >
-          {{day.date.getDate()}}
-        </td>
-      </tr>
-    </table>
-    <button (click)="setNextMonth(); updateCalendar(currentDate)"> > </button>
+    <div class="d-flex">
+      <button (click)="setLastMonth(); updateCalendar(currentDate)" class="button">
+        <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+      </button>
+      <div class="table-container">
+        <table class="table text-center" *ngIf="dates">
+          <caption class="month-caption" style="caption-side:top">{{monthNames[currentDate.getMonth()]}}</caption>
+          <tr>
+            <th class="text-center">Mon</th>
+            <th class="text-center">Tue</th>
+            <th class="text-center">Wed</th>
+            <th class="text-center">Thu</th>
+            <th class="text-center">Fri</th>
+            <th class="text-center">Sat</th>
+            <th class="text-center">Sun</th>
+          </tr>
+          <tr *ngFor="let i of [0, 1, 2, 3, 4, 5, 6]">
+            <td
+              *ngFor="let day of days.slice(i * 7, i * 7 + 7)"
+              [class.text-muted]="!day.currentMonth"
+              [ngClass]="{'dateChecked': checkDate(day) }"
+              (click)="toggleDate(day.date)"
+            >
+              {{day.date.getDate()}}
+            </td>
+          </tr>
+        </table>
+      </div>
+      <button (click)="setNextMonth(); updateCalendar(currentDate)" class="button">
+        <i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+      </button>
+
+
+    </div>
   `,
+  styles: [require<string>('./calendar.component.scss')]
 })
 export class CalendarComponent {
   @Input() dates: HabitDate[]

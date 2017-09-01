@@ -40,8 +40,7 @@ export class HabitPageComponent {
     })
   }
 
-  onNameChanged ($event) {
-    this.habit.name = $event.name
-    this.habitsService.changeHabitName(this.habit.id, $event.name).subscribe()
+  onNameChanged () {
+    this.habitsService.changeHabitName(this.habit.id, this.habit.name).subscribe()
   }
 }
