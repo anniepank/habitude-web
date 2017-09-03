@@ -38,26 +38,18 @@ class Database {
     })
 
     this.Habit = this.sequelize.define('habits', {
-      name: Sequelize.STRING,
-      userid: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: this.User,
-          key: 'id'
-        }
-      }
+      name: Sequelize.STRING
     })
 
+    this.Habit.belongsTo(this.User)
+    this.User.hasMany(this.Habit)
+
     this.HabitDate = this.sequelize.define('dates', {
-      date: Sequelize.DATEONLY,
-      habitId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: this.Habit,
-          key: 'id'
-        }
-      }
+      date: Sequelize.DATEONLY
     })
+
+    this.HabitDate.belongsTo(this.Habit)
+    this.Habit.hasMany(this.HabitDate, { as: 'dates' })
   }
 
   sync () {
@@ -72,71 +64,49 @@ class Database {
     return this.sequelize.authenticate()
   }
 
-  checkUser (login, password) {
-    return connectionPromise.then(connection => {
-      return connection.query('SELECT id, password, salt FROM users WHERE login = ?', [login])
-    }).then(results => {
-      if (results.length !== 0) {
-        if (SHA512.hex(password + results[0].salt) === results[0].password) {
-          return results[0].id
-        }
-        return null
-      } else {
-        return null
+  async checkUser (login, password) {
+    let user = await this.User.findOne({ where: { login } })
+    if (user) {
+      if (SHA512.hex(password + user.salt) === user.password) {
+        return user.id
       }
-    })
+    }
+    return null
   }
 
-  getUsersHabits (userid) {
-    return connectionPromise.then(connection => {
-      return connection.query(`SELECT * FROM habits WHERE userid = ?`, [userid]).then(results => {
-        return results
-      })
-    })
+  async getUsersHabits (userId) {
+    return this.Habit.findAll({ where: {userId} })
   }
 
-  getHabit (id) {
-    return connectionPromise.then(connection => {
-      return connection.query('SELECT * FROM habits WHERE id = ?', [id]).then(results => {
-        return results[0]
-      })
-    })
+  async getHabit (id) {
+    return this.Habit.findOne({ where: { id } })
   }
 
-  register (login, password) {
-    return this.User.findOne({ where: { login } }).then(user => {
-      if (user) {
-        throw new AlreadyExistsError()
-      }
-      let salt = randomstring.generate(32)
-      password = SHA512.hex(password + salt)
+  async register (login, password) {
+    let user = await this.User.findOne({ where: { login } })
 
-      return this.User.create({
-        login,
-        password,
-        salt
-      })
-    }).then(user => {
-      return user.id
+    if (user) {
+      throw new AlreadyExistsError()
+    }
+    let salt = randomstring.generate(32)
+    password = SHA512.hex(password + salt)
+
+    user = await this.User.create({
+      login,
+      password,
+      salt
     })
+
+    return user.id
   }
 
-  addNewHabit (name, userid) {
-    return connectionPromise.then(connection => {
-      return connection.query('INSERT INTO habits (name, userid) VALUES (?, ?)', [name, userid]).then(res => {
-        return res.insertId
-      }).catch(err => {
-        return err
-      })
-    })
+  async addNewHabit (name, userId) {
+    let habit = await this.Habit.create({name, userId})
+    return habit.id
   }
 
   addDate (date, habitId) {
-    return connectionPromise.then(connection => {
-      return connection.query('INSERT INTO dates (date, habit_id) VALUES (?, ?)', [date, habitId]).then(res => {
-        return res
-      })
-    })
+    return this.HabitDate.create({date, habitId})
   }
 
   deleteDate (date, habitId) {
@@ -162,6 +132,7 @@ class Database {
   }
 
   getDates (firstDate, lastDate, habitId) {
+    //this.HabitDate.findAll({where: {}})
     return connectionPromise.then(connection => {
       return connection.query('SELECT * FROM dates WHERE date <= ? AND date >= ? AND habit_id = ? ORDER BY date', [firstDate, lastDate, habitId]).then(res => {
         return res

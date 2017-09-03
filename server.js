@@ -64,8 +64,9 @@ app.post('/api/registration', (req, res) => {
   }).catch(err => {
     if (err instanceof AlreadyExistsError) {
       res.status(409)
-      res.end()
+      return res.end()
     }
+    error(err, res)
   })
 })
 
@@ -82,6 +83,11 @@ app.get('/api/habits', (req, res) => {
       arrayOfPromises.push(promise)
     }
     Promise.all(arrayOfPromises).then(() => {
+      habits = habits.map(habit => {
+        let j = habit.toJSON()
+        j.dates = habit.dates
+        return j
+      })
       res.json(habits)
     }).catch(err => {
       error(err, res)
@@ -95,6 +101,7 @@ app.get('/api/habits/:id', (req, res) => {
     let lastDay = new Date()
     lastDay.setDate(lastDay.getDate() - 365)
     database.getDates(today, lastDay, habit.id).then(dates => {
+      habit = habit.toJSON()
       habit.dates = dates
       res.json(habit)
     })
