@@ -19,9 +19,11 @@
     "express-session": "^1.15.4",
     "jshashes": "^1.0.7",
     "mysql": "^2.14.0",
+    "mysql2": "^1.4.2",
     "nodemon": "^1.11.0",
     "promise-mysql": "^3.0.2",
-    "randomstring": "^1.1.5"
+    "randomstring": "^1.1.5",
+    "sequelize": "^4.8.0"
   },
   "devDependencies": {
     "@angular/animations": "^4.3.6",

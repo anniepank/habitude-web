@@ -44,8 +44,6 @@ app.get('/client/:filename(*)', (req, res) => {
   res.sendFile(__dirname + '/client/' + req.params.filename) // eslint-disable-line
 })
 
-app.listen(9000)
-
 app.post('/api/login', (req, res) => {
   database.checkUser(req.body.login, req.body.password).then(result => {
     if (result) {
@@ -159,4 +157,13 @@ app.delete('/api/habits/:id', (req, res) => {
     res.status(204)
     res.end()
   })
+})
+
+database.test().then(() => {
+  return database.sync()
+}).then(() => {
+  app.listen(9000)
+  console.log('Connection has been established successfully.')
+}).catch(err => {
+  console.error('Unable to connect to the database:', err)
 })

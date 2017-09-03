@@ -1,6 +1,7 @@
 const mysql = require('promise-mysql')
 const Hashes = require('jshashes')
 const randomstring = require('randomstring')
+const Sequelize = require('sequelize')
 
 let SHA512 = new Hashes.SHA512()
 
@@ -19,6 +20,58 @@ connectionPromise.catch(err => {
 class AlreadyExistsError extends Error {}
 
 class Database {
+  constructor () {
+    this.sequelize = new Sequelize('habitude-2', 'root', '123', {
+      host: 'localhost',
+      dialect: 'mysql',
+      pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+      }
+    })
+
+    this.User = this.sequelize.define('users', {
+      login: Sequelize.STRING,
+      password: Sequelize.STRING,
+      salt: Sequelize.STRING
+    })
+
+    this.Habit = this.sequelize.define('habits', {
+      name: Sequelize.STRING,
+      userid: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: this.User,
+          key: 'id'
+        }
+      }
+    })
+
+    this.HabitDate = this.sequelize.define('dates', {
+      date: Sequelize.DATEONLY,
+      habitId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: this.Habit,
+          key: 'id'
+        }
+      }
+    })
+  }
+
+  sync () {
+    return Promise.all([
+      this.User.sync(),
+      this.Habit.sync(),
+      this.HabitDate.sync()
+    ])
+  }
+
+  test () {
+    return this.sequelize.authenticate()
+  }
+
   checkUser (login, password) {
     return connectionPromise.then(connection => {
       return connection.query('SELECT id, password, salt FROM users WHERE login = ?', [login])
@@ -51,18 +104,20 @@ class Database {
   }
 
   register (login, password) {
-    return connectionPromise.then(connection => {
-      return connection.query(`SELECT COUNT(*) AS e FROM users WHERE login = ? `, [login]).then(res => {
-        if (res[0].e) {
-          throw new AlreadyExistsError()
-        } else {
-          let salt = randomstring.generate(32)
-          password = SHA512.hex(password + salt)
-          return connection.query(`INSERT INTO users (login, password, salt) VALUES (?, ?, ?)`, [login, password, salt])
-        }
-      }).then(results => {
-        return results.insertId
+    return this.User.findOne({ where: { login } }).then(user => {
+      if (user) {
+        throw new AlreadyExistsError()
+      }
+      let salt = randomstring.generate(32)
+      password = SHA512.hex(password + salt)
+
+      return this.User.create({
+        login,
+        password,
+        salt
       })
+    }).then(user => {
+      return user.id
     })
   }
 
