@@ -42,14 +42,14 @@ class Database {
     })
 
     this.Habit.belongsTo(this.User)
-    this.User.hasMany(this.Habit)
+    this.User.hasMany(this.Habit, {onDelete: 'cascade'})
 
     this.HabitDate = this.sequelize.define('dates', {
       date: Sequelize.DATEONLY
     })
 
     this.HabitDate.belongsTo(this.Habit)
-    this.Habit.hasMany(this.HabitDate, { as: 'dates' })
+    this.Habit.hasMany(this.HabitDate, { as: 'dates', onDelete: 'cascade' })
   }
 
   sync () {
@@ -105,54 +105,37 @@ class Database {
     return habit.id
   }
 
-  addDate (date, habitId) {
+  async addDate (date, habitId) {
     return this.HabitDate.create({date, habitId})
   }
 
-  deleteDate (date, habitId) {
-    return connectionPromise.then(connection => {
-      return connection.query('DELETE FROM dates WHERE date = ? AND habit_id = ?', [date, habitId]).then(res => {
-        return res
-      })
+  async deleteDate (date, habitId) {
+    return this.HabitDate.destroy({ where: {date, habitId} })
+  }
+
+  async checkDate (date, habitId) {
+    return this.HabitDate.findOne({ where: {date, habitId} })
+  }
+
+  async getDates (firstDate, lastDate, habitId) {
+    return this.HabitDate.findAll({ where: {
+      habitId,
+      $and: [
+        {date: {lte: firstDate}},
+        {date: {gte: lastDate}}
+      ]
+    }
     })
   }
 
-  checkDate (date, habitId) {
-    return connectionPromise.then(connection => {
-      return connection.query('SELECT * FROM dates WHERE date = ? AND habit_id = ?', [date, habitId]).then(res => {
-        if (res[0]) {
-          return true
-        } else {
-          return false
-        }
-      }).catch(err => {
-        return err
-      })
-    })
+  async deleteHabit (id) {
+    return this.Habit.destroy({ where: {id} })
   }
 
-  getDates (firstDate, lastDate, habitId) {
-    //this.HabitDate.findAll({where: {}})
-    return connectionPromise.then(connection => {
-      return connection.query('SELECT * FROM dates WHERE date <= ? AND date >= ? AND habit_id = ? ORDER BY date', [firstDate, lastDate, habitId]).then(res => {
-        return res
-      }).catch(err => {
-        return err
-      })
-    })
-  }
-
-  deleteHabit (id) {
-    return connectionPromise.then(connection => {
-      return connection.query('DELETE FROM habits WHERE id = ?', [id])
-    })
-  }
-
-  changeHabitName (id, name) {
-    return connectionPromise.then(connection => {
-      return connection.query('UPDATE habits SET name = ? WHERE id = ?', [name, id]).then(res => {
-        return res
-      })
+  async changeHabitName (id, name) {
+    return this.Habit.update(name, {
+      where: {id},
+      fields: {name}
     })
   }
 }

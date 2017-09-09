@@ -24,7 +24,7 @@ export class HabitComponent {
     let date = convertToDate(index)
 
     for (let j = 0; j < this.habit.dates.length; j++) {
-      if (this.habit.dates[j].date === date.toISOString()) {
+      if (this.habit.dates[j].date === date.toISOString().split('T')[0]) {
         return true
       }
     }
@@ -62,7 +62,7 @@ export class HabitComponent {
       return dateA.getTime() - dateB.getTime()
     })
 
-    if (this.habit.dates[this.habit.dates.length - 1].date !== today.toISOString()) {
+    if (this.habit.dates[this.habit.dates.length - 1].date !== today.toISOString().split('T')[0]) {
       return 0
     }
 

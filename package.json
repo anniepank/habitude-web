@@ -23,7 +23,8 @@
     "nodemon": "^1.11.0",
     "promise-mysql": "^3.0.2",
     "randomstring": "^1.1.5",
-    "sequelize": "^4.8.0"
+    "sequelize": "^4.8.0",
+    "sequelize-cli": "^3.0.0-1"
   },
   "devDependencies": {
     "@angular/animations": "^4.3.6",
