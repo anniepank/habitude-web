@@ -11,12 +11,12 @@ export class HabitsService {
     return this.http.get('/api/habits').map(res => res.json())
   }
 
-  addDate (date, habitId): Observable<any> {
-    return this.http.post('/api/habits/' + habitId + '/dates', {date})
+  addDate (date: String, habitId): Observable<HabitDate> {
+    return this.http.post('/api/habits/' + habitId + '/dates', {date}).map(res => res.json())
   }
 
-  deleteDate (date, habitId): Observable<any> {
-    return this.http.delete('/api/habits/' + habitId + '/dates/' + date.toISOString())
+  deleteDate (date: String, habitId): Observable<any> {
+    return this.http.delete('/api/habits/' + habitId + '/dates/' + date)
   }
 
   addNewHabit (habitName) {

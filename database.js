@@ -133,9 +133,8 @@ class Database {
   }
 
   async changeHabitName (id, name) {
-    return this.Habit.update(name, {
-      where: {id},
-      fields: {name}
+    return this.Habit.update({ name }, {
+      where: {id}
     })
   }
 }

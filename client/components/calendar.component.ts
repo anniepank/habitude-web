@@ -65,7 +65,7 @@ export class CalendarComponent {
   }
 
   checkDate (day) {
-    return this.dates.some(x => x.date === day.date.toISOString())
+    return this.dates.some(x => x.date === day.date.toISOString().split('T')[0])
   }
 
   updateCalendar (currentDate) {

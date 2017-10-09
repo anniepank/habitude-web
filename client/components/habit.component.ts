@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { AuthService } from '../services/authService'
 import { HabitsService, Habit } from '../services/habits.service'
+import { toSequelizeDate } from '../common'
 
 function convertToDate (index) {
   let date = new Date()
@@ -24,7 +25,7 @@ export class HabitComponent {
     let date = convertToDate(index)
 
     for (let j = 0; j < this.habit.dates.length; j++) {
-      if (this.habit.dates[j].date === date.toISOString().split('T')[0]) {
+      if (this.habit.dates[j].date === toSequelizeDate(date)) {
         return true
       }
     }
@@ -33,11 +34,12 @@ export class HabitComponent {
 
   toggleDate (index) {
     if (!this.isDateChecked(index)) {
-      this.habitsService.addDate(convertToDate(index), this.habit.id).subscribe()
-      this.habit.dates.push({date: convertToDate(index).toISOString(), habitId: this.habit.id, id: null})
+      this.habitsService.addDate(toSequelizeDate(convertToDate(index)), this.habit.id).subscribe(date => {
+        this.habit.dates.push(date)
+      })
     } else {
-      this.habitsService.deleteDate(convertToDate(index), this.habit.id).subscribe()
-      this.habit.dates = this.habit.dates.filter(date => date.date !== convertToDate(index).toISOString())
+      this.habitsService.deleteDate(toSequelizeDate(convertToDate(index)), this.habit.id).subscribe()
+      this.habit.dates = this.habit.dates.filter(date => date.date !== toSequelizeDate(convertToDate(index)))
     }
   }
 
@@ -62,7 +64,7 @@ export class HabitComponent {
       return dateA.getTime() - dateB.getTime()
     })
 
-    if (this.habit.dates[this.habit.dates.length - 1].date !== today.toISOString().split('T')[0]) {
+    if (this.habit.dates[this.habit.dates.length - 1].date !== toSequelizeDate(today)) {
       return 0
     }
 

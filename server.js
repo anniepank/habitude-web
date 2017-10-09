@@ -145,9 +145,9 @@ app.post('/api/habits', (req, res) => {
 
 app.post('/api/habits/:id/dates', (req, res) => {
   let date = new Date(req.body.date)
-  database.addDate(date, req.params.id).then(result => {
+  database.addDate(date, req.params.id).then(date => {
     res.status(201)
-    res.end()
+    res.json(date)
   })
 })
 
@@ -156,6 +156,8 @@ app.delete('/api/habits/:id/dates/:date', (req, res) => {
   database.deleteDate(date, req.params.id).then(result => {
     res.status(204)
     res.json(result)
+  }).catch(err => {
+    error(err, req)
   })
 })
 
@@ -163,6 +165,8 @@ app.delete('/api/habits/:id', (req, res) => {
   database.deleteHabit(req.params.id).then(result => {
     res.status(204)
     res.end()
+  }).catch(err => {
+    error(err, req)
   })
 })
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { HabitsService, Habit } from '../services/habits.service'
 import { ActivatedRoute, Router } from '@angular/router'
-
+import { toSequelizeDate } from '../common'
 import 'rxjs/add/operator/first'
 
 @Component({
@@ -22,14 +22,14 @@ export class HabitPageComponent {
   }
 
   toggleDate ($event) {
-    let date = $event.date
-    if (this.habit.dates.some(x => x.date === date.toISOString())) {
+    let date = toSequelizeDate($event.date)
+    if (this.habit.dates.some(x => x.date === date)) {
       this.habitsService.deleteDate(date, this.habit.id).subscribe(res => {
-        this.habit.dates = this.habit.dates.filter(d => d.date !== date.toISOString())
+        this.habit.dates = this.habit.dates.filter(d => d.date !== date)
       })
     } else {
       this.habitsService.addDate(date, this.habit.id).subscribe(res => {
-        this.habit.dates = this.habit.dates.concat([{date: date.toISOString(), habitId: this.habit.id, id: null}])
+        this.habit.dates = this.habit.dates.concat([{date: date, habitId: this.habit.id, id: null}])
       })
     }
   }
