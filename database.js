@@ -1,27 +1,17 @@
-const mysql = require('promise-mysql')
 const Hashes = require('jshashes')
 const randomstring = require('randomstring')
 const Sequelize = require('sequelize')
+const { getDatabaseConfig } = require('./config')
 
 let SHA512 = new Hashes.SHA512()
-
-let connectionPromise = mysql.createConnection({
-  host: 'localhost',
-  password: '123',
-  database: 'habitude',
-  user: 'root',
-  timezone: 'UTC'
-})
-
-connectionPromise.catch(err => {
-  console.error('error connecting: ' + err.stack)
-})
 
 class AlreadyExistsError extends Error {}
 
 class Database {
   constructor () {
-    this.sequelize = new Sequelize('habitude-2', 'root', '123', {
+    let config = getDatabaseConfig()
+
+    this.sequelize = new Sequelize(config.database, config.username, config.password, {
       host: 'localhost',
       dialect: 'mysql',
       pool: {
@@ -74,12 +64,35 @@ class Database {
     return null
   }
 
+  async checkEmail (email) {
+    let user = await this.User.findOne({ where: { login: email } })
+    if (user) {
+      return user.id
+    } else {
+      return null
+    }
+  }
+
   async getUsersHabits (userId) {
     return this.Habit.findAll({ where: {userId} })
   }
 
   async getHabit (id) {
     return this.Habit.findOne({ where: { id } })
+  }
+
+  async registerByEmail (email) {
+    let user = await this.User.findOne({ where: { login: email } })
+
+    if (user) {
+      throw new AlreadyExistsError()
+    }
+
+    user = await this.User.create({
+      login: email
+    })
+
+    return user.id
   }
 
   async register (login, password) {
