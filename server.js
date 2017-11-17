@@ -5,15 +5,7 @@ const session = require('express-session')
 const MySQLStore = require('express-mysql-session')(session)
 const { getDatabaseConfig } = require('./config')
 const epilogue = require('epilogue')
-
-const google = require('googleapis')
-const  OAuth2 = google.auth.OAuth2
-const plus = google.plus('v1')
-let oauth2Client = new OAuth2(
-  '108510044966-3s2ohehglcafecfs4qvpdjome4sdf7j8.apps.googleusercontent.com',
-  'nrWvzSD6McEd9wWWEzle8s1r',
-  'http://localhost:9000/api/google-redirect'
-)
+const google = require('./google')
 
 let app = express()
 let database = new Database()
@@ -78,50 +70,33 @@ app.post('/api/login', (req, res) => {
 })
 
 app.get('/api/google-login', (req, res) => {
-  let scopes = ['https://www.googleapis.com/auth/plus.me', 'email']
-  let url = oauth2Client.generateAuthUrl({
-    scope: scopes
-  })
-  res.redirect(url)
+  res.redirect(google.generateAuthUrl())
   res.end()
 })
 
-app.get('/api/google-redirect', (req, res) => {
+app.get('/api/google-redirect', async (req, res) => {
   let code = req.query.code
-  oauth2Client.getToken(code, function (err, tokens) {
-    if (!err) {
-      oauth2Client.setCredentials(tokens)
+  let email
+  try {
+    email = await google.getEmailByCode(code)
+  } catch (err) {
+    return error(err, res)
+  }
 
-      plus.people.get({
-        userId: 'me',
-        auth: oauth2Client
-      }, function (err, response) {
-        let email = response.emails[0].value
+  let result = await database.checkEmail(email)
 
-        database.checkEmail(email).then(result => {
-          if (result) {
-            req.session.userid = result
-            res.redirect('/')
-            res.end()
-          } else {
-            database.registerByEmail(email).then(result => {
-              if (result) {
-                req.session.userid = result
-              }
-              res.redirect('/')
-              res.end()
-            }).catch(err => {
-              if (err instanceof AlreadyExistsError) {
-                res.status(409)
-                return res.end()
-              }
-              error(err, res)
-            })
-          }
-        })
-      })
+  if (result) {
+    req.session.userid = result
+    res.redirect('/')
+    res.end()
+  } else {
+    let userid = await database.registerByEmail(email)
+    if (userid) {
+      req.session.userid = userid
     }
-  })
+    res.redirect('/')
+    res.end()
+  }
 })
 
 app.post('/api/registration', (req, res) => {
