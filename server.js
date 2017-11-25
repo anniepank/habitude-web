@@ -6,6 +6,7 @@ const MySQLStore = require('express-mysql-session')(session)
 const { getDatabaseConfig } = require('./config')
 const epilogue = require('epilogue')
 const google = require('./google')
+const randomstring = require('randomstring')
 
 let app = express()
 let database = new Database()
@@ -70,6 +71,13 @@ app.post('/api/login', (req, res) => {
 })
 
 app.get('/api/google-login', (req, res) => {
+  req.session.appLogin = false
+  res.redirect(google.generateAuthUrl())
+  res.end()
+})
+
+app.get('/api/app-google-login', (req, res) => {
+  req.session.appLogin = true
   res.redirect(google.generateAuthUrl())
   res.end()
 })
@@ -83,21 +91,26 @@ app.get('/api/google-redirect', async (req, res) => {
     return error(err, res)
   }
 
-  let result = await database.checkEmail(email)
-
-  if (result) {
-    req.session.userid = result
-    res.redirect('/')
-    res.end()
-  } else {
-    let userid = await database.registerByEmail(email)
-    if (userid) {
-      req.session.userid = userid
-    }
-    res.redirect('/')
-    res.end()
+  let user = await database.User.findOne({ where: { login: email } })
+  if (!user) {
+    user = await database.registerByEmail(email)
   }
+
+  if (!user.appKey) {
+    user.appKey = randomstring.generate(45)
+    user.save()
+  }
+
+  if (req.session.appLogin) {
+    res.redirect('/appKey/' + user.appKey)
+  } else {
+    req.session.userid = user.id
+    res.redirect('/')
+  }
+  res.end()
 })
+
+app.get('/appKey/:key', (req, res) => res.end())
 
 app.post('/api/registration', (req, res) => {
   database.register(req.body.login, req.body.password).then(result => {
@@ -137,7 +150,6 @@ app.get('/api/habits', (req, res) => {
   })
 })
 
-/*
 app.get('/api/habits/:id', (req, res) => {
   database.getHabit(req.params.id).then(habit => {
     let today = new Date()
@@ -151,7 +163,7 @@ app.get('/api/habits/:id', (req, res) => {
   }).catch(err => {
     error(err, res)
   })
-}) */
+})
 
 app.put('/api/habits/:id', (req, res) => {
   database.changeHabitName(req.params.id, req.body.name).then(result => {

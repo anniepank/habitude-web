@@ -24,7 +24,8 @@ class Database {
     this.User = this.sequelize.define('users', {
       login: Sequelize.STRING,
       password: Sequelize.STRING,
-      salt: Sequelize.STRING
+      salt: Sequelize.STRING,
+      appKey: Sequelize.STRING
     })
 
     this.Habit = this.sequelize.define('habits', {
@@ -64,15 +65,6 @@ class Database {
     return null
   }
 
-  async checkEmail (email) {
-    let user = await this.User.findOne({ where: { login: email } })
-    if (user) {
-      return user.id
-    } else {
-      return null
-    }
-  }
-
   async getUsersHabits (userId) {
     return this.Habit.findAll({ where: {userId} })
   }
@@ -92,7 +84,7 @@ class Database {
       login: email
     })
 
-    return user.id
+    return user
   }
 
   async register (login, password) {

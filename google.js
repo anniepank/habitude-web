@@ -5,7 +5,7 @@ const plus = google.plus('v1')
 let oauth2Client = new OAuth2(
   '108510044966-3s2ohehglcafecfs4qvpdjome4sdf7j8.apps.googleusercontent.com',
   'nrWvzSD6McEd9wWWEzle8s1r',
-  'http://localhost:9000/api/google-redirect'
+  'http://habitude.by:9000/api/google-redirect'
 )
 
 let scopes = ['https://www.googleapis.com/auth/plus.me', 'email']
