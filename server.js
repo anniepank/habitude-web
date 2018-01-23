@@ -217,7 +217,7 @@ app.delete('/api/habits/:id/dates/:date', (req, res) => {
     res.status(204)
     res.json(result)
   }).catch(err => {
-    error(err, req)
+    error(err, res)
   })
 })
 
@@ -226,7 +226,7 @@ app.delete('/api/habits/:id', (req, res) => {
     res.status(204)
     res.end()
   }).catch(err => {
-    error(err, req)
+    error(err, res)
   })
 })
 

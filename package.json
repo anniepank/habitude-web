@@ -2,7 +2,9 @@
   "scripts": {
     "start": "nodemon server.js",
     "build": "webpack --config webpack.config.js --display-modules",
-    "watch": "webpack --config webpack.config.js --display-modules --watch --progress"
+    "watch": "webpack --config webpack.config.js --display-modules --watch --progress",
+    "migrate": "sequelize db:migrate",
+    "debug": "node --inspect server.js"
   },
   "name": "habitude-web",
   "version": "1.0.0",

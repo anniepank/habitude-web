@@ -44,7 +44,8 @@ class Database {
       userId: {
         type: Sequelize.DataTypes.UUID,
         refereces: {model: 'Users', key: 'id'}
-      }
+      },
+      deleted: Sequelize.BOOLEAN
     })
 
     this.User.hasMany(this.Habit, {onDelete: 'cascade'})
@@ -59,7 +60,9 @@ class Database {
       habitId: {
         type: Sequelize.DataTypes.UUID,
         refereces: {model: 'Habits', key: 'id'}
-      }
+      },
+      deleted: Sequelize.BOOLEAN
+
     })
 
     this.Habit.hasMany(this.HabitDate, { as: 'dates', onDelete: 'cascade' })
@@ -88,7 +91,11 @@ class Database {
   }
 
   async getUsersHabits (userId) {
-    return this.Habit.findAll({ where: {userId} })
+    return this.Habit.findAll({ where: {
+      userId,
+      deleted: false
+    }
+    })
   }
 
   async getHabit (id) {
@@ -133,11 +140,19 @@ class Database {
   }
 
   async addDate (date, habitId) {
+    let habitDate = await this.HabitDate.findOne({ where: {date, habitId} })
+    if (habitDate) {
+      habitDate.deleted = false
+      await habitDate.save()
+      return habitDate
+    }
     return this.HabitDate.create({date, habitId})
   }
 
   async deleteDate (date, habitId) {
-    return this.HabitDate.destroy({ where: {date, habitId} })
+    return this.HabitDate.update({deleted: true}, {
+      where: {date, habitId}
+    })
   }
 
   async checkDate (date, habitId) {
@@ -150,13 +165,16 @@ class Database {
       $and: [
         {date: {lte: firstDate}},
         {date: {gte: lastDate}}
-      ]
+      ],
+      deleted: false
     }
     })
   }
 
   async deleteHabit (id) {
-    return this.Habit.destroy({ where: {id} })
+    return this.Habit.update({deleted: true}, {
+      where: {id}
+    })
   }
 
   async changeHabitName (id, name) {
