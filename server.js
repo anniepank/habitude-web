@@ -27,8 +27,6 @@ epilogue.resource({
   endpoints: ['/new-habits', '/new-habits/:id']
 })
 
-database.sync({ forse: true })
-
 function error (err, res) {
   res.status(500)
   res.end(err.toString())
@@ -123,6 +121,13 @@ app.post('/api/registration', (req, res) => {
     }
     error(err, res)
   })
+})
+
+app.post('/api/synchronize', async (req, res) => {
+  let user = await database.User.findOne({ where: { appKey: req.body.key } })
+  console.log(user)
+  console.log(req.body)
+  res.end()
 })
 
 app.get('/api/habits', (req, res) => {
@@ -226,8 +231,6 @@ app.delete('/api/habits/:id', (req, res) => {
 })
 
 database.test().then(() => {
-  return database.sync()
-}).then(() => {
   app.listen(9000)
   console.log('Connection has been established successfully.')
 }).catch(err => {

@@ -1,5 +1,5 @@
 const google = require('googleapis')
-const  OAuth2 = google.auth.OAuth2
+const OAuth2 = google.auth.OAuth2
 const plus = google.plus('v1')
 
 let oauth2Client = new OAuth2(

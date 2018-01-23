@@ -21,25 +21,47 @@ class Database {
       }
     })
 
-    this.User = this.sequelize.define('users', {
+    this.User = this.sequelize.define('Users', {
+      id: {
+        type: Sequelize.DataTypes.UUID,
+        defaultValue: Sequelize.DataTypes.UUIDV4,
+        primaryKey: true
+      },
       login: Sequelize.STRING,
       password: Sequelize.STRING,
       salt: Sequelize.STRING,
       appKey: Sequelize.STRING
+
     })
 
-    this.Habit = this.sequelize.define('habits', {
-      name: Sequelize.STRING
+    this.Habit = this.sequelize.define('Habits', {
+      id: {
+        type: Sequelize.DataTypes.UUID,
+        defaultValue: Sequelize.DataTypes.UUIDV4,
+        primaryKey: true
+      },
+      name: Sequelize.STRING,
+      userId: {
+        type: Sequelize.DataTypes.UUID,
+        refereces: {model: 'Users', key: 'id'}
+      }
     })
 
-    this.Habit.belongsTo(this.User)
     this.User.hasMany(this.Habit, {onDelete: 'cascade'})
 
-    this.HabitDate = this.sequelize.define('dates', {
-      date: Sequelize.DATEONLY
+    this.HabitDate = this.sequelize.define('Dates', {
+      id: {
+        type: Sequelize.DataTypes.UUID,
+        defaultValue: Sequelize.DataTypes.UUIDV4,
+        primaryKey: true
+      },
+      date: Sequelize.DATEONLY,
+      habitId: {
+        type: Sequelize.DataTypes.UUID,
+        refereces: {model: 'Habits', key: 'id'}
+      }
     })
 
-    this.HabitDate.belongsTo(this.Habit)
     this.Habit.hasMany(this.HabitDate, { as: 'dates', onDelete: 'cascade' })
   }
 
