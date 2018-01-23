@@ -125,8 +125,28 @@ app.post('/api/registration', (req, res) => {
 
 app.post('/api/synchronize', async (req, res) => {
   let user = await database.User.findOne({ where: { appKey: req.body.key } })
-  console.log(user)
-  console.log(req.body)
+
+  let dbHabits = await database.getUsersHabits(user.id)
+  for (let habitInApp of req.body.habits) {
+    let dbHabit = dbHabits.find(x => x.id === habitInApp.id)
+    if (dbHabit) {
+      if (dbHabit.name !== habitInApp.name || dbHabit.deleted !== habitInApp.deleted) {
+        if (dbHabit.updatedAt > habitInApp.updatedAt) {
+          console.log("Sync to app", dbHabit.name)
+        } else {
+          console.log("Sync here", dbHabit.name)
+        }
+      }
+    } else {
+      console.log("add new habit here", habitInApp.name)
+    }
+  }
+
+  for (let dbHabit of dbHabits) {
+    if (!req.body.habits.find(x => x.id === dbHabit.id)) {
+      console.log('add to app', dbHabit.name)
+    }
+  }
   res.end()
 })
 
