@@ -127,27 +127,47 @@ app.post('/api/synchronize', async (req, res) => {
   let user = await database.User.findOne({ where: { appKey: req.body.key } })
 
   let dbHabits = await database.getUsersHabits(user.id)
+  let appUpdates = []
+
   for (let habitInApp of req.body.habits) {
     let dbHabit = dbHabits.find(x => x.id === habitInApp.id)
+
     if (dbHabit) {
       if (dbHabit.name !== habitInApp.name || dbHabit.deleted !== habitInApp.deleted) {
         if (dbHabit.updatedAt > habitInApp.updatedAt) {
-          console.log("Sync to app", dbHabit.name)
-        } else {
-          console.log("Sync here", dbHabit.name)
+          console.log('Sync to app', dbHabit.name)
+          appUpdates.push({
+            inApp: true,
+            habit: dbHabit
+          })
+        } else if (habitInApp.updatedAt > dbHabit.updatedAt) {
+          console.log('Sync here', dbHabit.name)
+          dbHabit.name = habitInApp.name
+          dbHabit.deleted = habitInApp.deleted
+          dbHabit.save()
         }
       }
     } else {
-      console.log("add new habit here", habitInApp.name)
+      console.log('add new habit here', habitInApp.name)
+      await database.Habit.create({
+        id: habitInApp.id,
+        userId: user.id,
+        name: habitInApp.name,
+        deleted: habitInApp.deleted
+      })
     }
   }
 
   for (let dbHabit of dbHabits) {
     if (!req.body.habits.find(x => x.id === dbHabit.id)) {
       console.log('add to app', dbHabit.name)
+      appUpdates.push({
+        inApp: false,
+        habit: dbHabit
+      })
     }
   }
-  res.end()
+  res.json(appUpdates)
 })
 
 app.get('/api/habits', (req, res) => {
