@@ -126,7 +126,11 @@ app.post('/api/registration', (req, res) => {
 app.post('/api/synchronize', async (req, res) => {
   let user = await database.User.findOne({ where: { appKey: req.body.key } })
 
-  let dbHabits = await database.getUsersHabits(user.id)
+  let dbHabits = await database.Habit.findAll({ where: {
+    userId: user.id
+  }
+  })
+
   let appUpdates = []
 
   for (let habitInApp of req.body.habits) {
