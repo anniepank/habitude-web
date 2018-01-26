@@ -1,5 +1,5 @@
 export function dateToInt (date: Date): number {
-  return Math.round(date.getTime() / 1000 / 24 / 3600)
+  return Math.floor(date.getTime() / 1000 / 24 / 3600)
 }
 
 export function intToDate (int: number): Date {

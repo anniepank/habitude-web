@@ -1,5 +1,5 @@
 function dateToInt (date) {
-  return Math.round(date.getTime() / 1000 / 24 / 3600)
+  return Math.floor(date.getTime() / 1000 / 24 / 3600)
 }
 
 function intToDate (int) {

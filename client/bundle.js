@@ -97205,7 +97205,7 @@ HabitComponent = __decorate([
 /* harmony export (immutable) */ __webpack_exports__["c"] = intToDate;
 /* harmony export (immutable) */ __webpack_exports__["b"] = getToday;
 function dateToInt(date) {
-    return Math.round(date.getTime() / 1000 / 24 / 3600);
+    return Math.floor(date.getTime() / 1000 / 24 / 3600);
 }
 function intToDate(int) {
     return new Date(int * 3600 * 24 * 1000);
