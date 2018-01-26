@@ -39,6 +39,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       userId: {
+        allowNull: false,
         type: Sequelize.DataTypes.UUID,
         refereces: {model: 'Users', key: 'id'}
       }
@@ -51,7 +52,10 @@ module.exports = {
         defaultValue: Sequelize.DataTypes.UUIDV4,
         primaryKey: true
       },
-      date: Sequelize.DATEONLY,
+      date: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -61,6 +65,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       habitId: {
+        allowNull: false,
         type: Sequelize.DataTypes.UUID,
         refereces: {model: 'Habits', key: 'id'}
       }

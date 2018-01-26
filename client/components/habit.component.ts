@@ -1,13 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { AuthService } from '../services/authService'
 import { HabitsService, Habit } from '../services/habits.service'
-import { toSequelizeDate } from '../common'
+import { getToday, intToDate, dateToInt } from '../common'
 
 function convertToDate (index) {
-  let date = new Date()
-  date.setUTCHours(0, 0, 0, 0)
-  date.setDate(date.getDate() - (5 - index))
-  return date
+  return getToday() - (5 - index)
 }
 
 @Component({
@@ -25,7 +22,7 @@ export class HabitComponent {
     let date = convertToDate(index)
 
     for (let j = 0; j < this.habit.dates.length; j++) {
-      if (this.habit.dates[j].date === toSequelizeDate(date)) {
+      if (this.habit.dates[j].date === date) {
         return true
       }
     }
@@ -34,12 +31,12 @@ export class HabitComponent {
 
   toggleDate (index) {
     if (!this.isDateChecked(index)) {
-      this.habitsService.addDate(toSequelizeDate(convertToDate(index)), this.habit.id).subscribe(date => {
+      this.habitsService.addDate(convertToDate(index), this.habit.id).subscribe(date => {
         this.habit.dates.push(date)
       })
     } else {
-      this.habitsService.deleteDate(toSequelizeDate(convertToDate(index)), this.habit.id).subscribe()
-      this.habit.dates = this.habit.dates.filter(date => date.date !== toSequelizeDate(convertToDate(index)))
+      this.habitsService.deleteDate(convertToDate(index), this.habit.id).subscribe()
+      this.habit.dates = this.habit.dates.filter(date => date.date !== convertToDate(index))
     }
   }
 
@@ -51,27 +48,22 @@ export class HabitComponent {
 
   countStreak () {
     let streak = 1
-    let today = new Date()
-    today.setUTCHours(0, 0, 0, 0)
+    let today = getToday()
 
     if (!this.habit.dates.length) {
       return 0
     }
 
-    this.habit.dates.sort(function (a, b) {
-      let dateA = new Date(a.date)
-      let dateB = new Date(b.date)
-      return dateA.getTime() - dateB.getTime()
-    })
+    this.habit.dates.sort((a, b) => a.date - b.date)
 
-    if (this.habit.dates[this.habit.dates.length - 1].date !== toSequelizeDate(today)) {
+    if (this.habit.dates[this.habit.dates.length - 1].date !== today) {
       return 0
     }
 
     for (let i = this.habit.dates.length - 1; i > 0; i--) {
-      let date = new Date(this.habit.dates[i].date)
-      let prevDate = new Date(this.habit.dates[i - 1].date)
-      if ((date.getTime() - prevDate.getTime()) === 86400000) {
+      let date = this.habit.dates[i].date
+      let prevDate = this.habit.dates[i - 1].date
+      if (date - prevDate === 1) {
         streak++
       } else {
         break

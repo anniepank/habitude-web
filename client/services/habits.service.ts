@@ -11,11 +11,11 @@ export class HabitsService {
     return this.http.get('/api/habits').map(res => res.json())
   }
 
-  addDate (date: String, habitId): Observable<HabitDate> {
+  addDate (date: number, habitId): Observable<HabitDate> {
     return this.http.post('/api/habits/' + habitId + '/dates', {date}).map(res => res.json())
   }
 
-  deleteDate (date: String, habitId): Observable<any> {
+  deleteDate (date: number, habitId): Observable<any> {
     return this.http.delete('/api/habits/' + habitId + '/dates/' + date)
   }
 
@@ -38,7 +38,7 @@ export class HabitsService {
 
 export interface HabitDate {
   id: number,
-  date: string,
+  date: number,
   habitId: number
 }
 

@@ -7,6 +7,7 @@ const { getDatabaseConfig } = require('./config')
 const epilogue = require('epilogue')
 const google = require('./google')
 const randomstring = require('randomstring')
+const { getToday } = require('./utilities')
 
 let app = express()
 let database = new Database()
@@ -160,7 +161,6 @@ app.post('/api/synchronize', async (req, res) => {
 
       if (dbDates && !dbHabit.deleted) {
         for (let dateInApp of habitInApp.days) {
-          dateInApp.date = new Date(dateInApp.date * 1000 * 24 * 60 * 60)
           let dbDate = dbDates.find(x => x.id === dateInApp.id)
 
           if (dbDate) {
@@ -246,11 +246,13 @@ app.get('/api/habits', (req, res) => {
   database.getUsersHabits(req.session.userid).then(habits => {
     let arrayOfPromises = []
     for (let i = 0; i < habits.length; i++) {
-      let today = new Date()
-      let lastDay = new Date()
-      lastDay.setDate(lastDay.getDate() - 365)
+      let today = getToday()
+      let lastDay = today - 365
+
       let promise = database.getDates(today, lastDay, habits[i].id).then(dates => {
         habits[i].dates = dates
+        console.log('got this date from db: ' + dates)
+        console.log(today + ' ' + lastDay)
       })
       arrayOfPromises.push(promise)
     }
@@ -269,9 +271,9 @@ app.get('/api/habits', (req, res) => {
 
 app.get('/api/habits/:id', (req, res) => {
   database.getHabit(req.params.id).then(habit => {
-    let today = new Date()
-    let lastDay = new Date()
-    lastDay.setDate(lastDay.getDate() - 365)
+    let today = getToday()
+    let lastDay = today - 365
+
     database.getDates(today, lastDay, habit.id).then(dates => {
       habit = habit.toJSON()
       habit.dates = dates
@@ -316,7 +318,7 @@ app.post('/api/habits', (req, res) => {
 })
 
 app.post('/api/habits/:id/dates', (req, res) => {
-  let date = new Date(req.body.date)
+  let date = req.body.date
   database.addDate(date, req.params.id).then(date => {
     res.status(201)
     res.json(date)
@@ -324,7 +326,7 @@ app.post('/api/habits/:id/dates', (req, res) => {
 })
 
 app.delete('/api/habits/:id/dates/:date', (req, res) => {
-  let date = new Date(req.params.date)
+  let date = req.params.date
   database.deleteDate(date, req.params.id).then(result => {
     res.status(204)
     res.json(result)

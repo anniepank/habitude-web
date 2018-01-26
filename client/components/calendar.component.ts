@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { HabitsService, Habit, HabitDate } from '../services/habits.service'
+import { getToday, dateToInt, intToDate } from '../common'
 
 @Component({
   selector: 'calendar',
@@ -27,7 +28,7 @@ import { HabitsService, Habit, HabitDate } from '../services/habits.service'
               [ngClass]="{'dateChecked': checkDate(day) }"
               (click)="toggleDate(day.date)"
             >
-              {{day.date.getDate()}}
+              {{intToDate(day.date).getDate()}}
             </td>
           </tr>
         </table>
@@ -43,11 +44,13 @@ import { HabitsService, Habit, HabitDate } from '../services/habits.service'
 })
 export class CalendarComponent {
   @Input() dates: HabitDate[]
-  @Output() toggleDateEvent = new EventEmitter()
+  @Output() toggleDateEvent = new EventEmitter<{date: number}>()
 
   days: Day[]
   currentDate: Date
   monthNames: String[]
+  intToDate = intToDate
+
   constructor ( ) {
     this.currentDate = new Date()
     this.updateCalendar(new Date())
@@ -64,11 +67,11 @@ export class CalendarComponent {
     this.updateCalendar(this.currentDate)
   }
 
-  checkDate (day) {
-    return this.dates.some(x => x.date === day.date.toISOString().split('T')[0])
+  checkDate (day: Day): boolean {
+    return this.dates.some(x => x.date === day.date)
   }
 
-  updateCalendar (currentDate) {
+  updateCalendar (currentDate: Date): void {
     this.days = []
     let today = new Date()
     today.setTime(currentDate.getTime())
@@ -82,7 +85,7 @@ export class CalendarComponent {
         newDate.setDate(firstDay.getDate() - i)
 
         this.days.push({
-          date: newDate,
+          date: dateToInt(newDate),
           checked: false,
           currentMonth: false
         })
@@ -93,7 +96,7 @@ export class CalendarComponent {
         newDate.setDate(firstDay.getDate() - i)
 
         this.days.push({
-          date: newDate,
+          date: dateToInt(newDate),
           checked: false,
           currentMonth: false
         })
@@ -103,7 +106,7 @@ export class CalendarComponent {
     while (firstDay.getTime() <= lastDay.getTime() ) {
       let copiedDate = new Date(firstDay.getTime())
       this.days.push({
-        date: copiedDate,
+        date: dateToInt(copiedDate),
         checked: false,
         currentMonth: true
       })
@@ -115,7 +118,7 @@ export class CalendarComponent {
         let copiedDate = new Date(lastDay)
         copiedDate.setDate(lastDay.getDate() + i)
         this.days.push({
-          date: copiedDate,
+          date: dateToInt(copiedDate),
           checked: false,
           currentMonth: false
         })
@@ -131,7 +134,7 @@ export class CalendarComponent {
     this.currentDate.setMonth(this.currentDate.getMonth() + 1)
   }
 
-  toggleDate (date) {
+  toggleDate (date: number) {
     this.toggleDateEvent.emit({
       date: date
     })
@@ -139,7 +142,7 @@ export class CalendarComponent {
 }
 
 interface Day {
-  date: Date,
+  date: number,
   checked: boolean,
   currentMonth: boolean
 }

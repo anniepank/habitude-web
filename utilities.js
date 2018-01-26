@@ -1,11 +1,13 @@
-export function dateToInt (date: Date): number {
+function dateToInt (date) {
   return Math.round(date.getTime() / 1000 / 24 / 3600)
 }
 
-export function intToDate (int: number): Date {
+function intToDate (int) {
   return new Date(int * 3600 * 24 * 1000)
 }
 
-export function getToday (): number {
+function getToday () {
   return dateToInt(new Date())
 }
+
+module.exports = {dateToInt, intToDate, getToday}

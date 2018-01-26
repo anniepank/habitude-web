@@ -56,7 +56,7 @@ class Database {
         defaultValue: Sequelize.DataTypes.UUIDV4,
         primaryKey: true
       },
-      date: Sequelize.DATEONLY,
+      date: Sequelize.DataTypes.INTEGER,
       habitId: {
         type: Sequelize.DataTypes.UUID,
         refereces: {model: 'Habits', key: 'id'}
