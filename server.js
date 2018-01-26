@@ -131,46 +131,114 @@ app.post('/api/synchronize', async (req, res) => {
   }
   })
 
-  let appUpdates = []
+  let appUpdates = {}
+  let habitUpdates = []
+  let dateUpdates = []
 
   for (let habitInApp of req.body.habits) {
     let dbHabit = dbHabits.find(x => x.id === habitInApp.id)
 
     if (dbHabit) {
       if (dbHabit.name !== habitInApp.name || dbHabit.deleted !== habitInApp.deleted) {
-        if (dbHabit.updatedAt > habitInApp.updatedAt) {
-          console.log('Sync to app', dbHabit.name)
-          appUpdates.push({
+        if (dbHabit.updatedAt.getTime() > habitInApp.updatedAt) {
+          console.log('Sync habit to app: ' + dbHabit.name)
+          habitUpdates.push({
             inApp: true,
             habit: dbHabit
           })
-        } else if (habitInApp.updatedAt > dbHabit.updatedAt) {
-          console.log('Sync here', dbHabit.name)
+        } else if (habitInApp.updatedAt > dbHabit.updatedAt.getTime()) {
+          console.log('Sync habit here' + dbHabit.name)
           dbHabit.name = habitInApp.name
           dbHabit.deleted = habitInApp.deleted
           dbHabit.save()
         }
       }
+
+      let dbDates = await database.HabitDate.findAll({ where: {
+        habitId: dbHabit.id
+      }})
+
+      if (dbDates && !dbHabit.deleted) {
+        for (let dateInApp of habitInApp.days) {
+          dateInApp.date = new Date(dateInApp.date * 1000 * 24 * 60 * 60)
+          let dbDate = dbDates.find(x => x.id === dateInApp.id)
+
+          if (dbDate) {
+            if (dbDate.deleted !== dateInApp.deleted) {
+              if (dbDate.updatedAt.getTime() > dateInApp.updatedAt) {
+                console.log('\n' + '!!PUSH!! Adding date to app habit ' + dbHabit.name + ' day: ' + dbDate.date + 'IN APP: true')
+
+                dateUpdates.push({
+                  date: {
+                    id: dbDate.id,
+                    habitId: dbDate.habitId,
+                    date: dbDate.date,
+                    deleted: dbDate.deleted
+                  },
+                  inApp: true
+                })
+              } else if (dateInApp.updatedAt > dbDate.updatedAt.getTime()) {
+                console.log('Sync date here' + dbHabit.name + ' day: ' + dbDate)
+                dbDate.date = dateInApp.date
+                dbDate.deleted = dateInApp.deleted
+                dbDate.save()
+              }
+            }
+          } else {
+            console.log('Adding day here ' + dateInApp.date + 'of habit ' + dbHabit.name)
+            await database.HabitDate.create({
+              id: dateInApp.id,
+              date: dateInApp.date,
+              habitId: dbHabit.id,
+              deleted: dateInApp.deleted
+            })
+          }
+        }
+      }
+
+      for (let date of dbDates) {
+        if (!habitInApp.days.find(x => x.id === date.id)) {
+          console.log('\n' + '!!PUSH!! ADDING DATE to app that wasnt there ' + date.date + ' IN APP: false')
+          dateUpdates.push({
+            date: date,
+            inApp: false
+          })
+        }
+      }
     } else {
       console.log('add new habit here', habitInApp.name)
+
       await database.Habit.create({
         id: habitInApp.id,
         userId: user.id,
         name: habitInApp.name,
         deleted: habitInApp.deleted
       })
+
+      for (let date of habitInApp.days) {
+        console.log('Creating date of habit ' + habitInApp.name + ' here ' + date)
+        await database.HabitDate.create({
+          id: date.id,
+          date: date.date,
+          habitId: date.habitId,
+          deleted: date.deleted
+        })
+      }
     }
   }
 
   for (let dbHabit of dbHabits) {
     if (!req.body.habits.find(x => x.id === dbHabit.id)) {
       console.log('add to app', dbHabit.name)
-      appUpdates.push({
+      habitUpdates.push({
         inApp: false,
         habit: dbHabit
       })
     }
   }
+
+  appUpdates.habits = habitUpdates
+  appUpdates.dates = dateUpdates
   res.json(appUpdates)
 })
 
