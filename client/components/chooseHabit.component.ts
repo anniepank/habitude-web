@@ -11,8 +11,8 @@ import {
 
 @Component({
   selector: 'choose-habit-modal',
-  templateUrl: '/client/components/chooseHabit.component.html',
-  styleUrls: ['client/components/chooseHabit.component.css']
+  templateUrl: './chooseHabit.component.html',
+  styleUrls: ['./chooseHabit.component.scss']
 })
 export class ChooseHabitModal {
   habits: String[]

@@ -16,15 +16,8 @@ import {
 
 @Component({
   selector: 'habits-container',
-  template: `
-    <div *ngIf="this.authService.isLoggedIN">
-      <habit *ngFor="let habit of habits"
-        [habit]="habit"
-        (deleted)="onHabitDeleted(habit)"
-        @flyInOut></habit>
-        <div class="add-new-habit-button" (click)="onNewHabit()">Add a new habit</div>
-    </div>
-  `,
+  templateUrl: './mainPage.component.html',
+  styleUrls: ['./mainPage.component.scss'],
   animations: [
     trigger('flyInOut', [
       transition(':leave', [
@@ -37,10 +30,28 @@ import {
 export class MainPageComponent {
   habits: Habit[]
 
+  leftInfo = [
+    {
+      title: '1',
+      text: '1',
+      icon: 'fa-trash-o',
+    },
+    {
+      title: '1',
+      text: '1',
+      icon: 'fa-trash-o',
+    },
+    {
+      title: '3',
+      text: '3',
+      icon: 'fa-trash-o',
+    }
+  ]
+
   constructor (
     private habitsService: HabitsService,
     private modalService: NgbModal,
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router
   ) {
     habitsService.getUserHabits().subscribe(res => {

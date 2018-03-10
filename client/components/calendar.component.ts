@@ -40,7 +40,7 @@ import { getToday, dateToInt, intToDate } from '../common'
 
     </div>
   `,
-  styles: [require<string>('./calendar.component.scss')]
+  styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent {
   @Input() dates: HabitDate[]

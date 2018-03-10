@@ -235,6 +235,18 @@ app.post('/api/synchronize', async (req, res) => {
         habit: dbHabit
       })
     }
+
+    if (dbHabit.deleted) {
+      database.HabitDate.findAll({
+        where: {
+          habitId: dbHabit.id
+        }
+      }).then(dates => {
+        for (let date of dates) {
+          date.destroy()
+        }
+      })
+    }
   }
 
   appUpdates.habits = habitUpdates

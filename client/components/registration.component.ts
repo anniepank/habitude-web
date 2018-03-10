@@ -4,8 +4,8 @@ import { Router } from '@angular/router'
 
 @Component({
   selector: 'registration',
-  templateUrl: '/client/components/registration.component.html',
-  styles: [require<string>('./login.component.scss')]
+  templateUrl: './registration.component.html',
+  styleUrls: ['./login.component.scss']
 })
 export class RegistrationComponent {
   constructor (private authService: AuthService, private router: Router) {}

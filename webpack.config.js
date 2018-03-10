@@ -1,21 +1,35 @@
+const {AngularCompilerPlugin} = require('@ngtools/webpack')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   entry: './client/app.ts',
+
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'client')
   },
-  devtool: 'cheap-sourcemap',
+  plugins: [
+    new AngularCompilerPlugin({
+      tsConfigPath: './tsconfig.json',
+      entryModule: './client/app#AppModule',
+      sourceMap: true
+    }),
+    new UglifyJsPlugin({
+      sourceMap: true
+    })
+  ],
+  devtool: 'cheap-eval-source-map',
   module: {
-    loaders: [
+    rules: [
       {
-        test: /.ts$/,
-        loader: 'ts-loader'
+        test: /\.html/,
+        use: 'html-loader'
       },
       {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.scss$/,
@@ -26,6 +40,10 @@ module.exports = {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
         exclude: /\.component\.scss/
+      },
+      {
+        test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
+        loader: '@ngtools/webpack'
       }
     ]
   },

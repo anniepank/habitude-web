@@ -1,0 +1,69 @@
+<div class="container" *ngIf="this.authService.isLoggedIN">
+  <habit *ngFor="let habit of habits"
+  [habit]="habit"
+  (deleted)="onHabitDeleted(habit)"
+  @flyInOut></habit>
+  <div class="add-new-habit-button" (click)="onNewHabit()">Add a new habit</div>
+</div>
+
+<div *ngIf="!this.authService.isLoggedIN">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Fluid jumbotron</h1>
+      <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="text-center">
+      <h1>hEADER</h1>
+      <h2 class="mb-3">smal one</h2>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="d-flex mb-3" *ngFor="let x of leftInfo">
+            <i class="fa fa-fw fa-3x {{x.icon}}"></i>
+            <div>
+              <h5>{{x.title}}</h5>
+              <p>{{x.text}}</p>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="col">
+          <img src="https://www.t-mobile.com/content/dam/t-mobile/en-p/cell-phones/samsung/samsung-galaxy-s8/midnight-black/samsung-galaxy-s8-midnight-black-1-3x.jpg" />
+        </div>
+        <div class="col">
+
+          <div class="d-flex mb-3">
+            <i class="fa fa-fw fa-3x fa-trash-o"></i>
+            <div>
+              <h5>descr</h5>
+              <p>text</p>
+            </div>
+          </div>
+
+          <div class="d-flex mb-3">
+            <i class="fa fa-fw fa-3x fa-trash-o"></i>
+            <div>
+              <h5>descr</h5>
+              <p>text</p>
+            </div>
+          </div>
+
+          <div class="d-flex mb-3">
+            <i class="fa fa-fw fa-3x fa-trash-o"></i>
+            <div>
+              <h5>descr</h5>
+              <p>text</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

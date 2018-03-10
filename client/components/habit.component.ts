@@ -9,8 +9,8 @@ function convertToDate (index) {
 
 @Component({
   selector: 'habit',
-  templateUrl: '/client/components/habit.component.html',
-  styles: [require<string>('./habit.component.scss')]
+  templateUrl: './habit.component.html',
+  styleUrls: ['./habit.component.scss']
 })
 export class HabitComponent {
   @Input() habit: Habit

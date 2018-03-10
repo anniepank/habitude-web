@@ -35,8 +35,7 @@ import { HabitsService } from './services/habits.service'
   entryComponents: [NewHabitModal, ChooseHabitModal],
   bootstrap:    [AppComponent],
   providers:    [AuthService, HabitsService]
-
 })
-class AppModule {}
+export class AppModule {}
 
 platformBrowserDynamic().bootstrapModule(AppModule)

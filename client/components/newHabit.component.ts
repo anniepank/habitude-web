@@ -4,7 +4,7 @@ import { HabitsService, Habit } from '../services/habits.service'
 
 @Component({
   selector: 'new-habit-modal',
-  templateUrl: '/client/components/newHabit.component.html'
+  templateUrl: './newHabit.component.html'
 })
 export class NewHabitModal {
   @Input() name

@@ -5,7 +5,7 @@ import 'rxjs/add/operator/first'
 
 @Component({
   selector: 'habitPage',
-  templateUrl: '/client/components/habitPage.component.html'
+  templateUrl: './habitPage.component.html'
 })
 export class HabitPageComponent {
   id: number

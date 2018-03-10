@@ -4,11 +4,11 @@ import { Router } from '@angular/router'
 
 @Component({
   selector: 'navbar',
-  templateUrl: '/client/components/navbar.component.html'
+  templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
 
-  constructor (private authService: AuthService, private router: Router) {
+  constructor (public authService: AuthService, private router: Router) {
     this.authService.isLoggedIn().subscribe(res => {
       this.authService.isLoggedIN = res
     })
