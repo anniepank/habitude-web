@@ -18,9 +18,9 @@
     "host": "127.0.0.1",
     "dialect": "mysql",
     "google": {
-      "apiKey": "108510044966-3s2ohehglcafecfs4qvpdjome4sdf7j8.apps.googleusercontent.com",
-      "apiSecret": "nrWvzSD6McEd9wWWEzle8s1r",
-      "redirect": "http://habitude.by:9000/api/google-redirect"
+      "apiKey": "108510044966-m6ruajvblpv765h0713dfrqc18s0868m.apps.googleusercontent.com",
+      "apiSecret": "5bKMvhCM1VXTFoIPjlF7NG2R",
+      "redirect": "http://habitude.top/api/google-redirect"
     }
   }
 }
