@@ -1,23 +1,30 @@
 {
   "development": {
-    "username": "root",
-    "password": "123",
-    "database": "habitude-2",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "database": {
+      "username": "root",
+      "password": "123",
+      "database": "habitude-2",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "google": {
+      "apiKey": "108510044966-3s2ohehglcafecfs4qvpdjome4sdf7j8.apps.googleusercontent.com",
+      "apiSecret": "nrWvzSD6McEd9wWWEzle8s1r",
+      "redirect": "http://habitude.by:9000/api/google-redirect"
+    }
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "database": {
+      "username": "anna",
+      "password": "18081999a",
+      "database": "habitude",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "google": {
+      "apiKey": "108510044966-3s2ohehglcafecfs4qvpdjome4sdf7j8.apps.googleusercontent.com",
+      "apiSecret": "nrWvzSD6McEd9wWWEzle8s1r",
+      "redirect": "http://habitude.by:9000/api/google-redirect"
+    }
   }
 }

@@ -32,19 +32,37 @@ export class MainPageComponent {
 
   leftInfo = [
     {
-      title: '1',
-      text: '1',
-      icon: 'fa-trash-o',
+      title: 'Get Reminded',
+      text: 'Our powerful and flexible reminders make it extremely easy to start a new habit!',
+      icon: 'fa-clock',
     },
     {
-      title: '1',
-      text: '1',
-      icon: 'fa-trash-o',
+      title: 'Synchronize',
+      text: 'Easy synchronizing process will allow you not to lose your progress',
+      icon: 'fa-sync-alt',
     },
     {
-      title: '3',
-      text: '3',
-      icon: 'fa-trash-o',
+      title: 'Customizable',
+      text: 'You can create your own habits or use defualt o',
+      icon: 'fa-chart-pie',
+    }
+  ]
+
+  rightInfo = [
+    {
+      title: 'No ads',
+      text: 'App is fully free from advertisment',
+      icon: 'fab fa-fly',
+    },
+    {
+      title: 'Love',
+      text: 'We love our users and they love us',
+      icon: 'fa-heart',
+    },
+    {
+      title: 'Not the end',
+      text: 'Futher updates are coming, we are doing our best',
+      icon: 'fa-chart-line',
     }
   ]
 

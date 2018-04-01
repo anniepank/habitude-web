@@ -3,7 +3,7 @@ const {Database, AlreadyExistsError} = require('./database')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const MySQLStore = require('express-mysql-session')(session)
-const { getDatabaseConfig } = require('./config')
+const { getConfig } = require('./config')
 const epilogue = require('epilogue')
 const google = require('./google')
 const randomstring = require('randomstring')
@@ -11,11 +11,11 @@ const { getToday } = require('./utilities')
 
 let app = express()
 let database = new Database()
-let config = getDatabaseConfig()
+let config = getConfig()
 
 let sessionStore = new MySQLStore(Object.assign({
-  user: config.username
-}, config))
+  user: config.database.username
+}, config.database))
 
 epilogue.initialize({
   app: app,

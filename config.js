@@ -1,11 +1,9 @@
 const fs = require('fs')
+const env = process.env.NODE_ENV || 'development'
 
-function getDatabaseConfig () {
+function getConfig () {
   let content = fs.readFileSync('./config/config.json')
-  return JSON.parse(content).development
+  return JSON.parse(content)[env]
 }
 
-module.exports = { getDatabaseConfig }
-
-//  108510044966-3s2ohehglcafecfs4qvpdjome4sdf7j8.apps.googleusercontent.com
-//  nrWvzSD6McEd9wWWEzle8s1r
+module.exports = { getConfig }

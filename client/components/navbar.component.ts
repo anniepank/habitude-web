@@ -20,7 +20,7 @@ export class NavbarComponent {
         console.log('problem with logging out')
       } else {
         this.authService.isLoggedIN = false
-        this.router.navigate(['/loginPage'])
+        this.router.navigate(['/'])
       }
     })
   }

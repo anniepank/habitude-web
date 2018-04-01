@@ -1,7 +1,7 @@
 const Hashes = require('jshashes')
 const randomstring = require('randomstring')
 const Sequelize = require('sequelize')
-const { getDatabaseConfig } = require('./config')
+const { getConfig } = require('./config')
 
 let SHA512 = new Hashes.SHA512()
 
@@ -9,7 +9,7 @@ class AlreadyExistsError extends Error {}
 
 class Database {
   constructor () {
-    let config = getDatabaseConfig()
+    let config = getConfig().database
 
     this.sequelize = new Sequelize(config.database, config.username, config.password, {
       host: 'localhost',

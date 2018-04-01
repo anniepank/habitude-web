@@ -1,11 +1,11 @@
 const google = require('googleapis')
 const OAuth2 = google.auth.OAuth2
 const plus = google.plus('v1')
+const { getConfig } = require('./config')
 
+const config = getConfig().google
 let oauth2Client = new OAuth2(
-  '108510044966-3s2ohehglcafecfs4qvpdjome4sdf7j8.apps.googleusercontent.com',
-  'nrWvzSD6McEd9wWWEzle8s1r',
-  'http://habitude.by:9000/api/google-redirect'
+  config.apiKey, config.apiSecret, config.redirect
 )
 
 let scopes = ['https://www.googleapis.com/auth/plus.me', 'email']
