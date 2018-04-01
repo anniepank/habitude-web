@@ -45,7 +45,7 @@
     "@types/webpack-env": "^1.13.0",
     "@uirouter/angularjs": "^1.0.5",
     "angular-ui-bootstrap": "^2.5.0",
-    "bootstrap": "^4.0.0-alpha.6",
+    "bootstrap": "^4.0.0",
     "core-js": "^2.5.0",
     "css-loader": "^0.28.5",
     "eslint": "^4.3.0",

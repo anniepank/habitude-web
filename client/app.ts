@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core'
 import { HttpModule } from '@angular/http'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './style.css'
 import './button-style.scss'
 
