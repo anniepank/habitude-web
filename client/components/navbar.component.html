@@ -1,6 +1,5 @@
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="navbar-header">
+<nav class="navbar navbar-light bg-light flex-row">
+    <div class="navbar-header mr-auto">
       <a class="navbar-brand" routerLink="/">
         <img src="/client/pics/ic.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Habitude
@@ -12,5 +11,4 @@
       <a href="/api/google-login" class="btn btn-primary" *ngIf="!authService.isLoggedIN">LOG IN WITH GOOGLE</a>
       <!--button class="btn btn-primary" id="navbarBtn" routerLink="/registrationPage" *ngIf="!authService.isLoggedIN">REGISTRATION</button-->
     </div>
-  </div>
 </nav>
