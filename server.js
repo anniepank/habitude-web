@@ -14,8 +14,8 @@ let database = new Database()
 let config = getConfig()
 
 let sessionStore = new MySQLStore(Object.assign({
-  user: config.database.username
-}, config.database))
+  user: config.username
+}, config))
 
 epilogue.initialize({
   app: app,

@@ -9,7 +9,7 @@ class AlreadyExistsError extends Error {}
 
 class Database {
   constructor () {
-    let config = getConfig().database
+    let config = getConfig()
 
     this.sequelize = new Sequelize(config.database, config.username, config.password, {
       host: 'localhost',
