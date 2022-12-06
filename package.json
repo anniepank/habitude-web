@@ -14,9 +14,9 @@
   "description": "",
   "dependencies": {
     "async": "^2.5.0",
-    "body-parser": "^1.17.2",
+    "body-parser": "^1.20.1",
     "epilogue": "^0.7.1",
-    "express": "^4.15.3",
+    "express": "^4.18.2",
     "express-mysql-session": "^1.2.1",
     "express-session": "^1.15.4",
     "googleapis": "^22.2.0",
